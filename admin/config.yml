@@ -1,0 +1,47 @@
+# Decap CMS configuration — The British Invasion Years blog
+# Clients manage BLOG POSTS only here. Page-level edits are handled by LWS.
+#
+# Setup checklist (one-time, on Netlify):
+#   1. Enable Netlify Identity on the site.
+#   2. Enable Git Gateway under Identity > Services.
+#   3. Invite the band's email as a user.
+# After a post is created/edited here, run `node gen-blog.js` (build step)
+# to regenerate build/js/blog-data.js that blog.html / post.html read.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images are stored / referenced from the site root.
+media_folder: "build/images/blog"
+public_folder: "images/blog"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "build/content/blog"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}  —  {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Used in the post URL." }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "British Invasion", value: "british-invasion" }
+          - { label: "Band News", value: "band-news" }
+          - { label: "Show Announcement", value: "show-announcement" }
+          - { label: "Venue Spotlight", value: "venue-spotlight" }
+          - { label: "Press", value: "press" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Most recent featured post is highlighted at the top of the blog." }
+      - { label: "Hero Image", name: "image", widget: "image", required: false, hint: "Leave blank to auto-assign a stage photo." }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "1–2 sentence summary shown on the blog index." }
+      - { label: "Body", name: "body", widget: "markdown" }
