@@ -831,3 +831,83 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .textlink:focus-visib
     radial-gradient(130% 100% at 50% 42%, rgba(7,12,40,.10), rgba(7,12,40,.44) 72%, var(--bg) 99%),
     linear-gradient(180deg, rgba(7,12,40,.30), rgba(7,12,40,0) 38%, rgba(7,12,40,.32) 82%, var(--bg) 100%);
 }
+
+/* ============================================================
+   LWS AGENCY GLOBAL MASTER DESIGN SYSTEM  (boilerplate-design.md)
+   Premium-layout override layer — mapped to the Royal palette so
+   the dark theme is preserved. Sections match the source doc.
+   ============================================================ */
+
+/* Elevation tokens — soft, colored (never harsh black) */
+:root {
+  --container: 1280px;                 /* §1.1 Container Law — fixed 1280 */
+  --ds-ease: cubic-bezier(.4, 0, .2, 1);
+  --shadow-low:  0 4px 6px -1px rgba(11,22,69,.45),  0 2px 4px -2px rgba(11,22,69,.40);
+  --shadow-high: 0 20px 25px -5px rgba(7,12,40,.55), 0 8px 10px -6px rgba(7,12,40,.45);
+}
+
+/* §1.1 Container padding — 40px desktop, 20px mobile */
+.wrap { padding-inline: 2.5rem; }
+@media (max-width: 640px) { .wrap { padding-inline: 1.25rem; } }
+
+/* §1.2 Proportional section spacing — premium room to breathe */
+.block { padding-block: clamp(5rem, 8vw, 8rem); }
+@media (max-width: 640px) { .block { padding-block: 3.5rem; } }
+
+/* §1.4 Typography hierarchy — fluid scale + strict weight priority.
+   Bare headings follow the system; hero/section showpieces keep their
+   larger tuned sizes via their own selectors. */
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.75rem); font-weight: 700; line-height: 1.2; }
+h3 { font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: 600; }
+body { line-height: 1.625; }
+p { font-size: clamp(1rem, .6vw + .9rem, 1.125rem); line-height: 1.625; }
+
+/* §2.1 Micro-interactions — every clickable element gets an explicit transition */
+a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
+.about-feature .af-media img, input, textarea {
+  transition: all .3s var(--ds-ease);
+}
+
+/* §3 Premium CTA patterns — solid→ghost swap with lift + elevation */
+.btn { padding: .875rem 1.75rem; letter-spacing: .05em; border-radius: 6px; }
+.btn-primary {
+  border: 2px solid var(--accent);
+}
+.btn-primary:hover {
+  background: transparent; color: var(--accent);
+  transform: translateY(-2px); box-shadow: var(--shadow-high);
+}
+.btn-outline { border-width: 2px; }
+.btn-outline:hover { transform: translateY(-2px); box-shadow: var(--shadow-high); }
+
+/* §2.3 Card structures — standardized radius/border/overflow on dark panels */
+.news-card, .video-feature, .blog-card, .member, .show-card {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.news-card:hover, .video-feature:hover, .blog-card:hover, .show-card:hover {
+  box-shadow: var(--shadow-high);
+}
+/* §2.3 Media-in-card adaptive zoom on trigger */
+.gcell, .blog-card .bc-media, .show-card .sc-media { overflow: hidden; }
+.gcell img, .blog-card .bc-media img, .show-card .sc-media img,
+.video-feature img { transition: transform .4s var(--ds-ease); }
+.gcell:hover img, .blog-card:hover .bc-media img,
+.show-card:hover .sc-media img, .video-feature:hover img { transform: scale(1.04); }
+
+/* §1.3 Visual alternation — feature blocks invert on alternate rows */
+.about-feature:nth-of-type(even) { flex-direction: row-reverse; }
+
+/* §3.2 / §4.2 Form inputs — padded tracking + glowing brand focus ring */
+.news-form input, .contact-form input, .contact-form textarea {
+  padding: .75rem 1rem;
+}
+.news-form input:focus, .contact-form input:focus, .contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(225,47,38,.28);
+}
+
+/* §4.3 No center-aligned text blocks past 3 lines — left-align long copy */
+.about-feature .af-text p, .news-card > p, .video-feature p { text-align: left; }
