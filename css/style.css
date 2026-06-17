@@ -932,9 +932,9 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   opacity: 0;
   transition: opacity .5s var(--ds-ease);
   background:
-    conic-gradient(from 338deg at 20% 134%, transparent 0deg, rgba(225,47,38,.75) 6deg, transparent 13deg),
-    conic-gradient(from 354deg at 50% 140%, transparent 0deg, rgba(245,238,222,.80) 6deg, transparent 13deg),
-    conic-gradient(from 10deg  at 80% 134%, transparent 0deg, rgba(37,99,212,.75) 6deg, transparent 13deg);
+    conic-gradient(from 324deg at 36% 138%, transparent 0deg, rgba(225,47,38,.42) 14deg, transparent 28deg),
+    conic-gradient(from 346deg at 50% 140%, transparent 0deg, rgba(245,238,222,.46) 14deg, transparent 28deg),
+    conic-gradient(from 8deg   at 64% 138%, transparent 0deg, rgba(37,99,212,.42) 14deg, transparent 28deg);
   mix-blend-mode: screen;
   filter: blur(1.2px);
   -webkit-mask: linear-gradient(to top, #000 0%, #000 28%, transparent 96%);
