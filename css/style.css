@@ -942,6 +942,22 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 }
 .show:hover::after, .post-card:hover::after { opacity: 1; }
 
+/* Keep card text bright + legible against the spotlight beams on hover */
+.show:hover .show-venue,
+.post-card:hover h3 a, .post-card:hover h3 { color: #fff; }
+.show:hover .show-addr,
+.show:hover .show-time,
+.post-card:hover .post-excerpt,
+.post-card:hover .post-meta { color: var(--cream); }
+.show:hover .show-date,
+.post-card:hover .post-cat { color: var(--accent-soft); }
+.show:hover .show-venue, .show:hover .show-addr, .show:hover .show-time,
+.show:hover .show-date, .show:hover .show-badge,
+.post-card:hover h3, .post-card:hover .post-excerpt,
+.post-card:hover .post-meta, .post-card:hover .post-cat {
+  text-shadow: 0 1px 9px rgba(7,12,40,.9), 0 0 2px rgba(7,12,40,.7);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .show::after, .post-card::after { transition: none; }
 }
