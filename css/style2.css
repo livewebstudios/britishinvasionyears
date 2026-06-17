@@ -973,7 +973,7 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
    Marquee strip in brand red. Part of the fixed header stack.
    ============================================================ */
 .promo-bar {
-  background: linear-gradient(180deg, var(--accent-soft), var(--accent-deep));
+  background: var(--accent);
   color: var(--cream);
   text-align: center;
   font-family: var(--sans);
@@ -982,10 +982,8 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   letter-spacing: .2em;
   font-size: 12px;
   line-height: 1.2;
-  padding: 5px 18px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(0,0,0,.28);
-  box-shadow: 0 6px 18px -8px rgba(225,47,38,.7);
+  padding: 6px 18px;
+  box-shadow: 0 4px 14px -8px rgba(225,47,38,.6);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 @media (max-width: 760px) {
