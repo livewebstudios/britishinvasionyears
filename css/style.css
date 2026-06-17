@@ -1013,17 +1013,17 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 .flb-r {
   background: conic-gradient(from 338deg at 40% 127%, transparent 0deg, rgba(225,47,38,.20) 12deg, transparent 24deg);
   transform-origin: 40% 100%;
-  animation: flSwayA 11s ease-in-out infinite alternate;
+  animation: flSwayA 7s ease-in-out infinite alternate;
 }
 .flb-c {
   background: conic-gradient(from 352deg at 50% 131%, transparent 0deg, rgba(245,238,222,.24) 12deg, transparent 24deg);
   transform-origin: 50% 100%;
-  animation: flSwayB 8.5s ease-in-out infinite alternate;
+  animation: flSwayB 5.5s ease-in-out infinite alternate;
 }
 .flb-b {
   background: conic-gradient(from 6deg at 60% 127%, transparent 0deg, rgba(37,99,212,.20) 12deg, transparent 24deg);
   transform-origin: 60% 100%;
-  animation: flSwayC 13s ease-in-out infinite alternate;
+  animation: flSwayC 8.5s ease-in-out infinite alternate;
 }
 /* desync the three sets so nothing marches in lockstep */
 .fl-set:nth-child(2) .flb-r { animation-delay: -3s; }
