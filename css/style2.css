@@ -939,6 +939,7 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   filter: blur(1.2px);
   -webkit-mask: linear-gradient(to top, #000 0%, #000 28%, transparent 96%);
           mask: linear-gradient(to top, #000 0%, #000 28%, transparent 96%);
+  transform: scaleY(-1); /* flip the beam layer so the lights come from the TOP */
 }
 .show:hover::after, .post-card:hover::after { opacity: 1; }
 
