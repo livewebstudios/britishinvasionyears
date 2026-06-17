@@ -11,11 +11,11 @@
     'rgba(255,200,120,'
   ];
   var NOTE_TYPES = ['quarter', 'eighth', 'beam', 'clef'];
-  var COUNT = 18;
+  var COUNT = 26;
 
   function drawQuarterNote(ctx, s, colorBase, alpha) {
-    var strokeA = alpha * 0.5;
-    var fillA = alpha * 0.22;
+    var strokeA = alpha * 0.66;
+    var fillA = alpha * 0.3;
     ctx.save();
     ctx.save();
     ctx.rotate(-0.35);
@@ -37,8 +37,8 @@
   }
 
   function drawEighthNote(ctx, s, colorBase, alpha) {
-    var strokeA = alpha * 0.5;
-    var fillA = alpha * 0.22;
+    var strokeA = alpha * 0.66;
+    var fillA = alpha * 0.3;
     ctx.save();
     ctx.save();
     ctx.rotate(-0.35);
@@ -66,8 +66,8 @@
   }
 
   function drawBeamedPair(ctx, s, colorBase, alpha) {
-    var strokeA = alpha * 0.5;
-    var fillA = alpha * 0.2;
+    var strokeA = alpha * 0.66;
+    var fillA = alpha * 0.3;
     ctx.save();
     ctx.save();
     ctx.translate(0, 0);
@@ -113,7 +113,7 @@
   }
 
   function drawTrebleClef(ctx, s, colorBase, alpha) {
-    var strokeA = alpha * 0.38;
+    var strokeA = alpha * 0.58;
     ctx.save();
     ctx.beginPath();
     ctx.moveTo(0, s * 1.0);
@@ -145,18 +145,17 @@
       H = canvas.height = Math.max(1, Math.floor(rect.height));
     }
     resize();
-    window.addEventListener('resize', resize);
 
     function randomParticle() {
-      var scale = 14 + Math.random() * 22;
+      var scale = 17 + Math.random() * 24;
       var colorBase = COLORS[Math.floor(Math.random() * COLORS.length)];
       var type = NOTE_TYPES[Math.floor(Math.random() * NOTE_TYPES.length)];
       var speed = 0.15 + Math.random() * 0.2;
       var angle = -Math.PI / 4 + (Math.random() - 0.5) * 0.35;
       var rot = (Math.random() - 0.5) * 0.5;
       var rotSpd = (Math.random() - 0.5) * 0.003;
-      var x = -40 + Math.random() * W * 0.65;
-      var y = H * 0.3 + Math.random() * H * 0.75;
+      var x = -40 + Math.random() * (W * 0.92);
+      var y = -60 + Math.random() * (H + 60);
       return {
         x: x, y: y, scale: scale, colorBase: colorBase, type: type,
         speed: speed, angle: angle, rot: rot, rotSpd: rotSpd,
@@ -165,10 +164,27 @@
     }
 
     var particles = [];
-    for (var i = 0; i < COUNT; i++) {
-      var p = randomParticle();
-      p.life = Math.random() * p.maxLife;
-      particles.push(p);
+    function seed() {
+      particles.length = 0;
+      for (var i = 0; i < COUNT; i++) {
+        var p = randomParticle();
+        p.life = Math.random() * p.maxLife;
+        particles.push(p);
+      }
+    }
+    seed();
+
+    /* Re-measure and re-seed when the canvas actually gets its real size —
+       layout/fonts can settle after init and leave a 0-size canvas, which
+       makes notes spawn off-screen and look like nothing. */
+    window.addEventListener('resize', function () { resize(); seed(); });
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        var prevW = W, prevH = H;
+        resize();
+        if (Math.abs(W - prevW) > 4 || Math.abs(H - prevH) > 4) seed();
+      });
+      ro.observe(canvas);
     }
 
     function tick() {
