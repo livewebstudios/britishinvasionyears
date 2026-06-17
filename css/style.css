@@ -911,3 +911,7 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 
 /* §4.3 No center-aligned text blocks past 3 lines — left-align long copy */
 .about-feature .af-text p, .news-card > p, .video-feature p { text-align: left; }
+
+/* Utilities replacing former inline styles (no-inline-styles rule) */
+#blogFeature { margin-bottom: 26px; }
+.block.pad-top-offset { padding-top: 150px; }
