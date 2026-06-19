@@ -194,4 +194,30 @@
   }
   if (document.querySelector('.gallery-page') || document.querySelector('.gal') || document.querySelector('.strip')) initLightbox();
 
+  /* ---------- Marquee chase bulbs ----------
+     Coordinates (% of frame) mapped from the original lit artwork so the
+     CSS bulbs seat exactly in the frame's sockets. Two rows of 29. */
+  (function initMarquee() {
+    var box = document.querySelector('.marquee-bulbs');
+    if (!box) return;
+    var COLS = 29;
+    var Y_TOP = 17.0, Y_BOT = 84.2;
+    var X0 = 13.34, X1 = 87.19;                 // first/last bulb centers
+    var palette = ['r', 'w', 'a', 'w'];         // red, warm-white, amber, warm-white
+    var color = { r: '#ff352b', w: '#fff1cf', a: '#ffb236' };
+    var frag = document.createDocumentFragment();
+    [Y_TOP, Y_BOT].forEach(function (y) {
+      for (var c = 0; c < COLS; c++) {
+        var x = X0 + (X1 - X0) * (c / (COLS - 1));
+        var b = document.createElement('i');
+        b.style.left = x.toFixed(2) + '%';
+        b.style.top = y.toFixed(2) + '%';
+        b.style.setProperty('--c', color[palette[c % palette.length]]);
+        b.style.animationDelay = (c * 0.055).toFixed(3) + 's';  // left-to-right wave
+        frag.appendChild(b);
+      }
+    });
+    box.appendChild(frag);
+  })();
+
 })();

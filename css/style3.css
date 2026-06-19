@@ -4,6 +4,13 @@
    blue-splash accents. All design tokens as CSS custom properties.
    ============================================================ */
 
+/* ---------- Custom display face: Cheltenham Condensed Bold (marquee sign) ---------- */
+@font-face {
+  font-family: 'Cheltenham Condensed';
+  src: url('../fonts/cheltenham-condensed-bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 :root {
   /* Backgrounds */
   --bg: #0b1645;          /* deep royal blue — page background */
@@ -233,10 +240,15 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .nav-drawer {
   position: fixed; top: 84px; left: 0; right: 0;
   background: rgba(11,22,69,.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-  max-height: 0; overflow: hidden; transition: max-height .4s var(--ease); z-index: 49;
+  border-bottom: 0;
+  max-height: 0; overflow: hidden; visibility: hidden;
+  transition: max-height .4s var(--ease), visibility 0s linear .4s; z-index: 49;
 }
-.nav-drawer.open { max-height: 70vh; }
+.nav-drawer.open {
+  max-height: 70vh; visibility: visible;
+  border-bottom: 1px solid var(--line);
+  transition: max-height .4s var(--ease), visibility 0s;
+}
 .nav-drawer ul { padding: 12px 0; }
 .nav-drawer li a {
   display: block; padding: 16px 28px; font-family: var(--serif); font-size: 15px; font-weight: 600;
@@ -969,28 +981,70 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 .foot-bottom .footer-credit a:focus-visible { color: var(--cream); }
 
 /* ============================================================
-   PROMO TAGLINE BAR — sits directly under the nav, full width.
-   Marquee strip in brand red. Part of the fixed header stack.
+   MARQUEE TAGLINE — vintage theater sign under the nav.
+   Transparent frame PNG + live Cheltenham text + CSS chase bulbs.
+   Part of the fixed header stack; floats over the hero.
    ============================================================ */
-.promo-bar {
-  background: var(--accent);
-  color: var(--cream);
-  text-align: center;
-  font-family: var(--sans);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  font-size: 12px;
-  line-height: 1.2;
-  padding: 6px 18px;
-  box-shadow: 0 4px 14px -8px rgba(225,47,38,.6);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+.marquee {
+  position: absolute;              /* float it — don't add height to the header */
+  top: 56px; left: 0; right: 0;    /* tucked up toward the nav items */
+  display: flex;
+  justify-content: center;
+  pointer-events: none;            /* never block the hero beneath */
+  transition: transform .5s var(--ease), opacity .4s var(--ease);
 }
+/* hide / slide the sign away once the page is scrolled (mobile + desktop) */
+#hdr.scrolled .marquee {
+  opacity: 0;
+  transform: translateY(-135%);
+}
+.marquee-stage {
+  position: relative;
+  width: min(90%, 470px);
+  container-type: inline-size;     /* enables cqw text + bulb sizing */
+  /* soft dark halo so the cut-out edge melts into the background */
+  filter:
+    drop-shadow(0 0 28px rgba(5,8,28,.78))
+    drop-shadow(0 0 12px rgba(5,8,28,.6))
+    drop-shadow(0 10px 22px rgba(0,0,0,.5));
+  animation: mqDrop .8s var(--ease) both;
+}
+.marquee-frame { display: block; width: 100%; height: auto; }
+
+/* live tagline on the white board */
+.marquee-text {
+  position: absolute; left: 9%; right: 9%; top: 27%; bottom: 28%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; line-height: 1;
+  font-family: 'Cheltenham Condensed', Georgia, 'Times New Roman', serif;
+  color: #15110c;
+}
+.mq-line2 { font-size: 3.15cqw; letter-spacing: 0; white-space: nowrap; }
+
+/* chase bulbs (positions injected by main.js) */
+.marquee-bulbs { position: absolute; inset: 0; }
+.marquee-bulbs i {
+  position: absolute; width: 1.4cqw; height: 1.4cqw; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 50% 36%, #fff, var(--c) 60%, rgba(50,0,0,.55));
+  animation: mqBulb 1.7s ease-in-out infinite;
+  will-change: opacity, box-shadow;
+}
+@keyframes mqBulb {
+  0%, 100% { opacity: .42; box-shadow: 0 0 .18cqw var(--c); }
+  17%      { opacity: 1;   box-shadow: 0 0 .7cqw var(--c), 0 0 1.5cqw var(--c); }
+  42%      { opacity: .42; box-shadow: 0 0 .18cqw var(--c); }
+}
+@keyframes mqDrop { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+
 @media (max-width: 760px) {
-  .promo-bar { letter-spacing: .12em; font-size: 10px; padding: 4px 12px; }
+  .marquee-stage { width: min(94%, 360px); }
 }
-@media (max-width: 460px) {
-  .promo-bar { white-space: normal; font-size: 9.5px; letter-spacing: .08em; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .marquee-stage, .marquee-bulbs i { animation: none !important; }
+  .marquee, .marquee-stage { transition: none; }
+  .marquee-bulbs i { opacity: .92; }
 }
 
 /* ============================================================
