@@ -1002,11 +1002,10 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   position: relative;
   width: min(90%, 470px);
   container-type: inline-size;     /* enables cqw text + bulb sizing */
-  /* soft dark halo so the cut-out edge melts into the background */
+  /* soft dark halo, biased downward so it never darkens the nav above */
   filter:
-    drop-shadow(0 0 28px rgba(5,8,28,.78))
-    drop-shadow(0 0 12px rgba(5,8,28,.6))
-    drop-shadow(0 10px 22px rgba(0,0,0,.5));
+    drop-shadow(0 16px 26px rgba(5,8,28,.7))
+    drop-shadow(0 8px 16px rgba(0,0,0,.5));
   animation: mqDrop .8s var(--ease) both;
 }
 .marquee-frame { display: block; width: 100%; height: auto; }

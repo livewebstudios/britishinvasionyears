@@ -61,42 +61,65 @@
     }, { passive: true });
   }
 
-  /* ---------- Tour data ---------- */
-  var SHOWS = [
-    { dow: 'Saturday', date: 'May 30, 2026', venue: 'The Vogel at Count Basie Center for the Arts', addr: '99 Monmouth St, Red Bank, NJ 07701', time: '7:30 PM', badge: 'Limited seats just released', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/107660462' },
-    { dow: 'Saturday', date: 'June 6, 2026', venue: 'Harrington Raceway &amp; Casino', addr: '15 Harrington&ndash;Houston Hwy, Harrington, DE', time: '6:00 PM &middot; Show 1 of 2', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/108246603' },
-    { dow: 'Saturday', date: 'June 6, 2026', venue: 'Harrington Raceway &amp; Casino', addr: '15 Harrington&ndash;Houston Hwy, Harrington, DE', time: '8:30 PM &middot; Show 2 of 2', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/107973072' },
-    { dow: 'Friday', date: 'July 10, 2026', venue: 'Cape May Convention Hall', addr: '714 Beach Ave, Cape May, NJ 08204', time: '8:00 PM', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/107893002' },
-    { dow: 'Sunday', date: 'July 26, 2026', venue: 'The Lamp Theatre', addr: '222 Main St, Irwin, PA 15642', time: '7:00 PM', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/107655050' },
-    { dow: 'Saturday', date: 'Sept 19, 2026', venue: 'Backlash Fest', addr: 'Millsboro, DE', time: '8:00 PM', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/108117859' },
-    { dow: 'Saturday', date: 'Nov 7, 2026', venue: 'Tupelo Music Hall', addr: '10 A St, Derry, NH 03038', time: '8:00 PM', cta: 'GET TICKETS', tix: true, ticketUrl: 'https://www.bandsintown.com/e/108386560' },
-    { dow: 'Thursday', date: 'Apr 8, 2027', venue: 'Concert Announcement Coming Soon', addr: 'The Villages, FL', time: '7:00 PM', cta: 'RSVP', tba: true },
-    { dow: 'Saturday', date: 'Oct 23, 2027', venue: 'Concert Announcement Coming Soon', addr: 'Windber, PA', time: '7:30 PM', cta: 'RSVP', tba: true }
-  ];
+  /* ---------- Tour dates (Decap-managed JSON, auto-hides passed shows) ---------- */
+  var tourList = document.getElementById('tourList');
+  if (tourList) {
+    var DOW = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-  var list = document.getElementById('tourList');
-  if (list) {
-    var path = window.location.pathname;
-    var isHome = path.indexOf('index') !== -1 || path === '/' || path.endsWith('/build/') || path.endsWith('/');
-    if (list.dataset.all === 'true') isHome = false;
-    var items = isHome ? SHOWS.slice(0, 6) : SHOWS;
+    function esc(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function localDate(iso) {                       // 'YYYY-MM-DD' → local Date (no TZ shift)
+      var p = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+      return p ? new Date(+p[1], +p[2] - 1, +p[3]) : null;
+    }
 
-    items.forEach(function (s) {
-      var card = document.createElement('div');
-      card.className = 'show card-glow' + (s.tba ? ' tba' : '');
-      card.innerHTML =
-        '<div class="show-date">' + s.dow + ', ' + s.date + '</div>' +
-        '<div class="show-venue">' + s.venue + '</div>' +
-        '<div class="show-addr">' + s.addr + '</div>' +
-        '<div class="show-time">' + s.time + '</div>' +
-        (s.badge ? '<div class="show-badge">' + s.badge + '</div>' : '') +
-        '<div class="show-cta">' +
-          '<a class="btn ' + (s.tix ? 'btn-primary' : 'btn-outline') + '" href="' + (s.tix ? s.ticketUrl : '#news') + '"' +
-          (s.tix ? ' target="_blank" rel="noopener"' : '') + '>' + s.cta + '</a>' +
-        '</div>';
-      list.appendChild(card);
-      window.LWS.observe(card);
-    });
+    fetch('content/tour.json?v=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());  // midnight
+
+        var shows = (data.shows || [])
+          .map(function (s) { return { s: s, d: localDate(s.date) }; })
+          .filter(function (o) { return o.d && o.d >= today; })   // auto-hide passed dates
+          .sort(function (a, b) { return a.d - b.d; });           // soonest first
+
+        var path = window.location.pathname;
+        var isHome = path.indexOf('index') !== -1 || path === '/' ||
+                     path.endsWith('/build/') || path.endsWith('/');
+        if (tourList.dataset.all === 'true') isHome = false;
+        var items = isHome ? shows.slice(0, 6) : shows;
+
+        if (!items.length) {
+          tourList.innerHTML = '<p class="tour-empty">New dates coming soon — check back shortly.</p>';
+          return;
+        }
+
+        items.forEach(function (o) {
+          var s = o.s, d = o.d, tba = s.status === 'tba';
+          var when = DOW[d.getDay()] + ', ' + MON[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+          var card = document.createElement('div');
+          card.className = 'show card-glow' + (tba ? ' tba' : '');
+          card.innerHTML =
+            '<div class="show-date">' + when + '</div>' +
+            '<div class="show-venue">' + esc(s.venue) + '</div>' +
+            '<div class="show-addr">' + esc(s.city) + '</div>' +
+            '<div class="show-time">' + esc(s.time) + '</div>' +
+            (s.badge ? '<div class="show-badge">' + esc(s.badge) + '</div>' : '') +
+            '<div class="show-cta">' +
+              '<a class="btn ' + (tba ? 'btn-outline' : 'btn-primary') + '" href="' +
+                (tba ? '#news' : esc(s.ticketUrl)) + '"' +
+                (tba ? '' : ' target="_blank" rel="noopener"') + '>' +
+                (tba ? 'RSVP' : 'GET TICKETS') + '</a>' +
+            '</div>';
+          tourList.appendChild(card);
+          window.LWS.observe(card);
+        });
+      })
+      .catch(function () { /* leave existing markup if the feed fails */ });
   }
 
   /* ---------- Video poster → YouTube embed ---------- */

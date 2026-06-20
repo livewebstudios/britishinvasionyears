@@ -1,18 +1,20 @@
 /* ============================================================
    THE BRITISH INVASION YEARS — blog.js
-   Renders the blog index (blog.html) and single posts (post.html)
-   from window.BIY_POSTS (js/blog-data.js). Pure vanilla, no fetch —
-   works on any host and from file://. Decap will eventually manage the
-   source content; re-run gen-blog.js to regenerate blog-data.js.
+   Renders the blog index (blog.html) and single posts (post.html).
+   Source of truth is content/blog.json (managed in Decap CMS); the
+   baked js/blog-data.js (window.BIY_POSTS) is a fallback for file://.
    ============================================================ */
 (function () {
   'use strict';
 
-  var POSTS = window.BIY_POSTS || [];
-
-  // Categories hidden from the blog index (posts kept in data, just not displayed).
-  var HIDDEN_CATEGORIES = { 'show-announcement': true };
-  var VISIBLE = POSTS.filter(function (p) { return !HIDDEN_CATEGORIES[p.category]; });
+  // Category value -> display label (mirrors admin/config.yml options).
+  var CAT_LABELS = {
+    'british-invasion': 'British Invasion',
+    'band-news': 'Band News',
+    'show-announcement': 'Show Announcement',
+    'venue-spotlight': 'Venue Spotlight',
+    'press': 'Press'
+  };
 
   /* ---------- tiny markdown ---------- */
   function esc(s) {
@@ -55,6 +57,15 @@
       '</div>' +
     '</article>';
   }
+
+  function init(POSTS) {
+    POSTS.forEach(function (p) {
+      if (!p.categoryLabel) p.categoryLabel = CAT_LABELS[p.category] || p.category;
+    });
+
+    // Categories hidden from the blog index (kept in data, just not shown).
+    var HIDDEN_CATEGORIES = { 'show-announcement': true };
+    var VISIBLE = POSTS.filter(function (p) { return !HIDDEN_CATEGORIES[p.category]; });
 
   /* ============================================================
      BLOG INDEX
@@ -153,5 +164,12 @@
       tagsHtml +
       '<div class="post-back"><a class="textlink" href="blog.html">&larr; Back to the Blog</a></div>';
   }
+  }
+
+  /* ---------- load data: Decap JSON first, baked global as file:// fallback ---------- */
+  fetch('content/blog.json?v=' + Date.now())
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (data) { init((data && data.posts) || window.BIY_POSTS || []); })
+    .catch(function () { init(window.BIY_POSTS || []); });
 
 })();

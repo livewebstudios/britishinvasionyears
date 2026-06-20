@@ -1,0 +1,13 @@
+{
+  "shows": [
+    { "date": "2026-05-30", "time": "7:30 PM", "venue": "The Vogel at Count Basie Center for the Arts", "city": "99 Monmouth St, Red Bank, NJ 07701", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/107660462", "badge": "Limited seats just released" },
+    { "date": "2026-06-06", "time": "6:00 PM · Show 1 of 2", "venue": "Harrington Raceway & Casino", "city": "15 Harrington–Houston Hwy, Harrington, DE", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/108246603", "badge": "" },
+    { "date": "2026-06-06", "time": "8:30 PM · Show 2 of 2", "venue": "Harrington Raceway & Casino", "city": "15 Harrington–Houston Hwy, Harrington, DE", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/107973072", "badge": "" },
+    { "date": "2026-07-10", "time": "8:00 PM", "venue": "Cape May Convention Hall", "city": "714 Beach Ave, Cape May, NJ 08204", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/107893002", "badge": "" },
+    { "date": "2026-07-26", "time": "7:00 PM", "venue": "The Lamp Theatre", "city": "222 Main St, Irwin, PA 15642", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/107655050", "badge": "" },
+    { "date": "2026-09-19", "time": "8:00 PM", "venue": "Backlash Fest", "city": "Millsboro, DE", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/108117859", "badge": "" },
+    { "date": "2026-11-07", "time": "8:00 PM", "venue": "Tupelo Music Hall", "city": "10 A St, Derry, NH 03038", "status": "onsale", "ticketUrl": "https://www.bandsintown.com/e/108386560", "badge": "" },
+    { "date": "2027-04-08", "time": "7:00 PM", "venue": "Concert Announcement Coming Soon", "city": "The Villages, FL", "status": "tba", "ticketUrl": "", "badge": "" },
+    { "date": "2027-10-23", "time": "7:30 PM", "venue": "Concert Announcement Coming Soon", "city": "Windber, PA", "status": "tba", "ticketUrl": "", "badge": "" }
+  ]
+}
