@@ -4,13 +4,6 @@
    blue-splash accents. All design tokens as CSS custom properties.
    ============================================================ */
 
-/* ---------- Custom display face: Cheltenham Condensed Bold (marquee sign) ---------- */
-@font-face {
-  font-family: 'Cheltenham Condensed';
-  src: url('../fonts/cheltenham-condensed-bold.ttf') format('truetype');
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-
 :root {
   /* Backgrounds */
   --bg: #0b1645;          /* deep royal blue — page background */
@@ -981,8 +974,8 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 .foot-bottom .footer-credit a:focus-visible { color: var(--cream); }
 
 /* ============================================================
-   MARQUEE TAGLINE — vintage theater sign under the nav.
-   Transparent frame PNG + live Cheltenham text + CSS chase bulbs.
+   MARQUEE — vintage theater sign under the nav.
+   Baked artwork PNG + CSS chase bulbs overlaid in the channels.
    Part of the fixed header stack; floats over the hero.
    ============================================================ */
 .marquee {
@@ -1010,35 +1003,8 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 }
 .marquee-frame { display: block; width: 100%; height: auto; }
 
-/* live tagline on the white board */
-.marquee-text {
-  position: absolute; left: 9%; right: 9%; top: 27%; bottom: 28%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; line-height: 1;
-  font-family: 'Cheltenham Condensed', Georgia, 'Times New Roman', serif;
-  color: #15110c;
-}
-.mq-line2 { font-size: 3.15cqw; letter-spacing: 0; white-space: nowrap; }
-
-/* Home-page marquee: staggered mixed-size lettering + letter-setter silhouette */
-.marquee-text.mq-oneline {
-  left: 7%; right: 7%; top: 24%; bottom: 22%;
-  display: flex; align-items: center; justify-content: center;
-}
-.mq-line { white-space: nowrap; }
-.mq-oneline .mq-big   { font-size: 2.85cqw; letter-spacing: .008em; vertical-align: baseline; }
-.mq-oneline .mq-small { font-size: 1.75cqw; letter-spacing: .02em; vertical-align: 0.35em; }
-.mq-gap { display: inline-block; width: 10cqw; }   /* space the ladder man stands in */
-
-/* Final baked artwork (home page): bulbs sit in this frame's taller channels */
+/* baked artwork: bulbs sized to sit in this frame's channels */
 .mq-final .marquee-bulbs i { width: 2.1cqw; height: 2.1cqw; }
-.mq-fancy .mq-worker {
-  position: absolute; left: 28%; top: 20%;
-  height: 22cqw; width: auto; z-index: 3;
-  transform: scaleX(-1);          /* face left, reaching toward the letter */
-  pointer-events: none;
-}
 
 /* chase bulbs (positions injected by main.js) */
 .marquee-bulbs { position: absolute; inset: 0; }
