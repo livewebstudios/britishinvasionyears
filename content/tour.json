@@ -1,33 +1,6 @@
 {
   "shows": [
     {
-      "date": "2026-05-30",
-      "time": "7:30 PM",
-      "venue": "The Vogel at Count Basie Center for the Arts",
-      "city": "99 Monmouth St, Red Bank, NJ 07701",
-      "status": "onsale",
-      "ticketUrl": "https://www.bandsintown.com/e/107660462",
-      "badge": "Limited seats just released"
-    },
-    {
-      "date": "2026-06-06",
-      "time": "6:00 PM · Show 1 of 2",
-      "venue": "Harrington Raceway & Casino",
-      "city": "15 Harrington–Houston Hwy, Harrington, DE",
-      "status": "onsale",
-      "ticketUrl": "https://www.bandsintown.com/e/108246603",
-      "badge": ""
-    },
-    {
-      "date": "2026-06-06",
-      "time": "8:30 PM · Show 2 of 2",
-      "venue": "Harrington Raceway & Casino",
-      "city": "15 Harrington–Houston Hwy, Harrington, DE",
-      "status": "onsale",
-      "ticketUrl": "https://www.bandsintown.com/e/107973072",
-      "badge": ""
-    },
-    {
       "date": "2026-07-10",
       "time": "8:00 PM",
       "venue": "Cape May Convention Hall",
