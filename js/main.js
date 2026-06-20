@@ -226,15 +226,22 @@
   (function initMarquee() {
     var box = document.querySelector('.marquee-bulbs');
     if (!box) return;
-    var COLS = 29;
-    var Y_TOP = 17.0, Y_BOT = 84.2;
-    var X0 = 13.34, X1 = 87.19;                 // first/last bulb centers
+    // Channel geometry: data-* on the element (final artwork) or the original-frame defaults.
+    var COLS = parseInt(box.dataset.count, 10) || 29;
+    var rows = box.dataset.rows ? box.dataset.rows.split(',').map(Number) : [17.0, 84.2];
+    var xr = box.dataset.x ? box.dataset.x.split(',').map(Number) : [13.34, 87.19];
+    // bulbs hidden behind the man/ladder (they'd be physically blocked)
+    var skip = [
+      (box.dataset.skipTop || '').split(',').filter(Boolean).map(Number),
+      (box.dataset.skipBot || '').split(',').filter(Boolean).map(Number)
+    ];
     var palette = ['r', 'w', 'a', 'w'];         // red, warm-white, amber, warm-white
     var color = { r: '#ff352b', w: '#fff1cf', a: '#ffb236' };
     var frag = document.createDocumentFragment();
-    [Y_TOP, Y_BOT].forEach(function (y) {
+    rows.forEach(function (y, ri) {
       for (var c = 0; c < COLS; c++) {
-        var x = X0 + (X1 - X0) * (c / (COLS - 1));
+        if (skip[ri] && skip[ri].indexOf(c) !== -1) continue;
+        var x = xr[0] + (xr[1] - xr[0]) * (c / (COLS - 1));
         var b = document.createElement('i');
         b.style.left = x.toFixed(2) + '%';
         b.style.top = y.toFixed(2) + '%';

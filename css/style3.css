@@ -1021,6 +1021,25 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 }
 .mq-line2 { font-size: 3.15cqw; letter-spacing: 0; white-space: nowrap; }
 
+/* Home-page marquee: staggered mixed-size lettering + letter-setter silhouette */
+.marquee-text.mq-oneline {
+  left: 7%; right: 7%; top: 24%; bottom: 22%;
+  display: flex; align-items: center; justify-content: center;
+}
+.mq-line { white-space: nowrap; }
+.mq-oneline .mq-big   { font-size: 2.85cqw; letter-spacing: .008em; vertical-align: baseline; }
+.mq-oneline .mq-small { font-size: 1.75cqw; letter-spacing: .02em; vertical-align: 0.35em; }
+.mq-gap { display: inline-block; width: 10cqw; }   /* space the ladder man stands in */
+
+/* Final baked artwork (home page): bulbs sit in this frame's taller channels */
+.mq-final .marquee-bulbs i { width: 2.1cqw; height: 2.1cqw; }
+.mq-fancy .mq-worker {
+  position: absolute; left: 28%; top: 20%;
+  height: 22cqw; width: auto; z-index: 3;
+  transform: scaleX(-1);          /* face left, reaching toward the letter */
+  pointer-events: none;
+}
+
 /* chase bulbs (positions injected by main.js) */
 .marquee-bulbs { position: absolute; inset: 0; }
 .marquee-bulbs i {
