@@ -61,7 +61,10 @@
     }, { passive: true });
   }
 
-  /* ---------- Tour dates (Decap-managed JSON, auto-hides passed shows) ---------- */
+  /* ---------- Tour dates (Decap JSON) ----------
+     Public pages show UPCOMING shows only; passed dates auto-hide. Every show
+     (past + upcoming) stays in content/tour.json, so the band still sees the
+     old shows in the Decap dashboard. Editors keep ONE simple list. */
   var tourList = document.getElementById('tourList');
   if (tourList) {
     var DOW = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

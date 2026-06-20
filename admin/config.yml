@@ -26,7 +26,7 @@ collections:
       - name: "shows"
         label: "Tour Dates"
         file: "content/tour.json"
-        description: "Add, edit, or remove shows. Passed dates drop off the site automatically."
+        description: "Add or edit shows here. Once a show's date passes it drops off the public Tour page automatically — but it STAYS in this list, so you can always scroll down to see past shows. Only delete a show if you want it gone for good."
         fields:
           - label: "Shows"
             name: "shows"
