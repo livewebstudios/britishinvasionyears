@@ -60,6 +60,14 @@
       "time": "7:12pm",
       "venue": "ewf ew f",
       "city": "123h appy street"
+    },
+    {
+      "status": "tba",
+      "ticketUrl": "",
+      "venue": "Announcement Coming Soon",
+      "date": "2027-01-09",
+      "time": "7:30pm",
+      "city": "Bridgewater, VA"
     }
   ]
 }
