@@ -7,7 +7,8 @@
       "city": "714 Beach Ave, Cape May, NJ 08204",
       "status": "onsale",
       "ticketUrl": "https://www.bandsintown.com/e/107893002",
-      "badge": ""
+      "badge": "",
+      "whatToDoSlug": "what-to-do-in-cape-may-nj"
     },
     {
       "date": "2026-07-26",
@@ -16,7 +17,8 @@
       "city": "222 Main St, Irwin, PA 15642",
       "status": "onsale",
       "ticketUrl": "https://www.bandsintown.com/e/107655050",
-      "badge": ""
+      "badge": "",
+      "whatToDoSlug": "what-to-do-in-irwin-pa"
     },
     {
       "date": "2026-09-19",
@@ -25,7 +27,8 @@
       "city": "Millsboro, DE",
       "status": "onsale",
       "ticketUrl": "https://www.bandsintown.com/e/108117859",
-      "badge": ""
+      "badge": "",
+      "whatToDoSlug": "what-to-do-in-millsboro-de"
     },
     {
       "date": "2026-11-07",
@@ -34,7 +37,8 @@
       "city": "10 A St, Derry, NH 03038",
       "status": "onsale",
       "ticketUrl": "https://www.bandsintown.com/e/108386560",
-      "badge": ""
+      "badge": "",
+      "whatToDoSlug": "what-to-do-in-derry-nh"
     },
     {
       "date": "2027-04-08",

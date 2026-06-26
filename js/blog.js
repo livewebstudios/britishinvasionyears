@@ -35,6 +35,16 @@
       return '<p>' + inline(para).replace(/\n/g, '<br>') + '</p>';
     }).join('');
   }
+  // Like bodyToHtml, but multi-line blocks (a heading line + its description —
+  // e.g. the attraction items in "what to do in town" posts) become bordered cards.
+  function bodyToHtmlCarded(body) {
+    return body.split(/\n{2,}/).map(function (para) {
+      var html = inline(para).replace(/\n/g, '<br>');
+      return /<br>/.test(html)
+        ? '<p class="attraction-card">' + html + '</p>'
+        : '<p>' + html + '</p>';
+    }).join('');
+  }
 
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
@@ -160,9 +170,27 @@
       '<h1>' + esc(post.title) + '</h1>' +
       '<div class="post-meta">' + fmtDate(post.date) + '</div>' +
       '<img class="post-hero" src="' + post.image + '" alt="' + esc(post.title) + '">' +
-      '<div class="post-content">' + bodyToHtml(post.body) + '</div>' +
+      '<div class="post-content">' +
+        (post.category === 'what-to-do-in-town' ? bodyToHtmlCarded(post.body) : bodyToHtml(post.body)) +
+      '</div>' +
       tagsHtml +
       '<div class="post-back"><a class="textlink" href="blog.html">&larr; Back to the Blog</a></div>';
+
+    // Buy tickets straight from the post — ticket link pulled live from the matching tour date
+    fetch('content/tour.json?v=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var show = (data.shows || []).filter(function (s) {
+          return s.whatToDoSlug === post.slug && s.status !== 'tba' && s.ticketUrl;
+        })[0];
+        if (!show) return;
+        var cta = document.createElement('div');
+        cta.className = 'post-ticket-cta';
+        cta.innerHTML = '<a class="btn btn-primary" href="' + esc(show.ticketUrl) +
+          '" target="_blank" rel="noopener">GET TICKETS</a>';
+        article.insertBefore(cta, article.querySelector('.post-back'));
+      })
+      .catch(function () { /* no button if the tour feed is unavailable */ });
   }
   }
 

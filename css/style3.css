@@ -352,11 +352,11 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 .show > * { position: relative; z-index: 2; }
 .show-date { font-family: var(--sans); font-weight: 600; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-.show-venue { font-family: var(--serif); font-weight: 600; font-size: 25px; color: var(--cream); min-height: 56px; line-height: 1.18; }
+.show-venue { font-family: var(--serif); font-weight: 600; font-size: 25px; color: var(--cream); min-height: 56px; line-height: 1.18; text-transform: uppercase; }
 .show-addr { font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 300; margin-top: 6px; }
 .show-time { font-size: 13.5px; color: var(--ink); margin-top: 8px; font-weight: 400; }
 .show-badge { font-size: 13px; color: var(--accent); margin-top: 8px; font-weight: 400; }
-.show-cta { margin-top: 22px; }
+.show-cta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
 .show-cta .btn { padding: 12px 22px; font-size: 10.5px; }
 .show.tba { opacity: .7; }
 .show.tba .btn { pointer-events: none; }
@@ -721,6 +721,13 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 .post-content a:hover { color: var(--accent-soft); }
 .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 40px 0 8px; }
 .post-tags .tag { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 100px; padding: 6px 13px; }
+.post-content .attraction-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 22px 26px;
+}
+.post-ticket-cta { text-align: center; margin-top: 44px; }
 .post-back { text-align: center; margin-top: 48px; }
 
 @media (max-width: 900px) {

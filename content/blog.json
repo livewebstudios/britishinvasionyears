@@ -1,6 +1,74 @@
 {
   "posts": [
     {
+      "title": "What to Do in Cape May Before the Show",
+      "slug": "what-to-do-in-cape-may-nj",
+      "date": "2026-06-26",
+      "category": "what-to-do-in-town",
+      "tags": [
+        "cape-may",
+        "nj",
+        "what-to-do",
+        "local-attractions",
+        "biy-show"
+      ],
+      "excerpt": "You're coming to Cape May for the show — here's what to do while you're there.",
+      "body": "Cape May Convention Hall, Cape May — Friday, July 10 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nCAPE MAY LIGHTHOUSE\nClimb the 1859 lighthouse out at Cape May Point and you'll see the whole tip of the Jersey Shore spread out below you. It's a National Historic Landmark and an easy hour before showtime. [Cape May Lighthouse](https://capemaymac.org)\n\nWASHINGTON STREET MALL & THE VICTORIAN DISTRICT\nWalk the gaslit streets and you'll understand why this town has been a shore destination since the 1800s. The pedestrian mall is full of shops, and the gingerbread Victorian homes are worth the stroll alone. [Cape May's Victorian district](https://www.capemay.com)\n\nTHE BEACH & PROMENADE\nThe venue sits right by the water, so come down early and walk the promenade. Salt air, a sunset, and the ocean a few steps away — hard to beat before a night of '60s music. [Cape May beaches](https://www.capemay.com)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+      "featured": false,
+      "image": "images/band-gallery/stage-overhead-blue-green-light.jpg"
+    },
+    {
+      "title": "What to Do in Irwin Before the Show",
+      "slug": "what-to-do-in-irwin-pa",
+      "date": "2026-06-26",
+      "category": "what-to-do-in-town",
+      "tags": [
+        "irwin",
+        "pa",
+        "what-to-do",
+        "local-attractions",
+        "biy-show"
+      ],
+      "excerpt": "You're coming to Irwin for the show — here's what to do while you're there.",
+      "body": "The Lamp Theatre, Irwin — Sunday, July 26 at 7:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nKENNYWOOD\nOne of America's classic amusement parks, open since 1898 and only about fifteen minutes up the road in West Mifflin. The old wooden coasters alone make it a Pittsburgh rite of passage. [Kennywood](https://www.kennywood.com)\n\nIDLEWILD & SOAKZONE\nOut toward Ligonier you'll find Idlewild, one of the oldest amusement parks in the country and a favorite with families for generations. Easygoing rides, big shade trees, and a water park when it's warm. [Idlewild & SoakZone](https://www.idlewild.com)\n\nFORT LIGONIER\nA fully reconstructed French and Indian War fort with real history behind it. Walk the grounds and the museum and you get a feel for what this corner of Pennsylvania looked like 250 years ago. [Fort Ligonier](https://www.fortligonier.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+      "featured": false,
+      "image": "images/band-gallery/band-buddy-holly-backdrop-green-lights.jpg"
+    },
+    {
+      "title": "What to Do in Millsboro Before the Show",
+      "slug": "what-to-do-in-millsboro-de",
+      "date": "2026-06-26",
+      "category": "what-to-do-in-town",
+      "tags": [
+        "millsboro",
+        "de",
+        "what-to-do",
+        "local-attractions",
+        "biy-show"
+      ],
+      "excerpt": "You're coming to Millsboro for the show — here's what to do while you're there.",
+      "body": "Backlash Fest, Millsboro — Saturday, September 19 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nREHOBOTH BEACH & BOARDWALK\nDelaware's best-known beach town is only about twenty-five minutes away. Spend the afternoon on the sand, then walk the mile-long boardwalk before you head to the festival. [Rehoboth Beach](https://www.visitrehoboth.com)\n\nTRAP POND STATE PARK\nJust outside town sits one of the prettiest spots in southern Delaware, home to the northernmost stand of bald cypress trees in the country. Rent a kayak and paddle through them. [Trap Pond State Park](https://destateparks.com)\n\nNANTICOKE INDIAN MUSEUM\nMillsboro's own cultural landmark tells the story of the Nanticoke people who've called this land home for centuries. A quick, worthwhile stop right in town. [Nanticoke Indian Museum](https://www.nanticokeindians.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+      "featured": false,
+      "image": "images/home/band-onstage-rolling-stones-backdrop.jpg"
+    },
+    {
+      "title": "What to Do in Derry Before the Show",
+      "slug": "what-to-do-in-derry-nh",
+      "date": "2026-06-26",
+      "category": "what-to-do-in-town",
+      "tags": [
+        "derry",
+        "nh",
+        "what-to-do",
+        "local-attractions",
+        "biy-show"
+      ],
+      "excerpt": "You're coming to Derry for the show — here's what to do while you're there.",
+      "body": "Tupelo Music Hall, Derry — Saturday, November 7 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nROBERT FROST FARM\nThe poet lived and wrote here, and the restored farmstead is Derry's signature stop. Walk the grounds and the poetry trail before the show. [Robert Frost Farm](https://www.robertfrostfarm.org)\n\nCANOBIE LAKE PARK\nA beloved old-school amusement park about fifteen minutes away in Salem. Coasters, a lake, and that classic New England summer-park feel. [Canobie Lake Park](https://www.canobie.com)\n\nTAYLOR MILL STATE HISTORIC SITE\nA preserved 19th-century up-and-down sawmill tucked into Ballard State Forest. Quiet trails and a real piece of New Hampshire history. [Taylor Mill State Historic Site](https://www.nhstateparks.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+      "featured": false,
+      "image": "images/band-gallery/bob-and-lee-laughing-onstage.jpg"
+    },
+    {
       "title": "We're Bringing the Full '60s Show to The Villages, FL",
       "slug": "the-villages-fl-british-invasion-show",
       "date": "2026-12-05",

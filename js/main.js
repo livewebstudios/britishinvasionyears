@@ -117,6 +117,10 @@
                 (tba ? '#news' : esc(s.ticketUrl)) + '"' +
                 (tba ? '' : ' target="_blank" rel="noopener"') + '>' +
                 (tba ? 'RSVP' : 'GET TICKETS') + '</a>' +
+              // "What to do in town" guide — only on real shows with a matching blog post
+              (!tba && s.whatToDoSlug
+                ? '<a class="btn btn-outline" href="post.html?slug=' + esc(s.whatToDoSlug) + '">WHAT TO DO IN TOWN</a>'
+                : '') +
             '</div>';
           tourList.appendChild(card);
           window.LWS.observe(card);
