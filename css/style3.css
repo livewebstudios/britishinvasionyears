@@ -4,6 +4,13 @@
    blue-splash accents. All design tokens as CSS custom properties.
    ============================================================ */
 
+/* ---------- Custom display face: Cheltenham Condensed Bold (marquee sign) ---------- */
+@font-face {
+  font-family: 'Cheltenham Condensed';
+  src: url('../fonts/cheltenham-condensed-bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 :root {
   /* Backgrounds */
   --bg: #0b1645;          /* deep royal blue — page background */
@@ -981,8 +988,8 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 .foot-bottom .footer-credit a:focus-visible { color: var(--cream); }
 
 /* ============================================================
-   MARQUEE — vintage theater sign under the nav.
-   Baked artwork PNG + CSS chase bulbs overlaid in the channels.
+   MARQUEE TAGLINE — vintage theater sign under the nav.
+   Transparent frame PNG + live Cheltenham text + CSS chase bulbs.
    Part of the fixed header stack; floats over the hero.
    ============================================================ */
 .marquee {
@@ -1002,16 +1009,25 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   position: relative;
   width: min(90%, 470px);
   container-type: inline-size;     /* enables cqw text + bulb sizing */
-  /* soft dark halo, biased downward so it never darkens the nav above */
+  /* soft dark halo so the cut-out edge melts into the background */
   filter:
-    drop-shadow(0 16px 26px rgba(5,8,28,.7))
-    drop-shadow(0 8px 16px rgba(0,0,0,.5));
+    drop-shadow(0 0 28px rgba(5,8,28,.78))
+    drop-shadow(0 0 12px rgba(5,8,28,.6))
+    drop-shadow(0 10px 22px rgba(0,0,0,.5));
   animation: mqDrop .8s var(--ease) both;
 }
 .marquee-frame { display: block; width: 100%; height: auto; }
 
-/* baked artwork: bulbs sized to sit in this frame's channels */
-.mq-final .marquee-bulbs i { width: 2.1cqw; height: 2.1cqw; }
+/* live tagline on the white board */
+.marquee-text {
+  position: absolute; left: 9%; right: 9%; top: 27%; bottom: 28%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; line-height: 1;
+  font-family: 'Cheltenham Condensed', Georgia, 'Times New Roman', serif;
+  color: #15110c;
+}
+.mq-line2 { font-size: 3.15cqw; letter-spacing: 0; white-space: nowrap; }
 
 /* chase bulbs (positions injected by main.js) */
 .marquee-bulbs { position: absolute; inset: 0; }
