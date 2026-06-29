@@ -1,0 +1,55 @@
+name: Notify on new tour date
+
+# Fires whenever content/tour.json changes on main — i.e. the band added or
+# edited a show in Decap (/admin/). Emails Jon so he can run the
+# "What to Do in [City]" blog prompt for the new date.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/tour.json"
+
+jobs:
+  email-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo (need parent commit for the diff)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build the tour.json change summary
+        id: diff
+        run: |
+          {
+            echo "diff<<EOF"
+            git diff HEAD^ HEAD -- content/tour.json || echo "(no diff available)"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Email Jon
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.zoho.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: BIY Site <${{ secrets.MAIL_USERNAME }}>
+          to: jonwolf@livewebstudios.com
+          subject: "🎸 New/updated tour date on The British Invasion Years"
+          body: |
+            The band just changed the Tour Dates in Decap.
+
+            Commit:  ${{ github.event.head_commit.message }}
+            By:      ${{ github.event.head_commit.author.name }}
+            When:    ${{ github.event.head_commit.timestamp }}
+            Commit:  ${{ github.event.head_commit.url }}
+
+            ----- change to content/tour.json -----
+            ${{ steps.diff.outputs.diff }}
+            ---------------------------------------
+
+            If this is a NEW show on sale, open Claude Code in build/ and run:
+              "Create a 'What to Do in [City]' blog post for the new tour date
+               and wire it to that tour card's whatToDoSlug."
