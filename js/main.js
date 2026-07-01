@@ -61,6 +61,19 @@
     }, { passive: true });
   }
 
+  /* ---------- Hero background rotation ----------
+     Crossfades the images in images/hero/ in filename order. */
+  var heroSlides = document.querySelectorAll('.hero-slide');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroSlides.length > 1 && !reduceMotion) {
+    var heroIdx = 0;
+    setInterval(function () {
+      heroSlides[heroIdx].classList.remove('is-active');
+      heroIdx = (heroIdx + 1) % heroSlides.length;
+      heroSlides[heroIdx].classList.add('is-active');
+    }, 6000);
+  }
+
   /* ---------- Tour dates (Decap JSON) ----------
      Public pages show UPCOMING shows only; passed dates auto-hide. Every show
      (past + upcoming) stays in content/tour.json, so the band still sees the

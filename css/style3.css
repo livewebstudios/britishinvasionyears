@@ -309,6 +309,23 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
   text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 2px 14px rgba(0,0,0,.85), 0 0 36px rgba(0,0,0,.55); }
 .hero-cta { display: flex; align-items: center; justify-content: center; gap: 26px; flex-wrap: wrap; }
 
+/* Hero two-column (desktop) — logo left, copy right. The side-by-side layout is
+   much shorter than the stacked version, so it sits in a slim horizontal band
+   and keeps the band members in the rotating photos mostly clear.
+   Mobile keeps the centered stacked layout. */
+@media (min-width: 900px) {
+  .hero { align-items: flex-start; padding-top: 15vh; }
+  .hero-inner {
+    max-width: 1120px; display: flex; align-items: center; gap: 52px;
+    text-align: left; padding: 40px 52px;
+  }
+  .hero-logo { flex: 0 0 40%; width: 40%; max-width: 430px; margin: 0; }
+  .hero-copy { flex: 1 1 auto; min-width: 0; }
+  .ornament { justify-content: flex-start; margin-bottom: 20px; }
+  .hero-sub { margin-left: 0; margin-right: 0; max-width: 540px; }
+  .hero-cta { justify-content: flex-start; }
+}
+
 /* ---------- Page banner (interior pages) ---------- */
 .page-banner {
   position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center;
@@ -835,10 +852,14 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .textlink:focus-visib
    (scoped to .hero so interior page-banners keep their cover crop)
    ============================================================ */
 .hero .hero-bg { background: var(--bg); display: flex; align-items: center; justify-content: center; }
-#heroImg {
-  width: 100%; height: auto;      /* full photo width, natural aspect — no side crop */
+#heroImg { position: absolute; inset: 0; overflow: hidden; }   /* rotating-slide container (parallax target) */
+.hero .hero-slide {
+  position: absolute; top: 50%; left: 50%; width: 100%; height: auto;   /* full photo width, natural aspect — no side crop */
   max-width: none;
+  transform: translate(-50%, -50%);
+  opacity: 0; transition: opacity 1.4s ease-in-out; will-change: opacity;
 }
+.hero .hero-slide.is-active { opacity: 1; }
 .hero .hero-bg::after {
   background:
     radial-gradient(130% 100% at 50% 42%, rgba(7,12,40,.10), rgba(7,12,40,.44) 72%, var(--bg) 99%),

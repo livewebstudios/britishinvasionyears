@@ -56,7 +56,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="images/heroimage.jpg">
+  <link rel="preload" as="image" href="images/hero/hero1.webp">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
@@ -131,25 +131,34 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="hero-bg">
-        <img src="images/heroimage.jpg" alt="The British Invasion Years performing live" id="heroImg" loading="eager" fetchpriority="high" width="1008" height="666">
+        <div class="hero-slides" id="heroImg">
+          <img class="hero-slide is-active" src="images/hero/hero1.webp" alt="The British Invasion Years performing live" fetchpriority="high" width="1920" height="1080">
+          <img class="hero-slide" src="images/hero/hero3.webp" alt="" aria-hidden="true" width="1920" height="1080">
+          <img class="hero-slide" src="images/hero/hero4.webp" alt="" aria-hidden="true" width="1920" height="1080">
+          <img class="hero-slide" src="images/hero/hero6.webp" alt="" aria-hidden="true" width="1920" height="1080">
+          <img class="hero-slide" src="images/hero/hero7.webp" alt="" aria-hidden="true" width="1920" height="1080">
+          <img class="hero-slide" src="images/hero/hero8.webp" alt="" aria-hidden="true" width="1920" height="1080">
+        </div>
       </div>
       <div class="beam"></div>
       <div class="beam b2"></div>
 
       <div class="hero-inner reveal">
         <img src="images/logo.webp" alt="The British Invasion Years" class="hero-logo" loading="eager" fetchpriority="high" width="1500" height="1097">
-        <div class="ornament">
-          <span class="r"></span>
-          <span class="dot"></span>
-          <span class="eyebrow">Both Sides of the Atlantic</span>
-          <span class="dot"></span>
-          <span class="r r2"></span>
-        </div>
-        <h1 class="hero-line">The British bands that took over.<br>The Americans that <em>fired back.</em></h1>
-        <p class="hero-sub">It started with the British. The Beatles, the Stones, the Who, the Kinks. Then America answered. We play both sides of that fight... the songs that actually won the decade.</p>
-        <div class="hero-cta">
-          <a href="tour.html" class="btn btn-primary">TOUR DATES</a>
-          <a href="videos.html" class="textlink">Watch the Show &rarr;</a>
+        <div class="hero-copy">
+          <div class="ornament">
+            <span class="r"></span>
+            <span class="dot"></span>
+            <span class="eyebrow">Both Sides of the Atlantic</span>
+            <span class="dot"></span>
+            <span class="r r2"></span>
+          </div>
+          <h1 class="hero-line">The British bands that took over.<br>The Americans that <em>fired back.</em></h1>
+          <p class="hero-sub">It started with the British. The Beatles, the Stones, the Who, the Kinks. Then America answered. We play both sides of that fight... the songs that actually won the decade.</p>
+          <div class="hero-cta">
+            <a href="tour.html" class="btn btn-primary">TOUR DATES</a>
+            <a href="videos.html" class="textlink">Watch the Show &rarr;</a>
+          </div>
         </div>
       </div>
     </section>
