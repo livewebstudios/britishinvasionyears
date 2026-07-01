@@ -176,6 +176,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
   height: 50px; position: relative; top: 0; width: auto;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
 }
+/* wordmark = large screens only; guitar mark = mobile only (toggled below) */
+.nav-logo-mark { display: none; }
 .nav-links { display: flex; gap: 38px; align-items: center; }
 .nav-links > li { position: relative; }
 .nav-links a {
@@ -598,7 +600,8 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 @media (max-width: 900px) {
   .nav-links, .nav-social { display: none; }
   .hamburger { display: flex; }
-  .nav-logo { height: 38px; top: 0; }
+  .nav-logo-words { display: none; }
+  .nav-logo-mark { display: block; height: 74px; top: 2px; }
   .nav { height: 84px; }
 
   .block { padding: 72px 0; }
