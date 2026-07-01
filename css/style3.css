@@ -173,8 +173,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 .brand { display: flex; align-items: center; flex-shrink: 0; }
 .nav-logo {
-  height: 104px; position: relative; top: 8px; width: auto;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,.55)) drop-shadow(0 0 10px rgba(140,180,255,.4));
+  height: 50px; position: relative; top: 0; width: auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
 }
 .nav-links { display: flex; gap: 38px; align-items: center; }
 .nav-links > li { position: relative; }
@@ -262,8 +262,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
    HERO
    ============================================================ */
 .hero {
-  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  text-align: center; overflow: hidden; padding: 120px 24px 80px;
+  position: relative; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center;
+  text-align: center; overflow: hidden; padding: 104px 24px 80px;
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg img { width: 100%; height: 120%; object-fit: cover; object-position: center 60%; will-change: transform; }
@@ -314,12 +314,12 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
    and keeps the band members in the rotating photos mostly clear.
    Mobile keeps the centered stacked layout. */
 @media (min-width: 900px) {
-  .hero { align-items: flex-start; padding-top: 15vh; }
+  .hero { align-items: flex-start; padding-top: 13vh; }
   .hero-inner {
-    max-width: 1120px; display: flex; align-items: center; gap: 52px;
-    text-align: left; padding: 40px 52px;
+    max-width: 1120px; display: flex; align-items: flex-start; gap: 52px;
+    text-align: left; padding: 32px 52px;
   }
-  .hero-logo { flex: 0 0 40%; width: 40%; max-width: 430px; margin: 0; }
+  .hero-logo { flex: 0 0 36%; width: 36%; max-width: 372px; margin: 96px 0 0; }
   .hero-copy { flex: 1 1 auto; min-width: 0; }
   .ornament { justify-content: flex-start; margin-bottom: 20px; }
   .hero-sub { margin-left: 0; margin-right: 0; max-width: 540px; }
@@ -532,7 +532,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
    ============================================================ */
 footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80px 0 36px; margin-top: 0; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 56px; }
-.foot-logo { height: 88px; width: auto; filter: drop-shadow(0 0 10px rgba(140,180,255,.4)); margin-bottom: 20px; }
+.foot-logo { height: 130px; width: auto; filter: drop-shadow(0 0 10px rgba(140,180,255,.4)); margin-bottom: 20px; }
 .foot-brand p { color: var(--muted); font-size: 14px; font-weight: 300; max-width: 300px; line-height: 1.7; }
 .foot-social { display: flex; gap: 12px; margin-top: 22px; }
 .foot-social a {
@@ -598,7 +598,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 @media (max-width: 900px) {
   .nav-links, .nav-social { display: none; }
   .hamburger { display: flex; }
-  .nav-logo { height: 84px; top: 6px; }
+  .nav-logo { height: 38px; top: 0; }
   .nav { height: 84px; }
 
   .block { padding: 72px 0; }
@@ -1024,14 +1024,20 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   position: relative;
   width: min(90%, 470px);
   container-type: inline-size;     /* enables cqw text + bulb sizing */
-  /* soft dark halo so the cut-out edge melts into the background */
+  /* soft dark halo so the cut-out edge melts into the background —
+     kept light + no downward cast so it doesn't darken the hero text below */
   filter:
-    drop-shadow(0 0 28px rgba(5,8,28,.78))
-    drop-shadow(0 0 12px rgba(5,8,28,.6))
-    drop-shadow(0 10px 22px rgba(0,0,0,.5));
+    drop-shadow(0 0 16px rgba(5,8,28,.5))
+    drop-shadow(0 0 8px rgba(5,8,28,.45));
   animation: mqDrop .8s var(--ease) both;
 }
-.marquee-frame { display: block; width: 100%; height: auto; }
+/* Fade off the bottom border of the sign so it stops covering / darkening
+   the hero headline directly beneath it. */
+.marquee-frame {
+  display: block; width: 100%; height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 73%, transparent 95%);
+          mask-image: linear-gradient(to bottom, #000 73%, transparent 95%);
+}
 
 /* live tagline on the white board */
 .marquee-text {
