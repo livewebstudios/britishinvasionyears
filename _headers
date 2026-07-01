@@ -1,0 +1,24 @@
+# Netlify cache-control headers — addresses GTmetrix "efficient cache policy".
+# HTML is intentionally NOT listed here: Netlify serves it with revalidation so
+# deploys go live immediately.
+
+# Fonts never change — cache hard, mark immutable.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images — long cache (this is the ~1MB GTmetrix savings). If you REPLACE an
+# image, rename the file to bust the cache (LWS cache-busting convention).
+/images/*
+  Cache-Control: public, max-age=31536000
+
+# CSS / JS — short cache with revalidation so a redeploy is never stale.
+# (Rename the file, e.g. main.js -> main2.js, only if you need an instant bust.)
+/css/*
+  Cache-Control: public, max-age=86400, must-revalidate
+/js/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Decap-managed JSON must stay fresh so CMS edits appear right away
+# (the renderers also append ?v= as a belt-and-suspenders bust).
+/content/*
+  Cache-Control: public, max-age=0, must-revalidate
