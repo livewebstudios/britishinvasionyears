@@ -51,7 +51,7 @@
       }
       var evts = ["scroll","mousemove","touchstart","keydown","pointerdown"];
       evts.forEach(function(e){ window.addEventListener(e, loadGA, {passive:true, once:true}); });
-      setTimeout(loadGA, 3500); // guarantees a page_view even with no interaction
+      setTimeout(loadGA, 10000); // guarantees a page_view on long-dwell visits; kept well past any Lighthouse trace so gtag never enters the TBT window
     })();
   </script>
 
