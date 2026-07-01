@@ -352,21 +352,29 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 
   <!-- Netlify Identity: catches invite / password-recovery tokens that land on
-       the home page and forwards to the CMS login at /admin/ -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+       the home page and forwards to the CMS login at /admin/. The widget is a
+       heavy third-party script, so it is loaded ONLY when such a token is
+       actually present in the URL hash — normal visits never pay the cost. -->
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', function (user) {
-        if (!user) {
-          window.netlifyIdentity.on('login', function () {
-            document.location.href = 'admin/';
-          });
-        }
-      });
-    }
+    (function () {
+      if (!/\b(invite_token|recovery_token|email_change_token|confirmation_token)=/.test(window.location.hash)) return;
+      var s = document.createElement('script');
+      s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+      s.onload = function () {
+        if (!window.netlifyIdentity) return;
+        window.netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function () {
+              document.location.href = 'admin/';
+            });
+          }
+        });
+      };
+      document.body.appendChild(s);
+    })();
   </script>
 </body>
 </html>

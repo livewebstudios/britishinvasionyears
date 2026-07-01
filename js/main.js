@@ -114,6 +114,8 @@
           return;
         }
 
+        var frag = document.createDocumentFragment();
+        var cards = [];
         items.forEach(function (o) {
           var s = o.s, d = o.d, tba = s.status === 'tba';
           var when = DOW[d.getDay()] + ', ' + MON[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
@@ -135,9 +137,11 @@
                 ? '<a class="btn btn-outline" href="post.html?slug=' + esc(s.whatToDoSlug) + '">WHAT TO DO IN TOWN</a>'
                 : '') +
             '</div>';
-          tourList.appendChild(card);
-          window.LWS.observe(card);
+          frag.appendChild(card);
+          cards.push(card);
         });
+        tourList.appendChild(frag);              // single reflow instead of one per card
+        cards.forEach(window.LWS.observe);       // observe after insertion (reveal-on-scroll)
       })
       .catch(function () { /* leave existing markup if the feed fails */ });
   }
