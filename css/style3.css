@@ -1024,20 +1024,14 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   position: relative;
   width: min(90%, 470px);
   container-type: inline-size;     /* enables cqw text + bulb sizing */
-  /* soft dark halo so the cut-out edge melts into the background —
-     kept light + no downward cast so it doesn't darken the hero text below */
+  /* soft dark halo so the cut-out edge melts into the background — biased
+     UPWARD (negative Y) so no shadow casts down over the hero text below */
   filter:
-    drop-shadow(0 0 16px rgba(5,8,28,.5))
-    drop-shadow(0 0 8px rgba(5,8,28,.45));
+    drop-shadow(0 -4px 16px rgba(5,8,28,.72))
+    drop-shadow(0 -2px 8px rgba(5,8,28,.55));
   animation: mqDrop .8s var(--ease) both;
 }
-/* Fade off the bottom border of the sign so it stops covering / darkening
-   the hero headline directly beneath it. */
-.marquee-frame {
-  display: block; width: 100%; height: auto;
-  -webkit-mask-image: linear-gradient(to bottom, #000 73%, transparent 95%);
-          mask-image: linear-gradient(to bottom, #000 73%, transparent 95%);
-}
+.marquee-frame { display: block; width: 100%; height: auto; }
 
 /* live tagline on the white board */
 .marquee-text {
