@@ -19,12 +19,27 @@
 
   <!-- GA4 -->
   <!-- Google tag (gtag.js) — GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EFCNHJG812"></script>
   <script>
+    // GA4 — library load deferred to first interaction (3.5s timeout fallback)
+    // so gtag.js execution stays off the critical path / out of the TBT window.
+    // The dataLayer queue is set up now; page_view fires once the library loads.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
     gtag("config", "G-EFCNHJG812");
+    (function(){
+      var loaded = false;
+      function loadGA(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-EFCNHJG812";
+        document.head.appendChild(s);
+      }
+      var evts = ["scroll","mousemove","touchstart","keydown","pointerdown"];
+      evts.forEach(function(e){ window.addEventListener(e, loadGA, {passive:true, once:true}); });
+      setTimeout(loadGA, 3500); // guarantees a page_view even with no interaction
+    })();
   </script>
 
   <!-- Fonts -->
