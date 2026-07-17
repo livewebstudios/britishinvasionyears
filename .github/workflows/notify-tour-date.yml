@@ -1,16 +1,22 @@
 name: Notify on new tour date
 
 # Fires whenever content/tour.json changes on main — i.e. the band added or
-# edited a show in Decap (/admin/). Emails Jon so he can run the
-# "What to Do in [City]" blog prompt for the new date.
+# edited a show in Decap (/admin/). Opens a GitHub issue so Jon gets pinged
+# (via his normal repo notifications) to run the "What to Do in [City]" blog
+# prompt for the new date. Uses the built-in GITHUB_TOKEN — no SMTP secrets,
+# nothing to authenticate, so it can't fail on credentials.
 on:
   push:
     branches: [main]
     paths:
       - "content/tour.json"
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
-  email-admin:
+  notify-admin:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo (need parent commit for the diff)
@@ -27,29 +33,33 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Email Jon
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: BIY Site <${{ secrets.MAIL_USERNAME }}>
-          to: jonwolf@livewebstudios.com
-          subject: "🎸 New/updated tour date on The British Invasion Years"
-          body: |
-            The band just changed the Tour Dates in Decap.
+      - name: Open a reminder issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          COMMIT_BY: ${{ github.event.head_commit.author.name }}
+          COMMIT_WHEN: ${{ github.event.head_commit.timestamp }}
+          COMMIT_URL: ${{ github.event.head_commit.url }}
+          DIFF: ${{ steps.diff.outputs.diff }}
+        run: |
+          BODY="$(cat <<EOF
+          The band just changed the Tour Dates in Decap.
 
-            Commit:  ${{ github.event.head_commit.message }}
-            By:      ${{ github.event.head_commit.author.name }}
-            When:    ${{ github.event.head_commit.timestamp }}
-            Commit:  ${{ github.event.head_commit.url }}
+          Commit:  $COMMIT_MSG
+          By:      $COMMIT_BY
+          When:    $COMMIT_WHEN
+          Commit:  $COMMIT_URL
 
-            ----- change to content/tour.json -----
-            ${{ steps.diff.outputs.diff }}
-            ---------------------------------------
+          ----- change to content/tour.json -----
+          $DIFF
+          ---------------------------------------
 
-            If this is a NEW show on sale, open Claude Code in build/ and run:
-              "Create a 'What to Do in [City]' blog post for the new tour date
-               and wire it to that tour card's whatToDoSlug."
+          If this is a NEW show on sale, open Claude Code in build/ and run:
+            "Create a 'What to Do in [City]' blog post for the new tour date
+             and wire it to that tour card's whatToDoSlug."
+          EOF
+          )"
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "🎸 New/updated tour date on The British Invasion Years" \
+            --body "$BODY"
