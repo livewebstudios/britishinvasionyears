@@ -1,16 +1,6 @@
 {
   "shows": [
     {
-      "date": "2026-07-10",
-      "time": "8:00 PM",
-      "venue": "Cape May Convention Hall",
-      "city": "714 Beach Ave, Cape May, NJ 08204",
-      "status": "onsale",
-      "ticketUrl": "https://www.bandsintown.com/e/107893002",
-      "badge": "",
-      "whatToDoSlug": "what-to-do-in-cape-may-nj"
-    },
-    {
       "date": "2026-07-26",
       "time": "7:00 PM",
       "venue": "The Lamp Theatre",
@@ -50,6 +40,15 @@
       "badge": ""
     },
     {
+      "date": "2027-07-09",
+      "time": "8:00 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "Cape May, NJ",
+      "status": "tba",
+      "ticketUrl": "",
+      "badge": ""
+    },
+    {
       "date": "2027-10-23",
       "time": "7:30 PM",
       "venue": "Concert Announcement Coming Soon",
@@ -57,13 +56,6 @@
       "status": "tba",
       "ticketUrl": "",
       "badge": ""
-    },
-    {
-      "status": "onsale",
-      "date": "2026-05-20",
-      "time": "7:12pm",
-      "venue": "ewf ew f",
-      "city": "123h appy street"
     },
     {
       "status": "tba",
