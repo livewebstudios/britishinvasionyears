@@ -172,40 +172,48 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
   height: 72px; gap: 24px; overflow: visible;
 }
 .brand { display: flex; align-items: center; flex-shrink: 0; }
+/* Small guitar mark in the upper-left — the resting state on every page/breakpoint.
+   On the home hero it scales up and hangs down (see the hero-drop block below). */
 .nav-logo {
-  height: 50px; position: relative; top: 0; width: auto;
+  height: 54px; width: auto;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
 }
-/* wordmark = large screens only; guitar mark = mobile only (toggled below) */
-.nav-logo-mark { display: none; }
 
-/* ---------- Home hero: oversized guitar hangs from the header on load ----------
-   At the very top of the home page the compact wordmark is swapped for the full
-   guitar logo, scaled way up so it spills out of the header and down into the
-   hero. Once the page is scrolled past 40px, #hdr gains .scrolled and it snaps
-   back to the normal wordmark. Desktop nav only (>900px); the wordmark stays in
-   the layout via visibility:hidden so the nav links never shift between states. */
+/* ---------- Home hero: the guitar mark drops down oversized on load ----------
+   At the top of the home page the guitar scales up and hangs into the hero.
+   Past 40px of scroll #hdr gains .scrolled and it snaps back to the compact
+   upper-left mark. Desktop nav only (>900px). The brand keeps a reserved width
+   in BOTH states so the nav links never shift, and the reserved width tracks the
+   guitar so its right edge always clears the first nav link (HOME). */
 @media (min-width: 901px) {
-  body:has(.hero) .brand { position: relative; }
   body:has(.hero) .nav-links { position: relative; z-index: 3; }
+  body:has(.hero) .brand { position: relative; width: clamp(200px, 19.5vw, 310px); }
 
-  body:has(.hero) #hdr:not(.scrolled) .nav-logo-words { visibility: hidden; }
-
-  body:has(.hero) #hdr:not(.scrolled) .nav-logo-mark {
-    display: block;
+  /* The mark is absolute in BOTH states so it can GLIDE between the oversized
+     hero drop and the compact scrolled mark — width/top/left/filter all animate.
+     (A switch to position:static or width:auto would kill the transition, which
+     is why the resting small state is expressed here in absolute terms too.)
+     Resting/scrolled state: the small upper-left mark. */
+  body:has(.hero) .nav-logo {
     position: absolute;
-    top: -4px; left: -28px;
+    top: 9px; left: 0;
     z-index: 2;
-    width: clamp(300px, 30vw, 450px);
-    height: auto; max-width: none;
+    height: auto; width: 74px;
+    max-width: none;
     pointer-events: none;
-    filter: drop-shadow(0 14px 34px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(140,180,255,.32));
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
+    transition: width .5s var(--ease), top .5s var(--ease), left .5s var(--ease), filter .5s var(--ease);
     animation: heroMarkDrop .8s var(--ease) both;
   }
 
-  /* sit the copy right under the hanging guitar — a hair of clearance, no more.
-     Tracks viewport width so the gap stays tight as the guitar (30vw) scales. */
-  body:has(.hero) .hero { padding-top: clamp(165px, calc(22vw - 52px), 262px); }
+  /* Top of the home page: scaled up, hanging into the hero. */
+  body:has(.hero) #hdr:not(.scrolled) .nav-logo {
+    top: -6px; left: -16px;
+    width: clamp(185px, 18vw, 288px);
+    filter: drop-shadow(0 14px 34px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(140,180,255,.32));
+  }
+
+  body:has(.hero) .hero { padding-top: clamp(140px, 15vw, 225px); }
 }
 @keyframes heroMarkDrop {
   from { opacity: 0; transform: translateY(-18px) scale(.95); }
@@ -217,7 +225,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
   font-family: var(--serif); font-weight: 600; font-size: 13px;
   text-transform: uppercase; letter-spacing: .15em; color: var(--cream);
   position: relative; padding: 6px 0; transition: color .3s var(--ease);
-  text-shadow: 0 1px 6px rgba(7,12,40,.55);
+  text-shadow: 0 1px 6px rgba(7,12,40,.55); white-space: nowrap;
 }
 #hdr.scrolled .nav-links a { text-shadow: none; }
 .nav-links a::after {
@@ -633,8 +641,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 @media (max-width: 900px) {
   .nav-links, .nav-social { display: none; }
   .hamburger { display: flex; }
-  .nav-logo-words { display: none; }
-  .nav-logo-mark { display: block; height: 74px; top: 2px; }
+  .nav-logo { height: 58px; }
   .nav { height: 84px; }
 
   .block { padding: 72px 0; }
