@@ -182,12 +182,12 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 /* ---------- Home hero: the guitar mark drops down oversized on load ----------
    At the top of the home page the guitar scales up and hangs into the hero.
    Past 40px of scroll #hdr gains .scrolled and it snaps back to the compact
-   upper-left mark. Desktop nav only (>900px). The brand keeps a reserved width
-   in BOTH states so the nav links never shift, and the reserved width tracks the
-   guitar so its right edge always clears the first nav link (HOME). */
+   upper-left mark. Desktop nav only (>900px). The big guitar owns the left of the
+   header, so the whole nav group is pushed to the right (margin-left:auto) to keep
+   it well clear of the artwork. */
 @media (min-width: 901px) {
-  body:has(.hero) .nav-links { position: relative; z-index: 3; }
-  body:has(.hero) .brand { position: relative; width: clamp(200px, 19.5vw, 310px); }
+  body:has(.hero) .brand { position: relative; }
+  body:has(.hero) .nav-links { position: relative; z-index: 3; margin-left: auto; }
 
   /* The mark is absolute in BOTH states so it can GLIDE between the oversized
      hero drop and the compact scrolled mark — width/top/left/filter all animate.
