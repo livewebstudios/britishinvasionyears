@@ -274,4 +274,79 @@
     box.appendChild(frag);
   })();
 
+  /* ---------- Cursor follow-spot + glass lens ----------
+     Builds its own DOM so every page picks it up from main.js alone.
+     The beam tracks fast, the lens trails a touch behind, which is
+     what gives it weight. Fine pointers only, and it bows out entirely
+     when the visitor has asked for reduced motion. */
+  (function initCursorSpot() {
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!fine.matches || calm.matches) return;
+
+    var rig = document.createElement('div');
+    rig.className = 'cursor-fx is-out';
+    rig.setAttribute('aria-hidden', 'true');
+    rig.innerHTML =
+      '<div class="cursor-fx__beam"></div>' +
+      '<div class="cursor-fx__lens"></div>';
+    document.body.appendChild(rig);
+
+    var beam = rig.querySelector('.cursor-fx__beam');
+    var lens = rig.querySelector('.cursor-fx__lens');
+
+    var tx = window.innerWidth / 2, ty = window.innerHeight / 2;  // target
+    var bx = tx, by = ty;                                          // beam pos
+    var lx = tx, ly = ty;                                          // lens pos
+    var scale = 1, tScale = 1;                                     // lens swell on links
+    var running = false, primed = false;
+
+    function place() {
+      beam.style.transform = 'translate3d(' + bx + 'px,' + by + 'px,0)';
+      lens.style.transform = 'translate3d(' + lx + 'px,' + ly + 'px,0) scale(' + scale.toFixed(3) + ')';
+    }
+
+    function frame() {
+      bx += (tx - bx) * 0.20;
+      by += (ty - by) * 0.20;
+      lx += (tx - lx) * 0.13;
+      ly += (ty - ly) * 0.13;
+      scale += (tScale - scale) * 0.12;
+      place();
+
+      // settle: stop the loop once everything has caught up
+      if (Math.abs(tx - lx) < 0.4 && Math.abs(ty - ly) < 0.4 && Math.abs(tScale - scale) < 0.002) {
+        running = false;
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function kick() {
+      if (running) return;
+      running = true;
+      requestAnimationFrame(frame);
+    }
+
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      tx = e.clientX;
+      ty = e.clientY;
+      if (!primed) {          // first move: drop it straight onto the cursor
+        primed = true;
+        bx = lx = tx; by = ly = ty;
+        place();              // seat it before it is made visible, so it never flashes at 0,0
+        rig.classList.remove('is-out');
+      }
+      tScale = e.target && e.target.closest && e.target.closest('a, button, .btn, input, textarea, select') ? 0.86 : 1;
+      kick();
+    }, { passive: true });
+
+    document.addEventListener('pointerdown', function () { tScale = 0.94; kick(); }, { passive: true });
+    document.addEventListener('pointerup',   function () { tScale = 1;    kick(); }, { passive: true });
+
+    document.addEventListener('mouseleave', function () { rig.classList.add('is-out'); });
+    document.addEventListener('mouseenter', function () { if (primed) rig.classList.remove('is-out'); });
+  })();
+
 })();

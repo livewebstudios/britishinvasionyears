@@ -1168,3 +1168,78 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 @media (prefers-reduced-motion: reduce) {
   .flb { animation: none; }
 }
+
+/* ============================================================
+   CURSOR FOLLOW-SPOT + GLASS LENS
+   A white theatre follow-spot tracks the pointer. There is no
+   visible edge anywhere: the light ramps down over a long tail
+   so it reads as a spot thrown on the wall, not a disc.
+   A very soft lens rides behind it and bends the backdrop just
+   enough to catch the eye, again with no hard rim, so text
+   underneath stays fully readable.
+   Injected by main.js. Fine-pointer devices only.
+   ============================================================ */
+.cursor-fx {
+  position: fixed; inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  contain: strict;
+}
+
+/* --- the beam: white house light, long gaussian tail ---
+   Many closely-spaced stops on purpose. A short stop list is what
+   produces the visible ring; this ramps all the way to nothing. */
+.cursor-fx__beam {
+  position: absolute; top: 0; left: 0;
+  width: 600px; height: 600px; margin: -300px 0 0 -300px;
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side,
+    rgba(255, 253, 247, .150) 0%,
+    rgba(255, 253, 247, .140) 8%,
+    rgba(255, 252, 245, .118) 16%,
+    rgba(255, 252, 245, .094) 24%,
+    rgba(255, 251, 243, .072) 32%,
+    rgba(255, 251, 243, .053) 40%,
+    rgba(255, 250, 242, .038) 48%,
+    rgba(255, 250, 242, .026) 56%,
+    rgba(255, 250, 242, .017) 64%,
+    rgba(255, 250, 242, .010) 72%,
+    rgba(255, 250, 242, .005) 80%,
+    rgba(255, 250, 242, .002) 89%,
+    rgba(255, 250, 242, 0) 100%);
+  mix-blend-mode: screen;
+  filter: blur(9px);           /* dissolves any residual banding in the ramp */
+  will-change: transform;
+  transition: opacity .55s var(--ease);
+}
+
+/* --- the lens: soft refraction, no rim ---
+   The mask never reaches full black, so the blur is only ever
+   partially applied and fades out in every direction. */
+.cursor-fx__lens {
+  position: absolute; top: 0; left: 0;
+  width: 300px; height: 300px; margin: -150px 0 0 -150px;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(3px) saturate(1.22) brightness(1.04);
+          backdrop-filter: blur(3px) saturate(1.22) brightness(1.04);
+  -webkit-mask: radial-gradient(circle closest-side,
+    rgba(0,0,0,0) 0%, rgba(0,0,0,.06) 22%, rgba(0,0,0,.20) 38%,
+    rgba(0,0,0,.38) 52%, rgba(0,0,0,.44) 63%, rgba(0,0,0,.34) 74%,
+    rgba(0,0,0,.18) 84%, rgba(0,0,0,.06) 92%, rgba(0,0,0,0) 100%);
+          mask: radial-gradient(circle closest-side,
+    rgba(0,0,0,0) 0%, rgba(0,0,0,.06) 22%, rgba(0,0,0,.20) 38%,
+    rgba(0,0,0,.38) 52%, rgba(0,0,0,.44) 63%, rgba(0,0,0,.34) 74%,
+    rgba(0,0,0,.18) 84%, rgba(0,0,0,.06) 92%, rgba(0,0,0,0) 100%);
+  will-change: transform;
+  transition: opacity .55s var(--ease);
+}
+
+/* off-canvas / idle: fade the whole rig out */
+.cursor-fx.is-out .cursor-fx__beam,
+.cursor-fx.is-out .cursor-fx__lens { opacity: 0; }
+
+/* Never on touch, never when motion is reduced, never in print. */
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-fx { display: none; }
+}
+@media print { .cursor-fx { display: none; } }
