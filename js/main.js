@@ -128,10 +128,13 @@
             '<div class="show-time">' + esc(s.time) + '</div>' +
             (s.badge ? '<div class="show-badge">' + esc(s.badge) + '</div>' : '') +
             '<div class="show-cta">' +
-              '<a class="btn ' + (tba ? 'btn-outline btn-rsvp' : 'btn-primary') + '" href="' +
-                (tba ? '#news' : esc(s.ticketUrl)) + '"' +
-                (tba ? '' : ' target="_blank" rel="noopener"') + '>' +
-                (tba ? 'RSVP' : 'GET TICKETS') + '</a>' +
+              // Ticket / RSVP button only when the show has a REAL link. A
+              // "coming soon" date with no ticketUrl gets no dead RSVP button.
+              (s.ticketUrl && String(s.ticketUrl).trim() !== ''
+                ? '<a class="btn ' + (tba ? 'btn-outline btn-rsvp' : 'btn-primary') + '" href="' +
+                    esc(s.ticketUrl) + '" target="_blank" rel="noopener">' +
+                    (tba ? 'RSVP' : 'GET TICKETS') + '</a>'
+                : '') +
               // "What to do in town" guide — on EVERY show that has a matching
               // blog post, announced or not. The guide is about the town, so it
               // reads fine long before the venue is confirmed.
