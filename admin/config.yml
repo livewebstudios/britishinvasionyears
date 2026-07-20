@@ -47,6 +47,7 @@ collections:
                   - { label: "Coming soon (RSVP button)", value: "tba" }
               - { label: "Ticket URL", name: "ticketUrl", widget: "string", required: false, hint: "Bandsintown / box-office link. Leave blank for Coming soon shows." }
               - { label: "Badge", name: "badge", widget: "string", required: false, hint: "Optional flag, e.g. 'Limited seats just released'." }
+              - { label: "What-To-Do Post Slug", name: "whatToDoSlug", widget: "string", required: false, hint: "Slug of the matching 'What to Do in...' blog post, e.g. what-to-do-in-windber-pa. Adds a WHAT TO DO IN TOWN button to the show card once the show is On sale." }
 
   # ---------------------------------------------------------------- BLOG POSTS
   - name: "blog"
