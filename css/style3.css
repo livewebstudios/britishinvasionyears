@@ -175,30 +175,30 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 /* Small guitar mark in the upper-left — the resting state on every page/breakpoint.
    On the home hero it scales up and hangs down (see the hero-drop block below). */
 .nav-logo {
-  height: 54px; width: auto;
+  height: 66px; width: auto;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
 }
 
-/* ---------- Home hero: the guitar mark drops down oversized on load ----------
-   At the top of the home page the guitar scales up and hangs into the hero.
-   Past 40px of scroll #hdr gains .scrolled and it snaps back to the compact
-   upper-left mark. Desktop nav only (>900px). The big guitar owns the left of the
-   header, so the whole nav group is pushed to the right (margin-left:auto) to keep
-   it well clear of the artwork. */
+/* ---------- The guitar mark drops down oversized on load (EVERY page) ----------
+   At the top of any page the guitar scales up and hangs into the hero/banner
+   below. Past 40px of scroll #hdr gains .scrolled and it glides back to the
+   compact upper-left mark. Desktop nav only (>900px). The big guitar owns the
+   left of the header, so the whole nav group is pushed to the right
+   (margin-left:auto) to keep it well clear of the artwork. */
 @media (min-width: 901px) {
-  body:has(.hero) .brand { position: relative; }
-  body:has(.hero) .nav-links { position: relative; z-index: 3; margin-left: auto; }
+  .brand { position: relative; }
+  .nav-links { position: relative; z-index: 3; margin-left: auto; }
 
   /* The mark is absolute in BOTH states so it can GLIDE between the oversized
-     hero drop and the compact scrolled mark — width/top/left/filter all animate.
+     drop and the compact scrolled mark — width/top/left/filter all animate.
      (A switch to position:static or width:auto would kill the transition, which
      is why the resting small state is expressed here in absolute terms too.)
      Resting/scrolled state: the small upper-left mark. */
-  body:has(.hero) .nav-logo {
+  .nav-logo {
     position: absolute;
     top: 9px; left: 0;
     z-index: 2;
-    height: auto; width: 74px;
+    height: auto; width: 92px;
     max-width: none;
     pointer-events: none;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
@@ -206,8 +206,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
     animation: heroMarkDrop .8s var(--ease) both;
   }
 
-  /* Top of the home page: scaled up, hanging into the hero. */
-  body:has(.hero) #hdr:not(.scrolled) .nav-logo {
+  /* Top of the page: scaled up, hanging into the hero / page banner. */
+  #hdr:not(.scrolled) .nav-logo {
     top: -6px; left: -16px;
     width: clamp(185px, 18vw, 288px);
     filter: drop-shadow(0 14px 34px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(140,180,255,.32));
@@ -370,9 +370,11 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 
 /* ---------- Page banner (interior pages) ---------- */
+/* padding-top clears the fixed nav AND the marquee sign hanging below it, so the
+   red eyebrow line always starts below the sign instead of behind it. */
 .page-banner {
-  position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center;
-  text-align: center; overflow: hidden; padding: 140px 24px 70px;
+  position: relative; min-height: 460px; display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden; padding: 208px 24px 70px;
 }
 .page-banner .hero-bg img { height: 100%; object-position: center 38%; }
 .page-banner .banner-inner { position: relative; z-index: 3; max-width: 760px; }
@@ -419,8 +421,43 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .show-badge { font-size: 13px; color: var(--accent); margin-top: 8px; font-weight: 400; }
 .show-cta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
 .show-cta .btn { padding: 12px 22px; font-size: 10.5px; }
-.show.tba { opacity: .7; }
-.show.tba .btn { pointer-events: none; }
+
+/* Frosted glass on the ghost buttons (RSVP / WHAT TO DO IN TOWN). The stage
+   lights behind the card still come through, but diffused through the panel
+   instead of read straight, so the label stays legible over a hot beam. */
+.show-cta .btn-outline {
+  /* thinner tint than a solid fill, and a top-lit gradient so the pane itself
+     catches light — that sheen is what sells it as glass rather than a panel */
+  background:
+    linear-gradient(160deg, rgba(226,236,255,.16), rgba(226,236,255,.04) 42%, rgba(8,16,52,.20));
+  /* brightness pushes the beams through instead of muddying them */
+  backdrop-filter: blur(9px) saturate(190%) brightness(1.22);
+  -webkit-backdrop-filter: blur(9px) saturate(190%) brightness(1.22);
+  border-color: rgba(208, 224, 255, .38);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.34),      /* specular top edge */
+    inset 0 -1px 0 rgba(0,0,0,.32),           /* shaded bottom edge */
+    inset 0 0 22px rgba(150,185,255,.10),     /* light caught inside the pane */
+    0 6px 18px -10px rgba(0,0,0,.75);
+  text-shadow: 0 1px 3px rgba(4,10,34,.85);   /* keeps the label legible over a hot beam */
+}
+.show-cta .btn-outline:hover {
+  background:
+    linear-gradient(160deg, rgba(255,225,220,.22), rgba(226,236,255,.06) 42%, rgba(8,16,52,.22));
+  border-color: var(--accent);
+}
+
+/* TBA cards read dimmer, but the dimming is applied per-element rather than as
+   an opacity group on .show — an opacity group becomes a backdrop root, which
+   would leave the frosted RSVP button above with nothing to blur. */
+.show.tba .show-date,
+.show.tba .show-venue,
+.show.tba .show-addr,
+.show.tba .show-time,
+.show.tba .show-badge { opacity: .72; }
+/* Only the placeholder RSVP button is inert on a TBA card. The WHAT TO DO IN
+   TOWN button next to it is a real link and must stay clickable. */
+.show.tba .btn-rsvp { pointer-events: none; }
 .tour-foot { text-align: center; margin-top: 48px; }
 .tour-booking-note { color: var(--ink); font-weight: 300; margin-bottom: 18px; }
 .tour-booking-note strong { color: var(--cream); }
@@ -641,8 +678,13 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 @media (max-width: 900px) {
   .nav-links, .nav-social { display: none; }
   .hamburger { display: flex; }
-  .nav-logo { height: 58px; }
+  .nav-logo { height: 68px; }
   .nav { height: 84px; }
+
+  /* the marquee sign is narrower (and shorter) on mobile, so the interior-page
+     banners don't need the full desktop clearance */
+  .page-banner { padding-top: 176px; min-height: 420px; }
+  .block.pad-top-offset { padding-top: 176px; }
 
   .block { padding: 72px 0; }
   .tour-grid { grid-template-columns: 1fr; }
@@ -767,6 +809,9 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 .post-card.feature .post-body { justify-content: center; padding: 40px 40px; }
 .post-cat { font-family: var(--sans); font-weight: 700; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .post-meta { font-size: 12px; color: var(--muted); margin-bottom: 12px; letter-spacing: .04em; }
+/* the show date on a "what to do in town" post — brighter than a publish date,
+   so it reads as the event it is */
+.post-meta-event { color: var(--ink); font-weight: 500; }
 .post-card h3 { font-size: 21px; line-height: 1.25; margin-bottom: 12px; }
 .post-card.feature h3 { font-size: clamp(26px, 3vw, 36px); }
 .post-card h3 a { color: var(--cream); transition: color .25s; }
@@ -999,7 +1044,10 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 
 /* Utilities replacing former inline styles (no-inline-styles rule) */
 #blogFeature { margin-bottom: 26px; }
-.block.pad-top-offset { padding-top: 150px; }
+/* clears the fixed nav, the marquee sign, AND the oversized guitar mark that
+   hangs down on load (its box reaches ~221px, and the post column is wide
+   enough to reach back under it) */
+.block.pad-top-offset { padding-top: 228px; }
 
 /* ============================================================
    STAGE FLOOR SPOTLIGHTS — 3 light beams rise from the bottom
@@ -1026,6 +1074,12 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
           mask: linear-gradient(to top, #000 0%, #000 28%, transparent 96%);
 }
 .show:hover::after, .post-card:hover::after { opacity: 1; }
+
+/* Tour cards keep a low-burning version of the beams at rest. Without this the
+   frosted buttons sit over flat navy, and blurring a flat colour looks exactly
+   like the flat colour — there has to be light down there for glass to read.
+   Blog cards stay hover-only. */
+.show::after { opacity: .4; }
 
 /* Keep card text bright + legible against the spotlight beams on hover */
 .show:hover .show-venue,
