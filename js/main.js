@@ -128,12 +128,14 @@
             '<div class="show-time">' + esc(s.time) + '</div>' +
             (s.badge ? '<div class="show-badge">' + esc(s.badge) + '</div>' : '') +
             '<div class="show-cta">' +
-              '<a class="btn ' + (tba ? 'btn-outline' : 'btn-primary') + '" href="' +
+              '<a class="btn ' + (tba ? 'btn-outline btn-rsvp' : 'btn-primary') + '" href="' +
                 (tba ? '#news' : esc(s.ticketUrl)) + '"' +
                 (tba ? '' : ' target="_blank" rel="noopener"') + '>' +
                 (tba ? 'RSVP' : 'GET TICKETS') + '</a>' +
-              // "What to do in town" guide — only on real shows with a matching blog post
-              (!tba && s.whatToDoSlug
+              // "What to do in town" guide — on EVERY show that has a matching
+              // blog post, announced or not. The guide is about the town, so it
+              // reads fine long before the venue is confirmed.
+              (s.whatToDoSlug
                 ? '<a class="btn btn-outline" href="post.html?slug=' + esc(s.whatToDoSlug) + '">WHAT TO DO IN TOWN</a>'
                 : '') +
             '</div>';

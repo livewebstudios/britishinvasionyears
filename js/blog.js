@@ -13,7 +13,8 @@
     'band-news': 'Band News',
     'show-announcement': 'Show Announcement',
     'venue-spotlight': 'Venue Spotlight',
-    'press': 'Press'
+    'press': 'Press',
+    'what-to-do-in-town': 'What to Do in Town'
   };
 
   /* ---------- tiny markdown ---------- */
@@ -48,10 +49,38 @@
 
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
+  var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   function fmtDate(iso) {
     var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
     if (!m) return iso || '';
     return MONTHS[parseInt(m[2], 10) - 1] + ' ' + parseInt(m[3], 10) + ', ' + m[1];
+  }
+  // Same, with the weekday on the front, so an event date reads like a show
+  // date and not like a publish date. Built from local parts on purpose —
+  // new Date('2027-04-08') parses as UTC and lands on the wrong weekday west
+  // of Greenwich.
+  function fmtEventDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    if (!m) return '';
+    var d = new Date(parseInt(m[1], 10), parseInt(m[2], 10) - 1, parseInt(m[3], 10));
+    return DAYS[d.getDay()] + ', ' + fmtDate(iso);
+  }
+
+  /* ---------- show lookup ----------
+     Filled from content/tour.json at bootstrap. "What to do in town" posts are
+     written about a specific show, so their meta line carries the SHOW date
+     rather than the day the post was entered. post.date stays the publish date
+     in the data (ordering, CMS); it just isn't what the reader sees on those. */
+  var SHOW_BY_SLUG = {};
+  function metaHtml(p) {
+    if (p.category === 'what-to-do-in-town') {
+      var show = SHOW_BY_SLUG[p.slug];
+      // no matching show (or the tour feed didn't load) — show no date at all
+      // rather than a date that misleads
+      if (!show || !fmtEventDate(show.date)) return '';
+      return '<div class="post-meta post-meta-event">Show: ' + fmtEventDate(show.date) + '</div>';
+    }
+    return '<div class="post-meta">' + fmtDate(p.date) + '</div>';
   }
 
   function cardHtml(p, feature) {
@@ -60,7 +89,7 @@
       '<a class="post-thumb" href="' + href + '"><img src="' + p.image + '" alt="' + esc(p.title) + '" loading="lazy"></a>' +
       '<div class="post-body">' +
         '<span class="post-cat">' + esc(p.categoryLabel) + '</span>' +
-        '<div class="post-meta">' + fmtDate(p.date) + '</div>' +
+        metaHtml(p) +
         '<h3><a href="' + href + '">' + esc(p.title) + '</a></h3>' +
         '<p class="post-excerpt">' + esc(p.excerpt) + '</p>' +
         '<a class="textlink" href="' + href + '">Read More &rarr;</a>' +
@@ -168,7 +197,7 @@
     article.innerHTML =
       '<span class="post-cat">' + esc(post.categoryLabel) + '</span>' +
       '<h1>' + esc(post.title) + '</h1>' +
-      '<div class="post-meta">' + fmtDate(post.date) + '</div>' +
+      metaHtml(post) +
       '<img class="post-hero" src="' + post.image + '" alt="' + esc(post.title) + '">' +
       '<div class="post-content">' +
         (post.category === 'what-to-do-in-town' ? bodyToHtmlCarded(post.body) : bodyToHtml(post.body)) +
@@ -176,28 +205,41 @@
       tagsHtml +
       '<div class="post-back"><a class="textlink" href="blog.html">&larr; Back to the Blog</a></div>';
 
-    // Buy tickets straight from the post — ticket link pulled live from the matching tour date
-    fetch('content/tour.json?v=' + Date.now())
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var show = (data.shows || []).filter(function (s) {
-          return s.whatToDoSlug === post.slug && s.status !== 'tba' && s.ticketUrl;
-        })[0];
-        if (!show) return;
-        var cta = document.createElement('div');
-        cta.className = 'post-ticket-cta';
-        cta.innerHTML = '<a class="btn btn-primary" href="' + esc(show.ticketUrl) +
-          '" target="_blank" rel="noopener">GET TICKETS</a>';
-        article.insertBefore(cta, article.querySelector('.post-back'));
-      })
-      .catch(function () { /* no button if the tour feed is unavailable */ });
+    // Buy tickets straight from the post — same matching show, already loaded.
+    // Only real on-sale shows get a button; TBA dates have nothing to link to.
+    var show = SHOW_BY_SLUG[post.slug];
+    if (show && show.status !== 'tba' && show.ticketUrl) {
+      var cta = document.createElement('div');
+      cta.className = 'post-ticket-cta';
+      cta.innerHTML = '<a class="btn btn-primary" href="' + esc(show.ticketUrl) +
+        '" target="_blank" rel="noopener">GET TICKETS</a>';
+      article.insertBefore(cta, article.querySelector('.post-back'));
+    }
   }
   }
 
-  /* ---------- load data: Decap JSON first, baked global as file:// fallback ---------- */
-  fetch('content/blog.json?v=' + Date.now())
-    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-    .then(function (data) { init((data && data.posts) || window.BIY_POSTS || []); })
-    .catch(function () { init(window.BIY_POSTS || []); });
+  /* ---------- load data: Decap JSON first, baked global as file:// fallback ----------
+     tour.json rides along so "what to do in town" posts can show their show's
+     date. It's optional: if it fails, those posts simply render without a date
+     line and everything else is unaffected. */
+  function loadShows() {
+    return fetch('content/tour.json?v=' + Date.now())
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (data) {
+        (data && data.shows || []).forEach(function (s) {
+          if (s.whatToDoSlug) SHOW_BY_SLUG[s.whatToDoSlug] = s;
+        });
+      })
+      .catch(function () { /* no show dates — posts render without a date line */ });
+  }
+
+  function loadPosts() {
+    return fetch('content/blog.json?v=' + Date.now())
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (data) { return (data && data.posts) || window.BIY_POSTS || []; })
+      .catch(function () { return window.BIY_POSTS || []; });
+  }
+
+  Promise.all([loadPosts(), loadShows()]).then(function (r) { init(r[0]); });
 
 })();
