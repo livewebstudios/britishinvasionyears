@@ -103,7 +103,8 @@
     });
 
     // Categories hidden from the blog index (kept in data, just not shown).
-    var HIDDEN_CATEGORIES = { 'show-announcement': true };
+    // Nothing hidden — every post in the feed shows in the index.
+    var HIDDEN_CATEGORIES = {};
     var VISIBLE = POSTS.filter(function (p) { return !HIDDEN_CATEGORIES[p.category]; });
 
   /* ============================================================

@@ -57,6 +57,60 @@ window.BIY_POSTS = [
     "image": "images/home/band-onstage-rolling-stones-backdrop.jpg"
   },
   {
+    "title": "What to Do in Bridgewater Before the Show",
+    "slug": "what-to-do-in-bridgewater-va",
+    "date": "2026-07-20",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "bridgewater",
+      "va",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Bridgewater for the show… here's what to do while you're there.",
+    "body": "Bridgewater, VA. Saturday, January 9, 2027 at 7:30 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nGRAND CAVERNS\nAbout twenty minutes down the road in Grottoes sits the oldest continually operating show cave in the country, open since 1806 and a National Natural Landmark. It holds a steady 55 degrees year round, which makes it a fine way to spend a January afternoon. [Grand Caverns](https://grandcaverns.com)\n\nWILDWOOD PARK & COOK'S CREEK ARBORETUM\nBridgewater keeps a dozen parks for a town of six thousand people. Wildwood runs along the North River and the arboretum next to it is an easy walk under the trees. [Bridgewater parks](https://www.bridgewater.town/parks/parks.php)\n\nDOWNTOWN HARRISONBURG\nFifteen minutes north is Virginia's first designated culinary district. Independent restaurants, record shops, and a couple of good breweries, all walkable before you head back for the show. [Visit Harrisonburg](https://visitharrisonburgva.com)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/band-bow-silhouette-theater-alt.jpg"
+  },
+  {
+    "title": "What to Do in The Villages Before the Show",
+    "slug": "what-to-do-in-the-villages-fl",
+    "date": "2026-07-20",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "the-villages",
+      "fl",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to The Villages for the show… here's what to do while you're there.",
+    "body": "The Villages, FL. Thursday, April 8, 2027 at 7:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nTHE THREE TOWN SQUARES\nSpanish Springs, Lake Sumter Landing, and Brownwood Paddock Square each run live music most nights of the week. Spanish Springs has the '50s and '60s look down to the storefronts, so it's the natural warm-up for this one. [The Villages town squares](https://www.thevillages.com)\n\nSILVER SPRINGS STATE PARK\nAbout forty minutes north in Ocala, and the glass-bottom boats have been running there since the 1870s. You look straight down into the spring and it's clear the whole way to the bottom. [Silver Springs](https://silversprings.com)\n\nSHOLOM PARK\nAlso in Ocala, forty-four acres of gardens and quiet walking paths, and it's free. A good, slow hour before an evening show. [Sholom Park](https://www.sholompark.org)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/stage-overhead-multicolor-lights.jpg"
+  },
+  {
+    "title": "What to Do in Windber Before the Show",
+    "slug": "what-to-do-in-windber-pa",
+    "date": "2026-07-20",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "windber",
+      "pa",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Windber for the show… here's what to do while you're there.",
+    "body": "Windber, PA. Saturday, October 23, 2027 at 7:30 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nWINDBER COAL HERITAGE CENTER & MINERS' PARK\nWindber was a company coal town, and the heritage center right in the middle of it tells that story straight. Miners' Park around it holds the monuments and the old buildings. [Windber Coal Heritage Center](https://www.echf.org)\n\nFLIGHT 93 NATIONAL MEMORIAL\nTwenty-five minutes away in Stoystown. The visitor center, the Wall of Names, and the Tower of Voices. Give yourself more time there than you think you need. [Flight 93 National Memorial](https://www.nps.gov/flni/)\n\nJOHNSTOWN FLOOD MUSEUM\nFifteen minutes north in Johnstown, the museum tells the story of the 1889 flood that put the town in every newspaper in the country. Late October in the Laurel Highlands, the drive over is worth it on its own. [Johnstown Flood Museum](https://www.heritagejohnstown.org/attractions/johnstown-flood-museum/)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/theater-wide-dark-purple-orange.jpg"
+  },
+  {
     "title": "Mt. Airy Casino, Mt. Pocono PA: Saturday, August 3",
     "slug": "mt-airy-casino-mt-pocono-pa-aug-3",
     "date": "2026-07-15",
@@ -74,6 +128,78 @@ window.BIY_POSTS = [
     "body": "The Poconos are calling. The British Invasion Years is answering on Saturday, August 3rd at Mt. Airy Casino Resort in Mount Pocono, PA.\n\nMt. Airy is one of the top entertainment rooms in northeastern Pennsylvania. Sharp production, and a crowd that knows exactly how to have a night.\n\nHere's what separates this one from the usual '60s tribute. The band doesn't stop at the Beatles. This is the whole era… the Rolling Stones, The Kinks, The Who, The Dave Clark Five, The Hollies, The Animals, plus the American acts that were trading chart spots with their British counterparts week after week.\n\nLove '60s music in any shape? Be in the Poconos on August 3rd. Come for the Casino Royale glow. Stay for the songs.",
     "featured": false,
     "image": "images/home/band-onstage-carnaby-backdrop.jpg"
+  },
+  {
+    "title": "What to Do in Cape May Before the Show",
+    "slug": "what-to-do-in-cape-may-nj",
+    "date": "2026-06-26",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "cape-may",
+      "nj",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Cape May for the show… here's what to do while you're there.",
+    "body": "Cape May, NJ. Friday, July 9, 2027 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nCAPE MAY LIGHTHOUSE\nClimb the 1859 lighthouse out at Cape May Point and you'll see the whole tip of the Jersey Shore spread out below you. It's a National Historic Landmark and an easy hour before showtime. [Cape May Lighthouse](https://capemaymac.org)\n\nWASHINGTON STREET MALL & THE VICTORIAN DISTRICT\nWalk the gaslit streets and you'll understand why this town has been a shore destination since the 1800s. The pedestrian mall is full of shops, and the gingerbread Victorian homes are worth the stroll alone. [Cape May's Victorian district](https://www.capemay.com)\n\nTHE BEACH & PROMENADE\nThe venue sits right by the water, so come down early and walk the promenade. Salt air, a sunset, and the ocean a few steps away… hard to beat before a night of '60s music. [Cape May beaches](https://www.capemay.com)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/stage-overhead-blue-green-light.jpg"
+  },
+  {
+    "title": "What to Do in Irwin Before the Show",
+    "slug": "what-to-do-in-irwin-pa",
+    "date": "2026-06-26",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "irwin",
+      "pa",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Irwin for the show… here's what to do while you're there.",
+    "body": "The Lamp Theatre, Irwin. Sunday, July 26 at 7:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nKENNYWOOD\nOne of America's classic amusement parks, open since 1898 and only about fifteen minutes up the road in West Mifflin. The old wooden coasters alone make it a Pittsburgh rite of passage. [Kennywood](https://www.kennywood.com)\n\nIDLEWILD & SOAKZONE\nOut toward Ligonier you'll find Idlewild, one of the oldest amusement parks in the country and a favorite with families for generations. Easygoing rides, big shade trees, and a water park when it's warm. [Idlewild & SoakZone](https://www.idlewild.com)\n\nFORT LIGONIER\nA fully reconstructed French and Indian War fort with real history behind it. Walk the grounds and the museum and you get a feel for what this corner of Pennsylvania looked like 250 years ago. [Fort Ligonier](https://www.fortligonier.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/band-buddy-holly-backdrop-green-lights.jpg"
+  },
+  {
+    "title": "What to Do in Millsboro Before the Show",
+    "slug": "what-to-do-in-millsboro-de",
+    "date": "2026-06-26",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "millsboro",
+      "de",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Millsboro for the show… here's what to do while you're there.",
+    "body": "Backlash Fest, Millsboro. Saturday, September 19 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nREHOBOTH BEACH & BOARDWALK\nDelaware's best-known beach town is only about twenty-five minutes away. Spend the afternoon on the sand, then walk the mile-long boardwalk before you head to the festival. [Rehoboth Beach](https://www.visitrehoboth.com)\n\nTRAP POND STATE PARK\nJust outside town sits one of the prettiest spots in southern Delaware, home to the northernmost stand of bald cypress trees in the country. Rent a kayak and paddle through them. [Trap Pond State Park](https://destateparks.com)\n\nNANTICOKE INDIAN MUSEUM\nMillsboro's own cultural landmark tells the story of the Nanticoke people who've called this land home for centuries. A quick, worthwhile stop right in town. [Nanticoke Indian Museum](https://www.nanticokeindians.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/home/band-onstage-rolling-stones-backdrop.jpg"
+  },
+  {
+    "title": "What to Do in Derry Before the Show",
+    "slug": "what-to-do-in-derry-nh",
+    "date": "2026-06-26",
+    "category": "what-to-do-in-town",
+    "categoryLabel": "What to Do in Town",
+    "tags": [
+      "derry",
+      "nh",
+      "what-to-do",
+      "local-attractions",
+      "biy-show"
+    ],
+    "excerpt": "You're coming to Derry for the show… here's what to do while you're there.",
+    "body": "Tupelo Music Hall, Derry. Saturday, November 7 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nROBERT FROST FARM\nThe poet lived and wrote here, and the restored farmstead is Derry's signature stop. Walk the grounds and the poetry trail before the show. [Robert Frost Farm](https://www.robertfrostfarm.org)\n\nCANOBIE LAKE PARK\nA beloved old-school amusement park about fifteen minutes away in Salem. Coasters, a lake, and that classic New England summer-park feel. [Canobie Lake Park](https://www.canobie.com)\n\nTAYLOR MILL STATE HISTORIC SITE\nA preserved 19th-century up-and-down sawmill tucked into Ballard State Forest. Quiet trails and a real piece of New Hampshire history. [Taylor Mill State Historic Site](https://www.nhstateparks.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
+    "featured": false,
+    "image": "images/band-gallery/bob-and-lee-laughing-onstage.jpg"
   },
   {
     "title": "A '60s Night at Cape May Convention Hall, Right on the Beach",
@@ -594,24 +720,6 @@ window.BIY_POSTS = [
     "body": "The British Invasion of the 1960s wasn't just The Beatles. It was the Rolling Stones, the Kinks, the Who, the Dave Clark Five, the Hollies, Herman's Hermits, the Animals. A tidal wave that swept across America and changed popular culture for good.\n\nAnd it didn't happen in a vacuum. American acts like the Beach Boys and the Byrds rose to meet the moment. Together they built the greatest sustained run of rock and roll in history.\n\nThis Hardin Auditorium video shows why the band has built such a loyal following. They don't cherry-pick the easy hits. The four of them bring the whole era to life, British and American, in one show that walks the audience straight through the '60s.\n\nWatch the highlights. Share it with a friend. And come catch it live when they roll through your city.",
     "featured": false,
     "image": "images/home/singer-round-stage-audience-vertical.jpg"
-  },
-  {
-    "title": "Rave On: Our Connection With Foxes and Fossils",
-    "slug": "rave-on-connection-with-foxes-and-fossils",
-    "date": "2025-06-10",
-    "category": "band-news",
-    "categoryLabel": "Band News",
-    "tags": [
-      "foxes-and-fossils",
-      "collaboration",
-      "musicians",
-      "band-news",
-      "video"
-    ],
-    "excerpt": "Music connects people across generations and zip codes. Our connection with Foxes and Fossils is proof of it.",
-    "body": "Here's one of the best parts of doing this for a living. The community that forms around the music. The other artists who share the same love of the craft, and the same reverence for the songs that built an era.\n\nThe British Invasion Years is proud to share its connection with Foxes and Fossils. It's a remarkable act with a deep love for the same classic material that drives everything the band does. The common thread? An honest, heartfelt commitment to songs that matter.\n\nRave on, as they say. The music keeps finding new audiences and new reasons to matter. That's the whole point.\n\nGo check out Foxes and Fossils if you haven't already. And keep an eye on the band's upcoming dates if you'd like to catch The British Invasion Years near you.",
-    "featured": false,
-    "image": "images/band-gallery/lee-and-bob-onstage-action.jpg"
   },
   {
     "title": "The Screaming Crowds. The Matching Suits. The Songs Everyone Knew.",
