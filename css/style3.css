@@ -186,7 +186,11 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
    left of the header, so the whole nav group is pushed to the right
    (margin-left:auto) to keep it well clear of the artwork. */
 @media (min-width: 901px) {
-  .brand { position: relative; }
+  /* The guitar mark is position:absolute, so this anchor would otherwise
+     collapse to a zero-size hit area. Give .brand a real clickable box and lift
+     it above the artwork; the mark itself also takes pointer events (see
+     .nav-logo below) so a click anywhere on the visible guitar links home. */
+  .brand { position: relative; width: 92px; height: 72px; z-index: 4; }
   .nav-links { position: relative; z-index: 3; margin-left: auto; }
 
   /* The mark is absolute in BOTH states so it can GLIDE between the oversized
@@ -200,7 +204,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
     z-index: 2;
     height: auto; width: 92px;
     max-width: none;
-    pointer-events: none;
+    pointer-events: auto; cursor: pointer;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(140,180,255,.35));
     transition: width .5s var(--ease), top .5s var(--ease), left .5s var(--ease), filter .5s var(--ease);
     animation: heroMarkDrop .8s var(--ease) both;
@@ -483,7 +487,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .shared-names { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink); line-height: 1.6; }
 
 /* member profile cards (about page) */
-.member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 8px; }
+.member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 8px; scroll-margin-top: 120px; }
 .member {
   background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
   border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;
