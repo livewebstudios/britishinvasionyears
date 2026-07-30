@@ -202,7 +202,7 @@
                 </select>
                 <span class="req-note">* required</span>
               </div>
-              <input type="hidden" name="_next" value="https://www.britishinvasionyears.com/thank-you.html">
+              <input type="hidden" name="_next" id="nextUrl" value="thank-you.html">
               <button type="submit" class="btn btn-primary">SEND IT OVER</button>
               <p class="form-note">This one's for anything and everything. Booking a date? Rachel at Blue Raven is faster.</p>
             </form>
@@ -268,5 +268,7 @@
   <script defer src="js/main.js"></script>
   <script defer src="js/notes-bg2.js"></script>
   <script>document.addEventListener('DOMContentLoaded', function () { initNotesBg('notes-bg-contact'); });</script>
+  <!-- Redirect after form submit to the thank-you page on whatever host serves the site (staging or live), never a hardcoded domain -->
+  <script>document.getElementById('nextUrl').value = window.location.origin + '/thank-you.html';</script>
 </body>
 </html>
