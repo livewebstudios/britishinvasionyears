@@ -601,15 +601,27 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .contact-info .license { font-size: 13px; color: var(--muted); margin-top: 14px; }
 .contact-seal { margin-top: 30px; max-width: 220px; border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: rgba(255,255,255,.02); }
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
-.contact-form input, .contact-form textarea {
+.contact-form input, .contact-form textarea, .contact-form select {
   width: 100%; background: #0d1a48; border: 1px solid var(--line-2); border-radius: 8px;
   padding: 15px 18px; color: var(--cream); font-family: var(--sans); font-size: 15px; font-weight: 300;
   transition: border-color .25s, box-shadow .25s; resize: vertical;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--splash); box-shadow: 0 0 0 3px var(--splash-soft); }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--splash); box-shadow: 0 0 0 3px var(--splash-soft); }
 .contact-form .btn { align-self: flex-start; margin-top: 4px; }
 .form-note { font-size: 13px; color: var(--muted); }
+
+/* Per-field required note + select styling */
+.contact-form .field { display: flex; flex-direction: column; gap: 5px; }
+.contact-form .req-note { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.contact-form select {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23a9b6e0' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 18px center; background-size: 12px;
+}
+.contact-form select:invalid { color: var(--muted); }
+.contact-form select option { color: var(--cream); background: #0d1a48; }
 
 /* ============================================================
    FOOTER
@@ -1035,10 +1047,11 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
 .about-feature:nth-of-type(even) { flex-direction: row-reverse; }
 
 /* §3.2 / §4.2 Form inputs — padded tracking + glowing brand focus ring */
-.news-form input, .contact-form input, .contact-form textarea {
+.news-form input, .contact-form input, .contact-form textarea, .contact-form select {
   padding: .75rem 1rem;
 }
-.news-form input:focus, .contact-form input:focus, .contact-form textarea:focus {
+.contact-form select { padding-right: 44px; }
+.news-form input:focus, .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(225,47,38,.28);
 }

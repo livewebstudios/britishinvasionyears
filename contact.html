@@ -174,11 +174,34 @@
           <div class="reveal">
             <h3>Drop us a line</h3>
             <form action="https://formspree.io/f/xdajjkor" method="POST" class="contact-form">
-              <input type="text" name="name" placeholder="Your Name" required>
-              <input type="email" name="email" placeholder="Your Email" required>
-              <input type="text" name="_subject" placeholder="Subject" required>
-              <input type="tel" name="phone" placeholder="Phone Number" required>
-              <input type="text" name="How Did You Hear About Us" placeholder="How Did You Hear About Us?" required>
+              <div class="field">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <span class="req-note">* required</span>
+              </div>
+              <div class="field">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <span class="req-note">* required</span>
+              </div>
+              <div class="field">
+                <input type="text" name="_subject" placeholder="Subject" required>
+                <span class="req-note">* required</span>
+              </div>
+              <div class="field">
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <span class="req-note">* required</span>
+              </div>
+              <div class="field">
+                <select name="How Did You Hear About Us" required>
+                  <option value="" disabled selected>How Did You Hear About Us?</option>
+                  <option value="Saw the Band">Saw the Band</option>
+                  <option value="Referred from Someone">Referred from Someone</option>
+                  <option value="Google">Google</option>
+                  <option value="You Tube">You Tube</option>
+                  <option value="The Keyboard Player is Hot">The Keyboard Player is Hot</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="req-note">* required</span>
+              </div>
               <input type="hidden" name="_next" value="https://www.britishinvasionyears.com/thank-you.html">
               <button type="submit" class="btn btn-primary">SEND IT OVER</button>
               <p class="form-note">This one's for anything and everything. Booking a date? Rachel at Blue Raven is faster.</p>
