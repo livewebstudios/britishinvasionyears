@@ -694,7 +694,10 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 @media (max-width: 900px) {
   .nav-links, .nav-social { display: none; }
   .hamburger { display: flex; }
-  .nav-logo { height: 68px; }
+  /* the marquee sign is an absolutely-positioned later sibling, so it paints
+     over the (static) guitar mark. Lift the logo above it so it sits forward. */
+  .brand { position: relative; z-index: 3; }
+  .nav-logo { height: 68px; position: relative; z-index: 3; }
   .nav { height: 84px; }
 
   /* the marquee sign is narrower (and shorter) on mobile, so the interior-page
