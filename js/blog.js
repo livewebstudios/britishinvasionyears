@@ -189,6 +189,21 @@
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', post.excerpt);
 
+    /* Per-post canonical + og:url. post.html ships with both pointing at
+       blog.html, so without this every post declares itself a duplicate of the
+       index and drops out of Google. Built to match cardHtml()'s link exactly.
+
+       Absolute on the production host on purpose: canonical is the one place an
+       absolute internal URL is correct, and pinning it to www also stops the
+       staging deploy (no noindex header, robots.txt allows all) from competing
+       with production in the index. */
+    var CANONICAL_ORIGIN = 'https://www.britishinvasionyears.com';
+    var postUrl = CANONICAL_ORIGIN + '/post.html?slug=' + encodeURIComponent(post.slug);
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', postUrl);
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', postUrl);
+
     var tagsHtml = (post.tags && post.tags.length)
       ? '<div class="post-tags">' + post.tags.map(function (t) {
           return '<span class="tag">' + esc(t.replace(/-/g, ' ')) + '</span>';
