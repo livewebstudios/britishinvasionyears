@@ -496,23 +496,6 @@ window.BIY_POSTS = [
     "image": "images/home/band-onstage-60s-couple-backdrop.jpg"
   },
   {
-    "title": "A Video Message from the Boys, Plus Concert Highlights",
-    "slug": "video-message-from-the-band-concert-highlights",
-    "date": "2025-12-20",
-    "category": "band-news",
-    "categoryLabel": "Band News",
-    "tags": [
-      "video",
-      "band-update",
-      "concert-highlights",
-      "fan-message"
-    ],
-    "excerpt": "The guys have a few words for our fans… and a look back at some live video highlights from the November concert.",
-    "body": "The holidays are a time to look back, and the guys in The British Invasion Years have a few words for everybody who made this year such a good one on the road.\n\nIn this video message, the band reaches out to fans directly. Gratitude, a look back at some great moments from the November concert, and a preview of what's coming.\n\nFrom sold-out nights in Pennsylvania to crowds in Florida and New England, it's been a year of real shows and new cities. The support from fans, new and longtime, has been something else.\n\nWatch the video and share it with a friend who loves the '60s. Then stay tuned for upcoming tour dates. The best is yet to come.",
-    "featured": false,
-    "image": "images/band-gallery/lee-and-bob-onstage-action.jpg"
-  },
-  {
     "title": "The Beatles' Last Year: A 1969 to 1970 Timeline",
     "slug": "timeline-final-year-of-the-beatles-1969-1970",
     "date": "2025-12-19",
@@ -664,62 +647,6 @@ window.BIY_POSTS = [
     "body": "Washington, DC. The band is coming for you.\n\nThe British Invasion Years is making a stop at State Theatre DC. It's one of the District's most respected live music rooms. A long history of hosting artists at the top of their game.\n\nCircle the date. District, Northern Virginia, suburban Maryland, out past the Beltway… doesn't matter. State Theatre DC is worth the trip.\n\nThe show covers the full British Invasion era. The Beatles, the Rolling Stones, the Who, the Kinks, the Animals, and the American acts that held their own against the transatlantic onslaught. Played live. No tracks. Four guys who've been doing this a long time.\n\nTickets are on sale. Grab yours before this one fills up.",
     "featured": false,
     "image": "images/band-gallery/band-from-behind-audience-view.jpg"
-  },
-  {
-    "title": "Our New Promo Video Is Live",
-    "slug": "new-promo-video-60s-musical-revolution",
-    "date": "2025-09-01",
-    "category": "band-news",
-    "categoryLabel": "Band News",
-    "tags": [
-      "promo-video",
-      "british-invasion",
-      "60s-music",
-      "beatles",
-      "rolling-stones"
-    ],
-    "excerpt": "Every classic from both sides of the Atlantic, played live with no tracks. The new British Invasion Years promo video is here.",
-    "body": "You've heard these songs a thousand times. But have you heard them done like *this*?\n\nThe new British Invasion Years promo video is here. It captures exactly what the band brings to every stage. A full, live recreation of the greatest era in rock history. Played live, no tracks.\n\nThe opening chord of a Beatles classic. The gritty swagger of the Rolling Stones. The raw push of the Who, then the melodic genius of the Kinks. It's all in there.\n\nBoth sides of the Atlantic show up. The American chart-toppers get their due right alongside their British counterparts. The result feels less like a tribute act and more like a time machine.\n\nWatch it. Share it with every music lover you know. Then find a show near you. Nothing replaces hearing it live.",
-    "featured": true,
-    "image": "images/home/band-onstage-60s-couple-backdrop.jpg"
-  },
-  {
-    "title": "Live at The Levoy Theatre in Millville, NJ",
-    "slug": "british-invasion-years-live-at-levoy-theatre",
-    "date": "2025-08-15",
-    "category": "band-news",
-    "categoryLabel": "Band News",
-    "tags": [
-      "levoy-theatre",
-      "millville-nj",
-      "new-jersey",
-      "live-performance",
-      "concert-video"
-    ],
-    "excerpt": "A full set of '60s classics, caught on video. The British Invasion Years at The Levoy Theatre shows why this one's become a must-see.",
-    "body": "The Levoy Theatre in Millville, New Jersey is one of the jewels of South Jersey. A beautifully restored early-1900s room. Real acoustics, and an atmosphere that fits the music of the 1960s like a glove.\n\nThis performance video catches The British Invasion Years in full flight. The four of them are musicians who've played with and opened for some of the biggest stars in music. What they deliver goes well past standard tribute territory.\n\nWhat you'll see is the real thing. The arrangements. The tone. The sheer joy of playing music that defined a generation. And the crowd response says the rest.\n\nHaven't caught the show live yet? Let this video be the push. Check the tour dates page for upcoming appearances near you.",
-    "featured": false,
-    "image": "images/band-gallery/band-bow-silhouette-theater.jpg"
-  },
-  {
-    "title": "Live at Hardin Auditorium: Beatles, Stones, Kinks, The Who",
-    "slug": "live-at-hardin-auditorium",
-    "date": "2025-07-20",
-    "category": "band-news",
-    "categoryLabel": "Band News",
-    "tags": [
-      "hardin-auditorium",
-      "live-performance",
-      "concert-video",
-      "beatles",
-      "rolling-stones",
-      "the-who",
-      "the-kinks"
-    ],
-    "excerpt": "British chart-toppers from the Beatles, the Stones, the Kinks and the Who, plus the American acts that fired right back.",
-    "body": "The British Invasion of the 1960s wasn't just The Beatles. It was the Rolling Stones, the Kinks, the Who, the Dave Clark Five, the Hollies, Herman's Hermits, the Animals. A tidal wave that swept across America and changed popular culture for good.\n\nAnd it didn't happen in a vacuum. American acts like the Beach Boys and the Byrds rose to meet the moment. Together they built the greatest sustained run of rock and roll in history.\n\nThis Hardin Auditorium video shows why the band has built such a loyal following. They don't cherry-pick the easy hits. The four of them bring the whole era to life, British and American, in one show that walks the audience straight through the '60s.\n\nWatch the highlights. Share it with a friend. And come catch it live when they roll through your city.",
-    "featured": false,
-    "image": "images/home/singer-round-stage-audience-vertical.jpg"
   },
   {
     "title": "The Screaming Crowds. The Matching Suits. The Songs Everyone Knew.",
