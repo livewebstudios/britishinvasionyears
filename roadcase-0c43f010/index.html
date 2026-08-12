@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Band Documents</title>
+
+<!--
+================================================================
+  BAND DOCUMENTS, PRIVATE PAGE
+================================================================
+  There are no links in this file. Not one. Everything the band
+  sees is held in netlify/functions/roadcase-links.mjs and is
+  only sent to the browser after Google says who you are and
+  the email matches the allowlist.
+
+  If you view source on this page while signed out and see a
+  Drive address anywhere, something is broken. Stop and fix it.
+
+  To add or change a link, edit the LINKS array at the top of
+  netlify/functions/roadcase-links.mjs and push.
+================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="roadcase.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">The British Invasion Years</p>
+    <h1>Band documents</h1>
+    <p class="lede">Everything we use, in one place. Tap the blue button on any card and it opens in a new tab. Nothing here needs to be downloaded or installed.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- The sign in card. Hidden once you are in. -->
+  <section id="gate" class="gate" hidden>
+    <h2 class="gate-h">Sign in first</h2>
+    <p class="gate-p">This page is only for the four of us. Tap the button and pick your Google account. You only have to do this once, the page will remember you for a month.</p>
+    <div id="gbutton" class="gbutton"></div>
+    <p id="gate-msg" class="gate-msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- Spinner-free loading line. Replaced the moment we know either way. -->
+  <p id="loading" class="loading">Checking if you are signed in.</p>
+
+  <!-- Every card gets built in here after sign in. Empty on purpose. -->
+  <main id="rows"></main>
+
+  <footer id="foot" hidden>
+    <p>Something missing or a link that doesn't open? Tell Jon and it gets fixed the same day.</p>
+    <p><a href="#" id="signout" class="signout">Wrong account? Sign out.</a></p>
+  </footer>
+
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="roadcase.js" defer></script>
+</body>
+</html>

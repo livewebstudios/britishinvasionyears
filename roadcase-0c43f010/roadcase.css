@@ -1,0 +1,194 @@
+/* ============================================================
+   BAND DOCUMENTS, PRIVATE PAGE
+   Styles only. No link data lives in this file.
+   ============================================================ */
+
+:root{
+  --navy:#0F2A5E;
+  --red:#C8102E;
+  --ink:#1A1A1A;
+  --grey:#5A6270;
+  --line:#DBE0E8;
+  --paper:#F7F8FA;
+  --card:#FFFFFF;
+  --green:#1B6B3A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:18px;
+  line-height:1.5;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+/* ---------- masthead ---------- */
+header{
+  background:var(--navy);
+  color:#fff;
+  padding:34px 0 30px;
+  border-bottom:6px solid var(--red);
+}
+header .wrap{padding-bottom:0}
+.eyebrow{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#9FB4DA;
+  margin:0 0 8px;
+}
+h1{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:800;
+  font-size:38px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin:0 0 12px;
+}
+.lede{margin:0;font-size:17px;color:#D6E0F2;max-width:52ch}
+
+/* ---------- sign in card ---------- */
+.loading{
+  margin:40px 0 0;
+  font-size:16px;
+  color:var(--grey);
+}
+.gate{
+  margin:40px 0 0;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--red);
+  border-radius:8px;
+  padding:26px 22px 28px;
+}
+.gate-h{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:800;
+  font-size:24px;
+  line-height:1.15;
+  color:var(--navy);
+  margin:0 0 10px;
+  border:0;
+  padding:0;
+  letter-spacing:normal;
+  text-transform:none;
+}
+.gate-p{margin:0 0 22px;font-size:17px;color:var(--grey);max-width:46ch}
+.gbutton{min-height:44px}
+.gate-msg{
+  margin:18px 0 0;
+  font-size:16px;
+  color:var(--red);
+  font-weight:500;
+}
+.gate-msg:empty{margin:0}
+
+/* ---------- sections ---------- */
+h2.sec{
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin:44px 0 4px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--navy);
+}
+.note{
+  margin:12px 0 16px;
+  font-size:16px;
+  color:var(--grey);
+}
+
+/* ---------- the cards ---------- */
+.doc{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--navy);
+  border-radius:8px;
+  padding:16px 18px 18px;
+  margin:14px 0;
+}
+.doc .name{
+  display:block;
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:700;
+  font-size:21px;
+  line-height:1.25;
+  color:var(--navy);
+  margin-bottom:4px;
+}
+.doc .what{display:block;font-size:16px;color:var(--grey)}
+.doc .kind{
+  display:inline-block;
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#fff;
+  background:var(--grey);
+  border-radius:3px;
+  padding:2px 7px;
+  margin-bottom:8px;
+}
+.kind.folder{background:var(--navy)}
+.kind.sheet{background:var(--green)}
+.kind.doc-k{background:#2C5FA8}
+.kind.pdf{background:var(--red)}
+.kind.site{background:#6B4E9E}
+
+/* ---------- button under the words ---------- */
+.go{
+  display:inline-block;
+  margin-top:16px;
+  min-height:48px;
+  padding:12px 26px;
+  background:var(--navy);
+  color:#fff;
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:700;
+  font-size:17px;
+  letter-spacing:.02em;
+  text-decoration:none;
+  border-radius:6px;
+  transition:background .12s ease;
+}
+.go:hover,.go:focus-visible{background:var(--red)}
+.go:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ---------- the plain address under the button ---------- */
+.url{
+  display:block;
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.35;
+  color:var(--grey);
+  text-decoration:underline;
+  overflow-wrap:anywhere;
+}
+.url:hover,.url:focus-visible{color:var(--red)}
+
+footer{
+  margin-top:56px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  font-size:15px;
+  color:var(--grey);
+}
+.signout{color:var(--grey)}
+
+@media (max-width:520px){
+  h1{font-size:30px}
+  .doc .name{font-size:19px}
+  .go{display:block;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .go{transition:none}
+}

@@ -1,0 +1,31 @@
+# ============================================================
+# NETLIFY REDIRECTS
+# ============================================================
+# Netlify serves this repo root exactly as it is committed, so
+# every file in the repo is fetchable over HTTP unless a rule
+# with a bang shadows it. These rules bounce the files that are
+# not meant for the public back to the homepage.
+#
+# The band documents function holds every Drive link in one
+# file. Without the first rule below, anyone could download
+# that source at /netlify/functions/roadcase-links.mjs and read
+# the lot without signing in. Do not remove it.
+#
+# The functions themselves are invoked at
+# /.netlify/functions/<name>, with a leading dot, which none of
+# these rules touch.
+#
+# Cutover note: DOMAIN-CUTOVER.md Step 4 adds a /home rule to
+# this file when the domain moves. Add it above the blocks.
+# ============================================================
+
+# Function source, including every band document link.
+/netlify/*            /    301!
+
+# The Netlify config files themselves.
+/_headers             /    301!
+/_redirects           /    301!
+
+# Internal runbook. Lists the GA4 property, the Formspree
+# endpoint, and the repo. Not for the public.
+/DOMAIN-CUTOVER.md    /    301!
