@@ -48,10 +48,10 @@ const LINKS = [
     rows: [
       {
         name: 'Post and ad calendar',
-        kind: 'Google Doc',
-        kindClass: 'doc-k',
-        what: 'Every Facebook post, every Instagram post, and every ad date between now and the Tupelo show. You can both type changes right into it.',
-        href: 'https://docs.google.com/document/d/1A8CC2gYcpGpnBAaxX_4lDR9T6Rir75zoooJhgCtQC2g/edit'
+        kind: 'Spreadsheet',
+        kindClass: 'sheet',
+        what: 'Every Facebook post, every Instagram post, and every ad date, laid out day by day. Read the post itself, see the photo that goes with it, and check it off if you want to. You can all type changes right into it.',
+        href: 'https://docs.google.com/spreadsheets/d/11ckDMcPXZpODhLDm2cly8BB-9bYWycd2X_1zOImfDjM/edit?gid=283741462#gid=283741462'
       },
       {
         name: 'Ticket counts',
