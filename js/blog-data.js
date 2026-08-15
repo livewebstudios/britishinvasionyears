@@ -199,7 +199,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Derry for the show… here's what to do while you're there.",
     "body": "Tupelo Music Hall, Derry. Saturday, November 7 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nROBERT FROST FARM\nThe poet lived and wrote here, and the restored farmstead is Derry's signature stop. Walk the grounds and the poetry trail before the show. [Robert Frost Farm](https://www.robertfrostfarm.org)\n\nCANOBIE LAKE PARK\nA beloved old-school amusement park about fifteen minutes away in Salem. Coasters, a lake, and that classic New England summer-park feel. [Canobie Lake Park](https://www.canobie.com)\n\nTAYLOR MILL STATE HISTORIC SITE\nA preserved 19th-century up-and-down sawmill tucked into Ballard State Forest. Quiet trails and a real piece of New Hampshire history. [Taylor Mill State Historic Site](https://www.nhstateparks.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/bob-and-lee-laughing-onstage.jpg"
+    "image": "images/band-gallery/band-carnaby-backdrop-center-stage.jpg"
   },
   {
     "title": "A '60s Night at Cape May Convention Hall, Right on the Beach",
@@ -476,7 +476,7 @@ window.BIY_POSTS = [
     "excerpt": "Music journalist Bill Kopp sat down with us for Musoscribe and got to the heart of the show: dozens of songs, zero backing tracks, a couple of hours where the only thing on your mind is the joy of the music.",
     "body": "The band has done a lot of interviews. Bill Kopp's piece for Musoscribe captured something they don't always manage to put into words themselves.\n\nThe headline said it best. *The British Invasion Years Are Now.* Bill traced the band back to its roots. Two friends, Lee Scott Howard and Bobby M., who'd been playing restaurants and bars and realized that wasn't the future they wanted. As Bobby told him, *\"We felt we had more to offer; we wanted to do something special.\"*\n\nWhat they built wasn't a setlist of covers with \"no rhyme or reason.\" It was an evening with a real flow. Open with the British acts that kicked the door open in 1964, segue into the American response… the Monkees, Neil Diamond, Steppenwolf and the rest… then wrap back around to late-period Beatles, circa *Abbey Road.*\n\nBill latched onto a detail the four of them are proud of. The sheer density. **\"We do 35 to 40 songs each night,\"** Bobby explained, noting that '60s songs were often tight three-minute affairs. \"You can get a *lot* of songs into two hours.\" One song ends, they're rolling straight into the next.\n\nThe visuals matter too. Fashion, style, toys, TV shows of the era flashing behind the band. Older fans say, \"I almost forgot about that!\" Younger ones recognize the songs from a commercial or a video game. The connection lands either way.\n\nThe line that stuck was about *why* they do it. As Bobby put it, at a British Invasion Years show, \"you go back in time, and there's nothing to think about other than the joy of the music, peace and love.\" In a heavy world, a couple of hours like that is worth a lot.\n\nRead Bill's full piece over at Musoscribe. Then come experience it for yourself. [Tour dates are here](tour.html).",
     "featured": false,
-    "image": "images/band-gallery/lee-guitarist-strat-smile-warm-light.jpg"
+    "image": "images/band-gallery/band-beatles-portraits-backdrop-red.jpg"
   },
   {
     "title": "You Know The Songs. Now Hear Them Live.",
