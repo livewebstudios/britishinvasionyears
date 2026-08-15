@@ -44,7 +44,7 @@ const subtle = (globalThis.crypto || webcrypto).subtle;
 const LINKS = [
   {
     section: 'Every week',
-    note: 'These three are the ones you will actually open.',
+    note: 'These are the ones you will actually open.',
     rows: [
       {
         name: 'Post and ad calendar',
@@ -66,6 +66,13 @@ const LINKS = [
         kindClass: 'sheet',
         what: "Where each show stands on advertising and posts. Green means it's handled.",
         href: 'https://drive.google.com/file/d/1EWtmGn7f0aVVdBib_9MZZx-llr71a7AQ/view'
+      },
+      {
+        name: 'Asset status per show',
+        kind: 'Spreadsheet',
+        kindClass: 'sheet',
+        what: "Dave's running checklist, show by show. Has the venue posted us yet, and are they using the right photo and the right write-up.",
+        href: 'https://drive.google.com/file/d/120niFM1lKSKQZ2i5fk0WmX3WvAHdkDuY/view'
       }
     ]
   },
