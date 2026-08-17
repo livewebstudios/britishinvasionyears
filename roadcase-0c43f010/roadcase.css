@@ -144,6 +144,19 @@ h2.sec{
 .kind.pdf{background:var(--red)}
 .kind.site{background:#6B4E9E}
 
+/* ---------- a second document inside the same card ---------- */
+.also{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+}
+.also .name{font-size:18px}
+.also .go{
+  background:var(--green);
+  font-size:16px;
+  padding:11px 22px;
+}
+
 /* ---------- button under the words ---------- */
 .go{
   display:inline-block;

@@ -47,6 +47,24 @@
 
   /* ---------- drawing the page ---------- */
 
+  /* Puts one document into a box: the pill, the name, the plain
+     English line, the button, and the address under it. */
+  function fill(box, item, buttonText) {
+    box.appendChild(el('span', 'kind ' + (item.kindClass || ''), item.kind));
+    box.appendChild(el('span', 'name', item.name));
+    box.appendChild(el('span', 'what', item.what));
+
+    var go = newTab(el('a', 'go', buttonText));
+    go.href = item.href;
+    box.appendChild(go);
+
+    var url = newTab(el('a', 'url', item.show || item.href));
+    url.href = item.href;
+    box.appendChild(url);
+
+    return box;
+  }
+
   function draw(sections) {
     rows.textContent = '';
 
@@ -60,17 +78,15 @@
 
       section.rows.forEach(function (row) {
         var card = el('div', 'doc');
-        card.appendChild(el('span', 'kind ' + (row.kindClass || ''), row.kind));
-        card.appendChild(el('span', 'name', row.name));
-        card.appendChild(el('span', 'what', row.what));
+        fill(card, row, 'Open it');
 
-        var go = newTab(el('a', 'go', 'Open it'));
-        go.href = row.href;
-        card.appendChild(go);
-
-        var url = newTab(el('a', 'url', row.show || row.href));
-        url.href = row.href;
-        card.appendChild(url);
+        /* A second document that belongs with the first one.
+           Same card, under a dividing line. */
+        if (row.also) {
+          var extra = el('div', 'also');
+          fill(extra, row.also, row.also.label || 'Open it');
+          card.appendChild(extra);
+        }
 
         rows.appendChild(card);
       });
