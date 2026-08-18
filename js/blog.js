@@ -83,6 +83,36 @@
     return '<div class="post-meta">' + fmtDate(p.date) + '</div>';
   }
 
+  /* ---------- expiry ----------
+     A post tied to a show stops being useful the day after that show. Ordering
+     stays on the publish date so an announcement surfaces while the show is
+     still coming; once the show is behind us the post drops below everything
+     else instead of holding a spot near the top.
+
+     Two ways a post gets a show date:
+       1. "what to do in town" posts — matched through tour.json's whatToDoSlug
+       2. any other post — the optional "Show Date" field in Decap
+     A post with neither never expires and just sorts by publish date. */
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  // Local yyyy-mm-dd. Built from local parts on purpose, same reason as
+  // fmtEventDate: new Date().toISOString() is UTC and rolls the day over early
+  // for anyone west of Greenwich.
+  var TODAY = (function () {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  })();
+
+  function showDateOf(p) {
+    var show = SHOW_BY_SLUG[p.slug];
+    if (show && show.date) return show.date;
+    return p.showDate || '';
+  }
+  // Strictly before today, so a post is still live ON the day of its show.
+  function isExpired(p) {
+    var d = showDateOf(p);
+    return !!d && d < TODAY;
+  }
+
   function cardHtml(p, feature) {
     var href = 'post.html?slug=' + encodeURIComponent(p.slug);
     return '<article class="post-card card-glow' + (feature ? ' feature' : '') + '">' +
@@ -100,6 +130,26 @@
   function init(POSTS) {
     POSTS.forEach(function (p) {
       if (!p.categoryLabel) p.categoryLabel = CAT_LABELS[p.category] || p.category;
+    });
+
+    // Two tiers, then publish date inside each one:
+    //   1. still live  — newest post at the top, oldest at the bottom
+    //   2. show is over — same publish order, parked underneath tier 1
+    // Applies to the index and to every category filter, so the reading order
+    // never depends on the order Decap happened to write content/blog.json in.
+    // ISO yyyy-mm-dd sorts correctly as a plain string; a missing publish date
+    // sinks within its tier instead of jumping the queue. Sort is stable
+    // (ES2019), so posts sharing a date keep their authored order.
+    POSTS.sort(function (a, b) {
+      var ea = isExpired(a) ? 1 : 0;
+      var eb = isExpired(b) ? 1 : 0;
+      if (ea !== eb) return ea - eb;
+      var da = (a && a.date) || '';
+      var db = (b && b.date) || '';
+      if (da === db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return da < db ? 1 : -1;
     });
 
     // Categories hidden from the blog index (kept in data, just not shown).
@@ -139,7 +189,9 @@
     }
 
     function render() {
-      var featured = VISIBLE.filter(function (p) { return p.featured; })[0] || null;
+      // Newest featured post that hasn't expired. A sold-out notice for a show
+      // that already happened has no business holding the top of the page.
+      var featured = VISIBLE.filter(function (p) { return p.featured && !isExpired(p); })[0] || null;
       var list = VISIBLE.slice();
 
       if (state.filter === 'all') {

@@ -125,6 +125,7 @@
       "slug": "the-villages-fl-british-invasion-show",
       "featured": false,
       "date": "2026-12-05",
+      "showDate": "2027-04-08",
       "title": "We're Bringing the Full '60s Show to The Villages, FL",
       "tags": [
         "venue",
@@ -143,6 +144,7 @@
       "slug": "tupelo-music-hall-derry-nh",
       "featured": false,
       "date": "2026-09-10",
+      "showDate": "2026-11-07",
       "title": "Tupelo Music Hall, Derry NH: We're Heading North",
       "tags": [
         "venue",
@@ -161,6 +163,7 @@
       "slug": "backlash-fest-millsboro-de-september-2026",
       "featured": false,
       "date": "2026-08-20",
+      "showDate": "2026-09-19",
       "title": "Backlash Fest, Millsboro DE: Saturday, September 19, 2026",
       "tags": [
         "millsboro-de",
@@ -178,6 +181,7 @@
       "slug": "mt-airy-casino-mt-pocono-pa-aug-3",
       "featured": false,
       "date": "2026-07-15",
+      "showDate": "2026-08-03",
       "title": "Mt. Airy Casino, Mt. Pocono PA: Saturday, August 3",
       "tags": [
         "mt-airy-casino",
@@ -214,6 +218,7 @@
       "slug": "nearing-sellout-may-30-show",
       "featured": true,
       "date": "2026-05-27",
+      "showDate": "2026-05-30",
       "title": "May 30 at 7:30PM Is Almost Gone: A Few Tables Left",
       "tags": [
         "sellout",
@@ -549,6 +554,7 @@
       "slug": "november-tour-irwin-pa-delray-beach-fl",
       "featured": false,
       "date": "2025-10-20",
+      "showDate": "2025-11-18",
       "title": "Two November Dates: Irwin, PA and Delray Beach, FL",
       "tags": [
         "tour",

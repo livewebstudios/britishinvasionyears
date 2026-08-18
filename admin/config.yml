@@ -56,7 +56,7 @@ collections:
       - name: "posts"
         label: "Blog Posts"
         file: "content/blog.json"
-        description: "Add, edit, reorder, or delete blog posts. Old posts can stay up indefinitely."
+        description: "Add, edit, reorder, or delete blog posts. Order on the site is automatic, newest first, so you don't have to reorder anything here. Posts with a Show Date drop to the bottom once that show is past."
         fields:
           - label: "Posts"
             name: "posts"
@@ -76,6 +76,8 @@ collections:
                   - { label: "Show Announcement", value: "show-announcement" }
                   - { label: "Venue Spotlight", value: "venue-spotlight" }
                   - { label: "Press", value: "press" }
+                  - { label: "What to Do in Town", value: "what-to-do-in-town" }
+              - { label: "Show Date", name: "showDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Only for posts about one specific show. The day after this date the post drops to the bottom of the blog. Leave blank for anything evergreen. What-To-Do posts ignore this and use the date on the matching show in Tour Dates." }
               - { label: "Tags", name: "tags", widget: "list", required: false }
               - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "The most recent featured post is highlighted at the top of the blog." }
               - { label: "Hero Image", name: "image", widget: "image", required: false, hint: "Leave blank to reuse an existing stage photo path." }

@@ -4,6 +4,7 @@ window.BIY_POSTS = [
     "title": "We're Bringing the Full '60s Show to The Villages, FL",
     "slug": "the-villages-fl-british-invasion-show",
     "date": "2026-12-05",
+    "showDate": "2027-04-08",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -23,6 +24,7 @@ window.BIY_POSTS = [
     "title": "Tupelo Music Hall, Derry NH: We're Heading North",
     "slug": "tupelo-music-hall-derry-nh",
     "date": "2026-09-10",
+    "showDate": "2026-11-07",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -42,6 +44,7 @@ window.BIY_POSTS = [
     "title": "Backlash Fest, Millsboro DE: Saturday, September 19, 2026",
     "slug": "backlash-fest-millsboro-de-september-2026",
     "date": "2026-08-20",
+    "showDate": "2026-09-19",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -60,6 +63,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Bridgewater Before the Show",
     "slug": "what-to-do-in-bridgewater-va",
     "date": "2026-07-20",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -78,6 +82,7 @@ window.BIY_POSTS = [
     "title": "What to Do in The Villages Before the Show",
     "slug": "what-to-do-in-the-villages-fl",
     "date": "2026-07-20",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -96,6 +101,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Windber Before the Show",
     "slug": "what-to-do-in-windber-pa",
     "date": "2026-07-20",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -114,6 +120,7 @@ window.BIY_POSTS = [
     "title": "Mt. Airy Casino, Mt. Pocono PA: Saturday, August 3",
     "slug": "mt-airy-casino-mt-pocono-pa-aug-3",
     "date": "2026-07-15",
+    "showDate": "2026-08-03",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -133,6 +140,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Cape May Before the Show",
     "slug": "what-to-do-in-cape-may-nj",
     "date": "2026-06-26",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -151,6 +159,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Irwin Before the Show",
     "slug": "what-to-do-in-irwin-pa",
     "date": "2026-06-26",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -169,6 +178,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Millsboro Before the Show",
     "slug": "what-to-do-in-millsboro-de",
     "date": "2026-06-26",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -187,6 +197,7 @@ window.BIY_POSTS = [
     "title": "What to Do in Derry Before the Show",
     "slug": "what-to-do-in-derry-nh",
     "date": "2026-06-26",
+    "showDate": "",
     "category": "what-to-do-in-town",
     "categoryLabel": "What to Do in Town",
     "tags": [
@@ -205,6 +216,7 @@ window.BIY_POSTS = [
     "title": "A '60s Night at Cape May Convention Hall, Right on the Beach",
     "slug": "cape-may-convention-hall-60s-night",
     "date": "2026-06-15",
+    "showDate": "",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -224,6 +236,7 @@ window.BIY_POSTS = [
     "title": "May 30 at 7:30PM Is Almost Gone: A Few Tables Left",
     "slug": "nearing-sellout-may-30-show",
     "date": "2026-05-27",
+    "showDate": "2026-05-30",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -242,6 +255,7 @@ window.BIY_POSTS = [
     "title": "Two Shows in One Night: Harrington Raceway & Casino, Delaware",
     "slug": "harrington-raceway-casino-delaware-two-shows",
     "date": "2026-05-25",
+    "showDate": "",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -261,6 +275,7 @@ window.BIY_POSTS = [
     "title": "The Window to Hear This Music Live Is Closing",
     "slug": "why-now-is-the-best-time-to-see-british-invasion-live",
     "date": "2026-05-20",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -279,6 +294,7 @@ window.BIY_POSTS = [
     "title": "Revolver at 60: The Beatles Album That Still Sounds Like the Future",
     "slug": "revolver-at-60-beatles-greatest-album",
     "date": "2026-05-15",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -297,6 +313,7 @@ window.BIY_POSTS = [
     "title": "Beatles, Stones, Kinks or Who? Pick a Side",
     "slug": "favorite-british-invasion-band-poll",
     "date": "2026-05-10",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -317,6 +334,7 @@ window.BIY_POSTS = [
     "title": "Red Bank, NJ: We're at The Vogel at the Count Basie Center",
     "slug": "red-bank-nj-the-vogel-count-basie-center",
     "date": "2026-04-30",
+    "showDate": "",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -336,6 +354,7 @@ window.BIY_POSTS = [
     "title": "This Saturday in New Hope, PA: Good Table Seats Left",
     "slug": "show-new-hope-winery-pa",
     "date": "2026-04-28",
+    "showDate": "",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -354,6 +373,7 @@ window.BIY_POSTS = [
     "title": "1964: The Year Four Liverpool Kids Flipped the Charts",
     "slug": "in-1964-the-british-invasion-changed-everything",
     "date": "2026-04-10",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -372,6 +392,7 @@ window.BIY_POSTS = [
     "title": "Bring the Whole Family: Why '60s Music Still Fills Theaters",
     "slug": "bring-the-whole-family-why-60s-music-packs-theaters",
     "date": "2026-04-02",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -390,6 +411,7 @@ window.BIY_POSTS = [
     "title": "Arena Prices vs. a Night at the Theater",
     "slug": "arena-prices-vs-theater-case-for-live-60s-tributes",
     "date": "2026-03-18",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -408,6 +430,7 @@ window.BIY_POSTS = [
     "title": "More Than a Tribute: Bringing the '60s Back to Life",
     "slug": "more-than-a-tribute-bringing-the-60s-back-to-life",
     "date": "2026-02-25",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -426,6 +449,7 @@ window.BIY_POSTS = [
     "title": "\"This Group Is That Good\": Grunin Center, Toms River",
     "slug": "this-group-is-that-good-grunin-center-toms-river",
     "date": "2026-02-12",
+    "showDate": "",
     "category": "press",
     "categoryLabel": "Press",
     "tags": [
@@ -445,6 +469,7 @@ window.BIY_POSTS = [
     "title": "The Harmonies, The Hooks, The Energy",
     "slug": "why-60s-music-still-wins-harmonies-hooks-energy",
     "date": "2026-01-28",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -463,6 +488,7 @@ window.BIY_POSTS = [
     "title": "Musoscribe: \"The British Invasion Years Are Now\"",
     "slug": "musoscribe-the-british-invasion-years-are-now",
     "date": "2026-01-22",
+    "showDate": "",
     "category": "press",
     "categoryLabel": "Press",
     "tags": [
@@ -482,6 +508,7 @@ window.BIY_POSTS = [
     "title": "You Know The Songs. Now Hear Them Live.",
     "slug": "you-know-the-songs-now-hear-them-live",
     "date": "2026-01-15",
+    "showDate": "",
     "category": "band-news",
     "categoryLabel": "Band News",
     "tags": [
@@ -499,6 +526,7 @@ window.BIY_POSTS = [
     "title": "The Beatles' Last Year: A 1969 to 1970 Timeline",
     "slug": "timeline-final-year-of-the-beatles-1969-1970",
     "date": "2025-12-19",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
@@ -519,6 +547,7 @@ window.BIY_POSTS = [
     "title": "Two River Times on The British Invasion Years: \"Good for the Soul\"",
     "slug": "two-river-times-rock-review-the-invasion-redux",
     "date": "2025-11-18",
+    "showDate": "",
     "category": "press",
     "categoryLabel": "Press",
     "tags": [
@@ -539,6 +568,7 @@ window.BIY_POSTS = [
     "title": "Newport, RI at the Jane Pickens: $25 All-In Tickets",
     "slug": "newport-ri-jane-pickens-special-tickets",
     "date": "2025-11-01",
+    "showDate": "",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -558,6 +588,7 @@ window.BIY_POSTS = [
     "title": "BroadwayWorld Called Us \"Three Shows in One\"",
     "slug": "three-shows-in-one-full-tour-through-the-decade",
     "date": "2025-10-28",
+    "showDate": "",
     "category": "press",
     "categoryLabel": "Press",
     "tags": [
@@ -578,6 +609,7 @@ window.BIY_POSTS = [
     "title": "Two November Dates: Irwin, PA and Delray Beach, FL",
     "slug": "november-tour-irwin-pa-delray-beach-fl",
     "date": "2025-10-20",
+    "showDate": "2025-11-18",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -598,6 +630,7 @@ window.BIY_POSTS = [
     "title": "Venue Spotlight: The Lamp Theatre, Irwin, PA",
     "slug": "venue-spotlight-lamp-theatre-irwin-pa",
     "date": "2025-10-15",
+    "showDate": "",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -616,6 +649,7 @@ window.BIY_POSTS = [
     "title": "Venue Spotlight: Stage 954, Dania Beach, FL",
     "slug": "venue-spotlight-stage-954-dania-beach-fl",
     "date": "2025-10-10",
+    "showDate": "",
     "category": "venue-spotlight",
     "categoryLabel": "Venue Spotlight",
     "tags": [
@@ -635,6 +669,7 @@ window.BIY_POSTS = [
     "title": "We're Playing State Theatre DC",
     "slug": "washington-dc-state-theatre",
     "date": "2025-10-05",
+    "showDate": "",
     "category": "show-announcement",
     "categoryLabel": "Show Announcement",
     "tags": [
@@ -652,6 +687,7 @@ window.BIY_POSTS = [
     "title": "The Screaming Crowds. The Matching Suits. The Songs Everyone Knew.",
     "slug": "beatlemania-nostalgia-what-we-bring-to-life",
     "date": "2025-05-01",
+    "showDate": "",
     "category": "british-invasion",
     "categoryLabel": "British Invasion",
     "tags": [
