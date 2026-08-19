@@ -27,6 +27,36 @@
     revealObserver.observe(el);
   });
 
+  /* ---------- Deep links (#hash) ----------
+     Every .reveal starts at opacity 0 / translateY(26px). On a deep link the
+     browser jumps before those sections have revealed, so the target sits at
+     the wrong offset and you land on whatever section happens to be mid-
+     animation, showing its 26px overlap. Settle everything above the target
+     first, then scroll. ---------- */
+  function settleHash(instant) {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    document.querySelectorAll('.reveal:not(.in)').forEach(function (el) {
+      // el is above the target, or contains it: reveal it now, no animation
+      var rel = el.compareDocumentPosition(target);
+      if ((rel & Node.DOCUMENT_POSITION_FOLLOWING) || (rel & Node.DOCUMENT_POSITION_CONTAINED_BY)) {
+        el.classList.add('in');
+        revealObserver.unobserve(el);
+      }
+    });
+    target.scrollIntoView({ block: 'start', behavior: instant ? 'instant' : 'auto' });
+  }
+
+  if (location.hash) {
+    // arriving from another page: jump, never smooth-scroll the whole document
+    settleHash(true);
+    window.addEventListener('load', function () { settleHash(true); });
+  }
+  // clicking the nav on the page we are already on: let it glide
+  window.addEventListener('hashchange', function () { settleHash(false); });
+
   /* ---------- Header: frosted on scroll ---------- */
   var hdr = document.getElementById('hdr');
   if (hdr) {
