@@ -263,8 +263,54 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .dropdown li a { display: block; padding: 10px 22px; font-size: 12px; letter-spacing: .13em; white-space: nowrap; }
 .dropdown li a::after { display: none; }
 
+/* subscribe button — white pill, blue letters. Sits between CONTACT and the
+   social icons. Points at the #news signup form; repoint if Mailchimp gets its
+   own hosted URL at go-live. */
+.nav-links > li.nav-cta { margin-left: -14px; }
+.nav-links .btn-subscribe,
+.nav-drawer .btn-subscribe {
+  display: inline-block; color: var(--splash);
+  /* Red glow off the bottom edge only. The caps sit between 38% and 61% up, so
+     the fade is spent by 34% and the letters keep clean white behind them --
+     that also lets the bottom carry real saturation instead of washing out to
+     the dusty pink you get from low-alpha red over white. */
+  background-color: #fff;
+  background-image: linear-gradient(to top,
+    rgba(225,47,38,.55) 0%,
+    rgba(225,47,38,.26) 14%,
+    rgba(225,47,38,0) 34%);
+  border-radius: 999px; text-shadow: none;
+  transition: background-image .3s var(--ease), background-color .3s var(--ease),
+              transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-links .btn-subscribe {
+  padding: 9px 20px; font-size: 12px; letter-spacing: .14em;
+  /* warm the drop shadow so it reads as one red glow with the gradient above it
+     rather than a navy shadow fighting a red edge */
+  box-shadow: 0 3px 12px rgba(160,27,21,.42);
+}
+.nav-links .btn-subscribe::after { display: none; }
+.nav-links .btn-subscribe:hover,
+.nav-drawer .btn-subscribe:hover {
+  /* same stops, just deeper, so it interpolates smoothly */
+  background-image: linear-gradient(to top,
+    rgba(225,47,38,.78) 0%,
+    rgba(225,47,38,.40) 14%,
+    rgba(225,47,38,0) 34%);
+  /* hold the blue: the generic nav/drawer a:hover would otherwise flip these
+     letters to the accent red, which muddies them against the red tint */
+  color: var(--splash);
+  transform: translateY(-2px); box-shadow: 0 6px 18px rgba(160,27,21,.55);
+}
+
+/* drawer version — same pill, inset from the full-width drawer rows */
+.nav-drawer li.drawer-cta { padding: 6px 28px 14px; }
+.nav-drawer li.drawer-cta a {
+  padding: 13px 26px; border-bottom: none; text-align: center;
+}
+
 /* social icons */
-.nav-social { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+.nav-social { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .nav-social a {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: 50%; color: var(--muted);
@@ -272,6 +318,19 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 .nav-social svg { width: 24px; height: 24px; fill: currentColor; }
 .nav-social a:hover { color: var(--accent); transform: translateY(-2px); box-shadow: 0 0 12px var(--splash-glow); }
+
+/* Tight desktop band. With SUBSCRIBE in the row the nav needs ~1130px to sit at
+   full size, so between the mobile breakpoint and there it compacts instead of
+   pushing the social icons past the edge. */
+@media (min-width: 901px) and (max-width: 1140px) {
+  .nav-links { gap: 15px; }
+  .nav-links a { font-size: 12px; letter-spacing: .10em; }
+  .nav-links > li.nav-cta { margin-left: -4px; }
+  .nav-links .btn-subscribe { padding: 8px 14px; font-size: 11px; letter-spacing: .10em; }
+  .nav-social { gap: 4px; }
+  .nav-social a { width: 32px; height: 32px; }
+  .nav-social svg { width: 20px; height: 20px; }
+}
 
 /* hamburger */
 .hamburger {
@@ -293,6 +352,9 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 .nav-drawer.open {
   max-height: 70vh; visibility: visible;
+  /* the list outgrew 70vh once SUBSCRIBE joined it, so let it scroll rather
+     than clip the last row on shorter phones */
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
   border-bottom: 1px solid var(--line);
   transition: max-height .4s var(--ease), visibility 0s;
 }
