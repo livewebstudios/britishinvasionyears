@@ -47,12 +47,43 @@
       }
     });
     target.scrollIntoView({ block: 'start', behavior: instant ? 'instant' : 'auto' });
+    // The header only restyles on a scroll event, and a programmatic jump does
+    // not always fire one, so it can sit in its top-of-page state (oversized
+    // guitar mark, no frosted bar) halfway down the document. Sync it here.
+    var h = document.getElementById('hdr');
+    if (h) h.classList.toggle('scrolled', window.scrollY > 40);
+  }
+
+  // Chrome restores the previous scroll position on a reload and on history
+  // navigation, and it applies that restore AFTER our jump, so reloading a
+  // /page#anchor URL silently drops you wherever you happened to be sitting
+  // rather than on the anchor. Take scroll control for anchor arrivals only:
+  // pages without a hash keep the browser's normal restore behaviour.
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = location.hash ? 'manual' : 'auto';
   }
 
   if (location.hash) {
     // arriving from another page: jump, never smooth-scroll the whole document
     settleHash(true);
-    window.addEventListener('load', function () { settleHash(true); });
+
+    // An image that finishes late can move the target out from under that
+    // first jump, so re-assert once everything has settled. Stop the moment
+    // the reader scrolls for themselves, so we never yank the page back.
+    var userScrolled = false;
+    var markScrolled = function () { userScrolled = true; };
+    window.addEventListener('wheel', markScrolled, { passive: true, once: true });
+    window.addEventListener('touchstart', markScrolled, { passive: true, once: true });
+    window.addEventListener('keydown', function (e) {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].indexOf(e.key) > -1) {
+        userScrolled = true;
+      }
+    }, { once: true });
+
+    window.addEventListener('load', function () {
+      if (!userScrolled) settleHash(true);
+      setTimeout(function () { if (!userScrolled) settleHash(true); }, 350);
+    });
   }
   // clicking the nav on the page we are already on: let it glide
   window.addEventListener('hashchange', function () { settleHash(false); });
