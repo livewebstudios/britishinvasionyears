@@ -52,19 +52,11 @@ const LINKS = [
     note: 'These are the ones you will actually open.',
     rows: [
       {
-        name: 'Post and ad calendar',
-        kind: 'Google Doc',
-        kindClass: 'doc-k',
-        what: 'Every Facebook post, every Instagram post, and every ad date between now and the Tupelo show. You can both type changes right into it.',
-        href: 'https://docs.google.com/document/d/1A8CC2gYcpGpnBAaxX_4lDR9T6Rir75zoooJhgCtQC2g/edit',
-        also: {
-          name: 'Check off list',
-          kind: 'Spreadsheet',
-          kindClass: 'sheet',
-          what: 'The calendar says what is supposed to go out. This is where you check it off once it actually did. Tick the box, the rest of us can see it went out, and nobody has to ask.',
-          label: 'Open the check off list',
-          href: 'https://docs.google.com/spreadsheets/d/11ckDMcPXZpODhLDm2cly8BB-9bYWycd2X_1zOImfDjM/edit?gid=283741462#gid=283741462'
-        }
+        name: 'Check off list',
+        kind: 'Spreadsheet',
+        kindClass: 'sheet',
+        what: 'Every post and every ad that is supposed to go out, line by line. Tick the box once it actually did, the rest of us can see it went out, and nobody has to ask.',
+        href: 'https://docs.google.com/spreadsheets/d/11ckDMcPXZpODhLDm2cly8BB-9bYWycd2X_1zOImfDjM/edit?gid=283741462#gid=283741462'
       },
       {
         name: 'Ticket counts',
