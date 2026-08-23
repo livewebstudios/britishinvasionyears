@@ -262,9 +262,16 @@
     });
   }
 
-  /* ---------- Lightbox (gallery pages) ---------- */
+  /* ---------- Lightbox (gallery pages + about page) ---------- */
   function initLightbox() {
-    var cells = document.querySelectorAll('.gal-cell img, .gcell img, .strip .cell img');
+    var sel = ['.gal-cell img', '.gcell img', '.strip .cell img',
+               '.about-feature .af-media img', '.pb-col-media img', '.member-photo img'];
+    /* the about page also lightboxes its two full-bleed photos; the click lands
+       on the section so the whole photo is a target, minus the overlaid copy */
+    if (document.querySelector('.about-feature')) {
+      sel.push('.page-banner .hero-bg img', '.photo-band > img');
+    }
+    var cells = document.querySelectorAll(sel.join(', '));
     var imgs = Array.prototype.map.call(cells, function (img) { return { src: img.src, alt: img.alt }; });
     if (!imgs.length) return;
 
@@ -290,9 +297,25 @@
       lbImg.classList.add('pop');
     }
 
+    var WRAP = '.gcell, .gal-cell, .cell, .af-media, .pb-col-media, .member-photo, .photo-band, .page-banner';
+    var OVERLAID = '.pb-cap, .banner-inner';
     Array.prototype.forEach.call(cells, function (img, i) {
-      var cell = img.closest('.gcell, .gal-cell, .cell');
-      if (cell) cell.addEventListener('click', function () { show(i); });
+      var cell = img.closest(WRAP) || img;
+      var fullBleed = cell.matches('.photo-band, .page-banner');
+      cell.classList.add('lb-target');
+      cell.addEventListener('click', function (e) {
+        if (e.target.closest('a, button')) return;
+        /* the full-bleed sections carry copy laid over the photo; clicks there
+           belong to the copy (or to a nested cell of its own), not the backdrop */
+        if (fullBleed && e.target.closest(OVERLAID)) return;
+        show(i);
+      });
+      if (fullBleed) return;
+      cell.setAttribute('tabindex', '0');
+      cell.setAttribute('role', 'button');
+      cell.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); }
+      });
     });
     overlay.querySelector('.lb-close').addEventListener('click', function () { overlay.classList.remove('open'); });
     overlay.querySelector('.lb-prev').addEventListener('click', function () { show(cur - 1); });
@@ -305,7 +328,7 @@
       if (e.key === 'ArrowRight') show(cur + 1);
     });
   }
-  if (document.querySelector('.gallery-page') || document.querySelector('.gal') || document.querySelector('.strip')) initLightbox();
+  if (document.querySelector('.gallery-page') || document.querySelector('.gal') || document.querySelector('.strip') || document.querySelector('.about-feature')) initLightbox();
 
   /* ---------- Marquee chase bulbs ----------
      Coordinates (% of frame) mapped from the original lit artwork so the
