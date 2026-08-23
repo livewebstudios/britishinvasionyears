@@ -206,6 +206,9 @@
           frag.appendChild(card);
           cards.push(card);
         });
+        // tools/prerender.js has already written these cards into the HTML for
+        // crawlers. Clear them before hydrating or every show renders twice.
+        tourList.innerHTML = '';
         tourList.appendChild(frag);              // single reflow instead of one per card
         cards.forEach(window.LWS.observe);       // observe after insertion (reveal-on-scroll)
       })

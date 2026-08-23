@@ -1,0 +1,21 @@
+# ============================================================
+# NETLIFY BUILD
+# ============================================================
+# The site is plain static HTML served straight out of the repo
+# root, and it stays that way. The one build step writes the
+# tour dates and their MusicEvent schema into the HTML so a
+# crawler can read them without executing JavaScript, and
+# regenerates sitemap.xml from the same JSON the band edits.
+#
+# See tools/prerender.js for what it touches and why.
+#
+# This runs on EVERY deploy, including the ones Decap triggers
+# when the band saves a show at /admin/. Nothing about their
+# workflow changes and content/tour.json is never written to.
+#
+# Node built-ins only. No package.json, no npm install.
+# ============================================================
+
+[build]
+  command = "node tools/prerender.js"
+  publish = "."

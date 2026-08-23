@@ -33,20 +33,85 @@
     ]
   }
   </script>
+  <!--EVENTS:START-->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "MusicEvent", "name": "The British Invasion Years at The Vogel at Count Basie Center for the Arts", "startDate": "2026-05-30T19:30", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "The Vogel at Count Basie Center for the Arts", "address": "99 Monmouth St, Red Bank, NJ 07701" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at Harrington Raceway & Casino (Show 1)", "startDate": "2026-06-06T18:00", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "Harrington Raceway & Casino", "address": "Harrington, DE" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at Harrington Raceway & Casino (Show 2)", "startDate": "2026-06-06T20:30", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "Harrington Raceway & Casino", "address": "Harrington, DE" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at Cape May Convention Hall", "startDate": "2026-07-10T20:00", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "Cape May Convention Hall", "address": "714 Beach Ave, Cape May, NJ 08204" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at The Lamp Theatre", "startDate": "2026-07-26T19:00", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "The Lamp Theatre", "address": "222 Main St, Irwin, PA 15642" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at Backlash Fest", "startDate": "2026-09-19T20:00", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "Backlash Fest", "address": "Millsboro, DE" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } },
-      { "@type": "MusicEvent", "name": "The British Invasion Years at Tupelo Music Hall", "startDate": "2026-11-07T20:00", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "Place", "name": "Tupelo Music Hall", "address": "10 A St, Derry, NH 03038" }, "performer": { "@type": "MusicGroup", "name": "The British Invasion Years" } }
+      {
+        "@type": "MusicEvent",
+        "name": "The British Invasion Years at Backlash Fest",
+        "startDate": "2026-09-19T20:00-04:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Backlash Fest",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Millsboro",
+            "addressRegion": "DE",
+            "addressCountry": "US"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "The British Invasion Years"
+        },
+        "organizer": {
+          "@type": "MusicGroup",
+          "name": "The British Invasion Years",
+          "url": "https://britishinvasionyears.com"
+        },
+        "image": "https://britishinvasionyears.com/images/home/band-onstage-peace-sign-backdrop.jpg",
+        "url": "https://britishinvasionyears.com/tour.html",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.eventbrite.com/e/backlash-fest-2026-tickets-1989143221923",
+          "availability": "https://schema.org/InStock"
+        },
+        "subjectOf": "https://britishinvasionyears.com/post.html?slug=what-to-do-in-millsboro-de"
+      },
+      {
+        "@type": "MusicEvent",
+        "name": "The British Invasion Years at Tupelo Music Hall",
+        "startDate": "2026-11-07T20:00-05:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Tupelo Music Hall",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 A St",
+            "addressLocality": "Derry",
+            "addressRegion": "NH",
+            "postalCode": "03038",
+            "addressCountry": "US"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "The British Invasion Years"
+        },
+        "organizer": {
+          "@type": "MusicGroup",
+          "name": "The British Invasion Years",
+          "url": "https://britishinvasionyears.com"
+        },
+        "image": "https://britishinvasionyears.com/images/home/band-onstage-peace-sign-backdrop.jpg",
+        "url": "https://britishinvasionyears.com/tour.html",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://tickets.tupelohall.com/eventperformances.asp?evt=1008",
+          "availability": "https://schema.org/InStock"
+        },
+        "subjectOf": "https://britishinvasionyears.com/post.html?slug=what-to-do-in-derry-nh"
+      }
     ]
   }
   </script>
+  <!--EVENTS:END-->
 
   <!-- GA4 -->
   <!-- Google tag (gtag.js) — GA4 -->
@@ -177,7 +242,7 @@
           <span class="eyebrow">2026 &amp; 2027</span>
           <h2>Every <em>Date</em>, Coast To Coast</h2>
         </div>
-        <div class="tour-grid" id="tourList" data-all="true"></div>
+        <div class="tour-grid" id="tourList" data-all="true"><!--TOUR:START--><div class="show card-glow"><div class="show-date">Saturday, Sept 19, 2026</div><div class="show-venue">Backlash Fest</div><div class="show-addr">Millsboro, DE</div><div class="show-time">8:00 PM</div><div class="show-cta"><a class="btn btn-primary" href="https://www.eventbrite.com/e/backlash-fest-2026-tickets-1989143221923" target="_blank" rel="noopener">GET TICKETS</a><a class="btn btn-outline" href="post.html?slug=what-to-do-in-millsboro-de">WHAT TO DO IN TOWN</a></div></div><div class="show card-glow"><div class="show-date">Saturday, Nov 7, 2026</div><div class="show-venue">Tupelo Music Hall</div><div class="show-addr">10 A St, Derry, NH 03038</div><div class="show-time">8:00 PM</div><div class="show-cta"><a class="btn btn-primary" href="https://tickets.tupelohall.com/eventperformances.asp?evt=1008" target="_blank" rel="noopener">GET TICKETS</a><a class="btn btn-outline" href="post.html?slug=what-to-do-in-derry-nh">WHAT TO DO IN TOWN</a></div></div><div class="show card-glow tba"><div class="show-date">Saturday, Jan 9, 2027</div><div class="show-venue">Concert Announcement Coming Soon</div><div class="show-addr">Bridgewater, VA</div><div class="show-time">7:30pm</div><div class="show-cta"><a class="btn btn-outline" href="post.html?slug=what-to-do-in-bridgewater-va">WHAT TO DO IN TOWN</a></div></div><div class="show card-glow tba"><div class="show-date">Thursday, Apr 8, 2027</div><div class="show-venue">Concert Announcement Coming Soon</div><div class="show-addr">The Villages, FL</div><div class="show-time">7:00 PM</div><div class="show-cta"><a class="btn btn-outline" href="post.html?slug=what-to-do-in-the-villages-fl">WHAT TO DO IN TOWN</a></div></div><div class="show card-glow tba"><div class="show-date">Friday, July 9, 2027</div><div class="show-venue">Concert Announcement Coming Soon</div><div class="show-addr">Cape May, NJ</div><div class="show-time">8:00 PM</div><div class="show-cta"><a class="btn btn-outline" href="post.html?slug=what-to-do-in-cape-may-nj">WHAT TO DO IN TOWN</a></div></div><div class="show card-glow tba"><div class="show-date">Saturday, Oct 23, 2027</div><div class="show-venue">Concert Announcement Coming Soon</div><div class="show-addr">Windber, PA</div><div class="show-time">7:30 PM</div><div class="show-cta"><a class="btn btn-outline" href="post.html?slug=what-to-do-in-windber-pa">WHAT TO DO IN TOWN</a></div></div><!--TOUR:END--></div>
 
         <div class="tour-foot reveal">
           <p class="tour-booking-note">To bring this show to your venue, contact <strong>Blue Raven Entertainment</strong>.</p>
