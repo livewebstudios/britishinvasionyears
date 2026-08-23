@@ -242,14 +242,15 @@
     if (md) md.setAttribute('content', post.excerpt);
 
     /* Per-post canonical + og:url. post.html ships with both pointing at
-       blog.html, so without this every post declares itself a duplicate of the
-       index and drops out of Google. Built to match cardHtml()'s link exactly.
+       post.html itself, which is right for no single post, so without this every
+       post shares one URL and Google keeps one and drops the rest. Built to
+       match cardHtml()'s link exactly.
 
        Absolute on the production host on purpose: canonical is the one place an
-       absolute internal URL is correct, and pinning it to www also stops the
+       absolute internal URL is correct, and pinning it to the apex host also stops the
        staging deploy (no noindex header, robots.txt allows all) from competing
        with production in the index. */
-    var CANONICAL_ORIGIN = 'https://www.britishinvasionyears.com';
+    var CANONICAL_ORIGIN = 'https://britishinvasionyears.com';
     var postUrl = CANONICAL_ORIGIN + '/post.html?slug=' + encodeURIComponent(post.slug);
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', postUrl);
