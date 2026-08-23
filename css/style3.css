@@ -684,7 +684,13 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .contact-info a { color: var(--ink); transition: color .25s; }
 .contact-info a:hover { color: var(--accent); }
 .contact-info .license { font-size: 13px; color: var(--muted); margin-top: 14px; }
-.contact-seal { margin-top: 30px; max-width: 220px; border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: rgba(255,255,255,.02); }
+/* Rachel Hill, full frame. The phone box is the composition, so this is never
+   cropped to a square. Shares one framing rule with the seal below it so the
+   two read as a matched pair and cannot drift apart. */
+.contact-portrait,
+.contact-seal { max-width: 220px; border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: rgba(255,255,255,.02); }
+.contact-portrait { display: block; width: 100%; height: auto; margin-top: 26px; }
+.contact-seal { margin-top: 30px; }
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
 .contact-form input, .contact-form textarea, .contact-form select {
   width: 100%; background: #0d1a48; border: 1px solid var(--line-2); border-radius: 8px;
