@@ -76,8 +76,6 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style3.css">
-  <!-- Mailchimp -->
-  <!-- MAILCHIMP POPUP TEMPORARILY DISABLED FOR GTMETRIX PERF TEST (26_07_01) — re-enable by removing the two comment wrappers on this line --> <!--<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/253e22431d5e453d8288ad630/7af9c1633724dd17a62fb942b.js");</script>-->
 </head>
 <body>
 
@@ -106,7 +104,6 @@
           </li>
           <li><a href="blog.html">INSIGHTS</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <!-- SUBSCRIBE — points at the #news signup; repoint if Mailchimp gets its own hosted URL at go-live -->
           <li class="nav-cta"><a class="btn-subscribe" href="#news">SUBSCRIBE</a></li>
         </ul>
         <div class="nav-social">
@@ -338,14 +335,14 @@
           <span class="eyebrow">Find Out First</span>
           <h2>Never Miss <em>a Show</em></h2>
           <p>The band tells you where they're playing before anyone else. One email a month. That's it.</p>
-          <form class="news-form" id="newsForm" action="https://formspree.io/f/xdajjkor" method="POST">
+          <form class="news-form">
             <div class="news-row">
-              <input type="text" name="firstName" placeholder="First name" required>
-              <input type="text" name="lastName" placeholder="Last name" required>
+              <input type="text" name="FNAME" placeholder="First name" autocomplete="given-name" required>
+              <input type="text" name="LNAME" placeholder="Last name" autocomplete="family-name">
             </div>
-            <input type="email" name="email" placeholder="Email address" required>
+            <input type="email" name="EMAIL" placeholder="Email address" autocomplete="email" required>
             <button type="submit" class="btn btn-primary">JOIN THE MAILING LIST</button>
-            <p class="news-note" id="newsNote">We respect your privacy.</p>
+            <p class="news-note" role="status" aria-live="polite">We respect your privacy.</p>
           </form>
         </div>
       </div>
@@ -411,6 +408,7 @@
   </footer>
 
   <script defer src="js/main.js"></script>
+  <script defer src="js/newsletter.js"></script>
 
   <!-- Netlify Identity: catches invite / password-recovery tokens that land on
        the home page and forwards to the CMS login at /admin/. The widget is a
@@ -434,5 +432,26 @@
       document.body.appendChild(s);
     })();
   </script>
+
+  <!-- Mailchimp popup. Library load deferred to first interaction so it never
+       enters the TBT window. Same pattern as the GA4 tag in <head>. -->
+  <script>
+    (function () {
+      var loaded = false;
+      function loadMC() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.id = 'mcjs';
+        s.async = true;
+        s.src = 'https://chimpstatic.com/mcjs-connected/js/users/253e22431d5e453d8288ad630/7af9c1633724dd17a62fb942b.js';
+        document.head.appendChild(s);
+      }
+      ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function (e) {
+        window.addEventListener(e, loadMC, { passive: true, once: true });
+      });
+      setTimeout(loadMC, 12000);
+    })();
+  </script>
+
 </body>
 </html>

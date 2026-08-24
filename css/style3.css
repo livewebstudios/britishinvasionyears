@@ -1427,3 +1427,25 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   .cursor-fx { display: none; }
 }
 @media print { .cursor-fx { display: none; } }
+
+/* ===================================================================
+   NEWSLETTER FORM STATES (Mailchimp signup)
+   =================================================================== */
+
+.news-form.is-busy { opacity: .7; pointer-events: none; }
+.news-form button[type="submit"]:disabled { cursor: default; }
+
+/* Error red reuses the site token. There is no green token, so the
+   success color is the one raw hex in this block. */
+.news-note.is-ok   { color: #7ddf9a; }
+.news-note.is-err  { color: var(--accent-soft); }
+.news-note.is-busy { opacity: .7; }
+
+/* Bot trap. Off-screen rather than display:none, which some bots detect. */
+.mc-trap {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
