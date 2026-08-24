@@ -688,7 +688,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
    cropped to a square. Shares one framing rule with the seal below it so the
    two read as a matched pair and cannot drift apart. */
 .contact-portrait,
-.contact-seal { max-width: 220px; border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: rgba(255,255,255,.02); }
+.contact-seal { max-width: 303px; border: 1px solid var(--line); border-radius: 17px; padding: 25px; background: rgba(255,255,255,.02); }
 .contact-portrait { display: block; width: 100%; height: auto; margin-top: 26px; }
 .contact-seal { margin-top: 30px; }
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
