@@ -49,7 +49,7 @@
     okLive:   "You're on the list. See you at a show.",
     dupe:     "You're already on the list. Nothing else to do.",
     bademail: 'That email address does not look right. Try it again?',
-    missing:  'Need a first name, last name, and email.',
+    missing:  'Need a first name and an email.',
     fail:     'Something went wrong on our end. Try again in a minute.'
   };
 
