@@ -203,10 +203,20 @@
 
       // Mailchimp's bot trap. Name has to be b_<u>_<list>, so build it here
       // instead of hardcoding it into two HTML files.
+      //
+      // The off-screen styles are set INLINE, not left to .mc-trap in the
+      // stylesheet. This file is new, so browsers always fetch it, but
+      // style3.css is an existing URL cached for up to a day. A visitor
+      // holding the old CSS would get this field injected with nothing to
+      // hide it, the browser would autofill it, and the trap check below
+      // would then silently swallow every submit. An element this script
+      // creates has to carry its own hiding. The .mc-trap rule stays in the
+      // stylesheet as a backstop.
       if (!form.querySelector('.mc-trap')) {
         var wrap = document.createElement('div');
         wrap.className = 'mc-trap';
         wrap.setAttribute('aria-hidden', 'true');
+        wrap.style.cssText = 'position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;';
         wrap.innerHTML = '<input type="text" tabindex="-1" autocomplete="off" value="" ' +
                          'name="b_' + MC.u + '_' + MC.list + '">';
         form.appendChild(wrap);
