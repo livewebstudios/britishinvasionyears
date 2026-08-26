@@ -150,7 +150,7 @@ const LINKS = [
         kind: 'Drive folder',
         kindClass: 'folder',
         what: 'This is where all our documents are, ready to open, download or edit. Set lists, riders, stage plots, rehearsal lists, photos, video, logos, contracts. Everything the band has is in here somewhere.',
-        href: 'https://drive.google.com/drive/folders/1VVrMpqmCXzJSN4S4HCQFIdRvKtTSvrNd'
+        href: 'https://drive.google.com/drive/folders/18FXn1dxa_JYFLidsNIaX5Oy8kCmSak6u?usp=drive_link'
       }
     ]
   }
