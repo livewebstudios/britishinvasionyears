@@ -47,11 +47,13 @@
 
   /* ---------- drawing the page ---------- */
 
-  /* Puts one document into a box: the pill, the name, the plain
-     English line, the button, and the address under it. */
+  /* Puts one document into a box: the pill, the name, an optional
+     red flag line, the plain English line, the button, and the
+     address under it. */
   function fill(box, item, buttonText) {
     box.appendChild(el('span', 'kind ' + (item.kindClass || ''), item.kind));
     box.appendChild(el('span', 'name', item.name));
+    if (item.flag) { box.appendChild(el('span', 'flag', item.flag)); }
     box.appendChild(el('span', 'what', item.what));
 
     var go = newTab(el('a', 'go', buttonText));

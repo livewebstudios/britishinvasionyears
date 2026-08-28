@@ -16,6 +16,8 @@
      kind       the little coloured pill
      kindClass  folder | sheet | doc-k | pdf | site
      what       the plain English description
+     flag       optional. A short line in red directly under
+                the name. Use it to call out something new.
      href       where the button goes
      show       optional. What the small address under the
                 button reads. Use it when href is relative.
@@ -147,6 +149,7 @@ const LINKS = [
     rows: [
       {
         name: 'Google shared folder',
+        flag: 'New individual song video clips from the promo added here',
         kind: 'Drive folder',
         kindClass: 'folder',
         what: 'This is where all our documents are, ready to open, download or edit. Set lists, riders, stage plots, rehearsal lists, photos, video, logos, contracts. Everything the band has is in here somewhere.',

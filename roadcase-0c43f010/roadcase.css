@@ -124,6 +124,16 @@ h2.sec{
   color:var(--navy);
   margin-bottom:4px;
 }
+/* a short call-out sitting directly under the name */
+.doc .flag{
+  display:block;
+  font-family:"Hanken Grotesk",sans-serif;
+  font-weight:700;
+  font-size:16px;
+  line-height:1.35;
+  color:var(--red);
+  margin-bottom:6px;
+}
 .doc .what{display:block;font-size:16px;color:var(--grey)}
 .doc .kind{
   display:inline-block;
