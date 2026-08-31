@@ -11,12 +11,18 @@
 
   var revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        revealObserver.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      // A block TALLER than the viewport can never expose 12% of itself, so a
+      // plain 0.12 threshold leaves it at opacity 0 for good. The pre-rendered
+      // post articles are 8000px+, which is what surfaced this. Those reveal as
+      // soon as they enter; everything shorter keeps the original 12% trigger,
+      // so the timing on the rest of the site is unchanged.
+      var tall = entry.target.getBoundingClientRect().height > window.innerHeight;
+      if (entry.intersectionRatio < 0.12 && !tall) return;
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: [0, 0.12] });
 
   window.LWS.observe = function (el) {
     el.classList.add('reveal');
@@ -200,7 +206,7 @@
               // blog post, announced or not. The guide is about the town, so it
               // reads fine long before the venue is confirmed.
               (s.whatToDoSlug
-                ? '<a class="btn btn-outline" href="post.html?slug=' + esc(s.whatToDoSlug) + '">WHAT TO DO IN TOWN</a>'
+                ? '<a class="btn btn-outline" href="blog/' + esc(s.whatToDoSlug) + '.html">WHAT TO DO IN TOWN</a>'
                 : '') +
             '</div>';
           frag.appendChild(card);

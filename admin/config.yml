@@ -65,7 +65,7 @@ collections:
             summary: "{{fields.title}}  —  {{fields.date}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string", hint: "Lowercase, hyphenated. Used in the post URL (post.html?slug=...)." }
+              - { label: "Slug", name: "slug", widget: "string", hint: "Lowercase letters, numbers and hyphens only. This becomes the page address: a slug of what-to-do-in-derry-nh publishes at /blog/what-to-do-in-derry-nh.html. Changing it on a published post changes its URL, so only change one if you mean to." }
               - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
               - label: "Category"
                 name: "category"

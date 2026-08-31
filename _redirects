@@ -67,6 +67,30 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /fan-photos           /fan-photos.html   301!
 /band-gallery         /band-gallery.html 301!
 
+# ------------------------------------------------------------
+# BLOG POST URLS
+# ------------------------------------------------------------
+# Posts moved from post.html?slug=<x> to /blog/<x>.html on
+# 2026-08-31, when they were switched from client-side render
+# to real pre-rendered files. The old form was in sitemap.xml,
+# on every tour card's WHAT TO DO IN TOWN button, and in the
+# MusicEvent subjectOf, so it has inbound links and index
+# entries to hand over.
+#
+# THE BANG IS LOAD BEARING for the same reason it is on the
+# Squarespace rules above: post.html still exists as a file, so
+# Netlify answers it before ever consulting a redirect. Without
+# the bang the old URL keeps returning 200 and the move never
+# reaches Google.
+#
+# post.html is kept on purpose rather than deleted. It still
+# renders any post client-side, so if a rule here is ever
+# dropped the content is reachable instead of 404.
+# ------------------------------------------------------------
+
+/post.html  slug=:slug  /blog/:slug.html  301!
+/post.html              /blog.html        301!
+
 # Build machinery. Not public.
 /tools/*              /    301!
 /netlify.toml         /    301!

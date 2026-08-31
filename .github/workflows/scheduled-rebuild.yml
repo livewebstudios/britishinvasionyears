@@ -1,0 +1,45 @@
+name: Weekly rebuild
+
+# WHY THIS EXISTS
+# tools/prerender.js decides what is "upcoming" using the BUILD date, not the
+# date the page is viewed. Shows that have passed drop out of tour.html and out
+# of the MusicEvent schema, and blog posts tied to a finished show sink down the
+# index, but only when a build actually runs.
+#
+# Deploys on this site are bursty: six in one day, then nothing for a fortnight.
+# Between 7 Nov 2026 and 9 Jan 2027 there is no confirmed show at all, so a
+# quiet stretch is likely. Without this, a crawler would keep reading a
+# concluded concert as eventStatus EventScheduled. That is the exact bug the
+# pre-render was written to kill, so it should not be reintroduced by silence.
+#
+# Monday 08:00 UTC. Nothing to maintain. If nothing has changed the rebuild is
+# a no-op that republishes identical files.
+#
+# ONE-TIME SETUP (Jon):
+#   Netlify > Site configuration > Build & deploy > Build hooks > Add build hook
+#   Name it "weekly-rebuild", copy the URL, then in GitHub:
+#   Settings > Secrets and variables > Actions > New repository secret
+#   Name: NETLIFY_BUILD_HOOK      Value: the hook URL
+# Until that secret exists this job exits cleanly without doing anything.
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger a Netlify build
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "NETLIFY_BUILD_HOOK is not set. Nothing to do."
+            echo "See the comment at the top of this file for the one-time setup."
+            exit 0
+          fi
+          code=$(curl -sS -X POST -o /dev/null -w '%{http_code}' -d '{}' "$HOOK")
+          echo "Netlify build hook responded $code"
+          [ "$code" -ge 200 ] && [ "$code" -lt 300 ]

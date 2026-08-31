@@ -114,7 +114,7 @@
   }
 
   function cardHtml(p, feature) {
-    var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+    var href = 'blog/' + p.slug + '.html';
     return '<article class="post-card card-glow' + (feature ? ' feature' : '') + '">' +
       '<a class="post-thumb" href="' + href + '"><img src="' + p.image + '" alt="' + esc(p.title) + '" loading="lazy"></a>' +
       '<div class="post-body">' +
@@ -207,7 +207,7 @@
 
       grid.innerHTML = list.length
         ? list.map(function (p) { return cardHtml(p, false); }).join('')
-        : '<p class="blog-empty">No posts in this category yet — check back soon.</p>';
+        : '<p class="blog-empty">No posts in this category yet. Check back soon.</p>';
 
       // animate in
       grid.querySelectorAll('.post-card').forEach(function (el) {
@@ -251,7 +251,7 @@
        staging deploy (no noindex header, robots.txt allows all) from competing
        with production in the index. */
     var CANONICAL_ORIGIN = 'https://britishinvasionyears.com';
-    var postUrl = CANONICAL_ORIGIN + '/post.html?slug=' + encodeURIComponent(post.slug);
+    var postUrl = CANONICAL_ORIGIN + '/blog/' + post.slug + '.html';
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', postUrl);
     var ogUrl = document.querySelector('meta[property="og:url"]');
