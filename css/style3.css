@@ -1449,3 +1449,101 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   height: 1px;
   overflow: hidden;
 }
+
+
+/* ============================================================
+   FIRST CONCERT SURVEY  (first-concert.html)
+   ============================================================
+   One-campaign page linked from the newsletter. Everything here
+   is scoped to .fc-* so the page and this block can be deleted
+   together when the campaign is done, without touching a
+   selector any other page depends on.
+
+   The text input rule below repeats the .contact-form treatment
+   on purpose rather than joining that selector list. Same
+   reason: no edit to a rule 48 other pages render through.
+   If the contact form styling changes, mirror it here.
+   ============================================================ */
+
+/* .news-card ships with a border and no fill, so the drifting notes canvas
+   behind the section reads straight through the card and across the copy.
+   The panel fill is what actually stops that. Solid, not translucent. */
+.fc-card { text-align: left; background: var(--panel); }
+.fc-intro {
+  color: var(--ink); font-weight: 300; line-height: 1.8;
+  margin-bottom: 18px; max-width: 60ch;
+}
+.fc-intro:last-of-type { margin-bottom: 36px; }
+
+.fc-form { display: flex; flex-direction: column; gap: 30px; }
+.fc-field { display: flex; flex-direction: column; gap: 9px; }
+.fc-label, .fc-legend {
+  font-family: var(--sans); font-weight: 600; font-size: 15px;
+  color: var(--cream); line-height: 1.5;
+}
+.fc-fieldset { border: 0; padding: 0; margin: 0; }
+.fc-legend { padding: 0; margin-bottom: 15px; }
+
+/* Text inputs: matches .contact-form so the focus ring and border
+   read the same as the rest of the site. */
+.fc-form input[type=text], .fc-form input[type=email] {
+  width: 100%; background: #0d1a48; border: 1px solid var(--line-2); border-radius: 8px;
+  padding: 15px 18px; color: var(--cream); font-family: var(--sans); font-size: 16px; font-weight: 300;
+  min-height: 48px;
+  transition: border-color .25s, box-shadow .25s;
+}
+.fc-form input[type=text]::placeholder, .fc-form input[type=email]::placeholder { color: var(--muted); }
+.fc-form input[type=text]:focus, .fc-form input[type=email]:focus {
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(225,47,38,.28);
+}
+
+/* Radio pills. The native control is moved off with opacity and a
+   1px box, never display:none, so it keeps its place in the tab
+   order and still answers arrow keys as a radio group. */
+.fc-opts { display: flex; flex-wrap: wrap; gap: 12px; }
+.fc-opt { position: relative; display: inline-flex; }
+.fc-opt input {
+  position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none;
+}
+.fc-opt label {
+  display: inline-flex; align-items: center; min-height: 48px; cursor: pointer;
+  font-family: var(--sans); font-weight: 600; font-size: 13px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink);
+  border: 1px solid var(--line-2); border-radius: 100px; padding: 0 24px;
+  transition: border-color .25s, background .25s, color .25s;
+}
+.fc-opt label:hover { border-color: var(--splash); background: var(--splash-soft); }
+.fc-opt input:checked + label {
+  border-color: var(--accent); background: rgba(225,47,38,.16); color: var(--cream);
+}
+/* Focus has to survive the opacity:0 input, so it is drawn on the label. */
+.fc-opt input:focus-visible + label {
+  border-color: var(--splash); box-shadow: 0 0 0 3px var(--splash-soft);
+}
+
+/* Errors are sentences, never colour on its own. */
+.fc-fielderr, .fc-error {
+  font-family: var(--sans); font-size: 14px; font-weight: 400;
+  color: var(--accent-soft); line-height: 1.6;
+}
+.fc-fielderr { margin-top: 2px; }
+.fc-error { margin-top: 4px; max-width: 52ch; }
+/* The shared .btn padding lands at 46px. This audience is 55 to 75, so every
+   target on this page clears 48. */
+.fc-form .btn, .fc-thanks .btn { align-self: flex-start; min-height: 48px; }
+.fc-form .btn:disabled { opacity: .6; cursor: default; transform: none; }
+
+/* Success state, swapped in where the form was. */
+.fc-thanks { text-align: left; }
+.fc-thanks h2 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 14px; }
+.fc-thanks p { color: var(--ink); font-weight: 300; line-height: 1.8; margin-bottom: 30px; max-width: 46ch; }
+
+/* [hidden] has to beat the display values set above, or the form and
+   the confirmation both render at once. */
+.fc-form[hidden], .fc-thanks[hidden], .fc-fielderr[hidden], .fc-error[hidden] { display: none; }
+
+@media (max-width: 640px) {
+  .fc-opts { gap: 10px; }
+  .fc-opt label { padding: 0 18px; font-size: 12px; }
+  .fc-form { gap: 26px; }
+}

@@ -95,6 +95,11 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /tools/*              /    301!
 /netlify.toml         /    301!
 
+# Internal docs and build specs. publish is the repo root, so anything
+# committed here is fetchable over HTTP unless a rule shadows it. Same
+# reason DOMAIN-CUTOVER.md has a rule below.
+/docs/*               /    301!
+
 # Function source, including every band document link.
 /netlify/*            /    301!
 

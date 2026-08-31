@@ -5,25 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/favicon.png">
-  <title>Thank You | The British Invasion Years</title>
-  <meta name="description" content="Thanks for reaching out to The British Invasion Years. We got your message and will be in touch.">
-  <meta name="robots" content="noindex, follow">
+  <title>What was the first band you ever saw live? | The British Invasion Years</title>
+  <meta name="description" content="Two questions from the band. What decade was your first concert, and who did you see?">
 
-    <link rel="canonical" href="https://britishinvasionyears.com/thank-you.html">
+  <!-- Campaign page for the newsletter. Kept out of the index on purpose so it
+       never competes with the real pages or surfaces in a site search years from
+       now. "follow" so the link out to the tour page still counts. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://britishinvasionyears.com/first-concert.html">
 
   <!-- OG -->
-  <meta property="og:title" content="Thank You | The British Invasion Years">
-  <meta property="og:description" content="Thanks for reaching out to The British Invasion Years. We got your message and will be in touch.">
+  <meta property="og:title" content="What was the first band you ever saw live?">
+  <meta property="og:description" content="Two questions from the band. What decade was your first concert, and who did you see?">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://britishinvasionyears.com/thank-you.html">
+  <meta property="og:url" content="https://britishinvasionyears.com/first-concert.html">
   <meta property="og:image" content="https://britishinvasionyears.com/images/home/band-onstage-peace-sign-backdrop.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What was the first band you ever saw live?">
+  <meta name="twitter:description" content="Two questions from the band. What decade was your first concert, and who did you see?">
+  <meta name="twitter:image" content="https://britishinvasionyears.com/images/home/band-onstage-peace-sign-backdrop.jpg">
 
   <!-- GA4 -->
-  <!-- Google tag (gtag.js) — GA4 -->
   <script>
-    // GA4 — library load deferred to first interaction (3.5s timeout fallback)
+    // GA4 - library load deferred to first interaction (10s timeout fallback)
     // so gtag.js execution stays off the critical path / out of the TBT window.
-    // The dataLayer queue is set up now; page_view fires once the library loads.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
@@ -39,7 +44,7 @@
       }
       var evts = ["scroll","mousemove","touchstart","keydown","pointerdown"];
       evts.forEach(function(e){ window.addEventListener(e, loadGA, {passive:true, once:true}); });
-      setTimeout(loadGA, 10000); // guarantees a page_view on long-dwell visits; kept well past any Lighthouse trace so gtag never enters the TBT window
+      setTimeout(loadGA, 10000);
     })();
   </script>
 
@@ -79,7 +84,7 @@
           </li>
           <li><a href="blog.html">INSIGHTS</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li class="nav-cta"><a class="btn-subscribe" href="index.html#news">SUBSCRIBE</a></li>
+          <li class="nav-cta"><a class="btn-subscribe" href="#news">SUBSCRIBE</a></li>
         </ul>
         <div class="nav-social">
           <a href="https://www.facebook.com/britishinvasionyears" target="_blank" rel="noopener" aria-label="Facebook">
@@ -117,7 +122,7 @@
         <li><a href="videos.html">VIDEOS</a></li>
         <li><a href="blog.html">INSIGHTS</a></li>
         <li><a href="contact.html">CONTACT</a></li>
-        <li class="drawer-cta"><a class="btn-subscribe" href="index.html#news">SUBSCRIBE</a></li>
+        <li class="drawer-cta"><a class="btn-subscribe" href="#news">SUBSCRIBE</a></li>
       </ul>
     </div>
   </header>
@@ -131,31 +136,94 @@
       </div>
       <div class="beam"></div>
       <div class="banner-inner reveal">
-        <span class="eyebrow">Message Received</span>
-        <h1>Thank You</h1>
-        <p>Your note is in. We read every one, and we'll be in touch soon.</p>
+        <span class="eyebrow">Two Questions</span>
+        <h1>What was the first band you ever saw live?</h1>
       </div>
     </section>
 
-    <!-- No drift canvas on this page. The content here sits bare in the wrap
-         with no panel behind it, so the notes floated over the copy and the
-         phone number instead of behind a card. The section keeps its ambient
-         blob gradients, which stay well back of the text. -->
     <section class="block">
+      <canvas id="notes-bg-fc" class="notes-bg" aria-hidden="true"></canvas>
       <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">What Happens Next</span>
-          <h2>You're All <em>Set</em></h2>
-        </div>
+        <div class="news-card fc-card reveal">
 
-        <div class="about-lead reveal">
-          <p>Thanks for reaching out to The British Invasion Years. We got your message and someone will get back to you shortly.</p>
-          <p>Booking a date and need a faster answer? Rachel Hill at Blue Raven Entertainment is your quickest line: <a href="tel:+16107626413">610.762.6413</a> or <a href="mailto:rachel@blueravenartists.com?subject=New%20message%20from%20britishinvasionyears.com%20website%20contact%20form">rachel@blueravenartists.com</a>.</p>
-        </div>
+          <p class="fc-intro">Somebody asked us this at the merch table a few weeks back and it ate up twenty minutes. Nobody in that circle could tell you what they had for dinner the night before. Every one of them could tell you the venue and the year.</p>
+          <p class="fc-intro">So we want yours. Takes about fifteen seconds.</p>
 
-        <div class="cta-row reveal">
-          <a href="index.html" class="btn btn-primary">BACK TO HOME</a>
-          <a href="tour.html" class="textlink">See Tour Dates &rarr;</a>
+          <!-- Netlify finds this form by parsing the deployed HTML, so it has to
+               exist as static markup at deploy time. Every field carries a name
+               attribute or it is not captured. -->
+          <form name="first-concert" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fcForm" class="fc-form">
+            <input type="hidden" name="form-name" value="first-concert">
+            <p class="mc-trap"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <fieldset class="fc-fieldset">
+              <legend class="fc-legend">What decade was your first concert?</legend>
+              <div class="fc-opts">
+                <span class="fc-opt">
+                  <input type="radio" id="d60" name="decade" value="The 1960s" required>
+                  <label for="d60">The 1960s</label>
+                </span>
+                <span class="fc-opt">
+                  <input type="radio" id="d70" name="decade" value="The 1970s">
+                  <label for="d70">The 1970s</label>
+                </span>
+                <span class="fc-opt">
+                  <input type="radio" id="d80" name="decade" value="The 1980s">
+                  <label for="d80">The 1980s</label>
+                </span>
+                <span class="fc-opt">
+                  <input type="radio" id="dlater" name="decade" value="1990 or later">
+                  <label for="dlater">1990 or later</label>
+                </span>
+              </div>
+              <p class="fc-fielderr" id="errDecade" hidden>Pick a decade so we can count it.</p>
+            </fieldset>
+
+            <div class="fc-field">
+              <label for="band" class="fc-label">What band was it?</label>
+              <input type="text" id="band" name="band" maxlength="120" autocomplete="off" required
+                     placeholder="The Turtles, Convention Hall, 1968">
+              <p class="fc-fielderr" id="errBand" hidden>Tell us who it was. We read every one of these.</p>
+            </div>
+
+            <div class="fc-field">
+              <label for="email" class="fc-label">Your email, if you want us to know it was you</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="fcSubmit">Send It In</button>
+
+            <p class="fc-error" id="fcError" role="alert" hidden>
+              That did not go through. Hit reply on the email instead and tell us there. We will get it.
+            </p>
+          </form>
+
+          <div id="fcThanks" class="fc-thanks" role="status" hidden>
+            <h2>Got it. Thanks.</h2>
+            <p>We will tell everybody what the answers were in the next one.</p>
+            <a class="btn btn-outline" href="tour.html">See Where We Are Playing</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="block alt" id="news">
+      <div class="wrap">
+        <div class="news-card reveal">
+          <span class="eyebrow">Find Out First</span>
+          <h2>Never Miss <em>a Show</em></h2>
+          <p>The band tells you where they're playing before anyone else. One email a month. That's it.</p>
+          <form class="news-form">
+            <div class="news-row">
+              <input type="text" name="FNAME" placeholder="First name" autocomplete="given-name" required>
+              <input type="text" name="LNAME" placeholder="Last name" autocomplete="family-name">
+            </div>
+            <input type="email" name="EMAIL" placeholder="Email address" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">JOIN THE MAILING LIST</button>
+            <p class="news-note" role="status" aria-live="polite">We respect your privacy.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -220,5 +288,86 @@
   </footer>
 
   <script defer src="js/main2.js"></script>
+  <script defer src="js/newsletter2.js"></script>
+  <script defer src="js/notes-bg2.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initNotesBg('notes-bg-fc'); });</script>
+
+  <script>
+  (function () {
+    var form   = document.getElementById('fcForm');
+    var thanks = document.getElementById('fcThanks');
+    var errBox = document.getElementById('fcError');
+    var submit = document.getElementById('fcSubmit');
+    var band   = document.getElementById('band');
+
+    // The required attributes stay in the markup so the browser still guards the
+    // form if this script never runs. Once it does run we take validation over,
+    // because native bubbles vanish on the next click and cannot be aimed at a
+    // group of styled radio pills. These messages are real sentences next to the
+    // field that stay put until the reader fixes the thing.
+    form.setAttribute('novalidate', 'novalidate');
+
+    var checks = [
+      { anchor: document.querySelector('.fc-opts'),
+        msg: document.getElementById('errDecade'),
+        ok: function () { return !!form.querySelector('input[name="decade"]:checked'); } },
+      { anchor: band,
+        msg: document.getElementById('errBand'),
+        ok: function () { return band.value.trim() !== ''; } }
+    ];
+
+    function validate() {
+      var firstBad = null;
+      checks.forEach(function (c) {
+        var good = c.ok();
+        c.msg.hidden = good;
+        if (!good && !firstBad) firstBad = c;
+      });
+      if (firstBad) {
+        firstBad.anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var target = firstBad.anchor.matches('input')
+          ? firstBad.anchor
+          : firstBad.anchor.querySelector('input');
+        if (target) target.focus({ preventScroll: true });
+      }
+      return !firstBad;
+    }
+
+    // Clear a message the moment the reader fixes what it complained about.
+    form.addEventListener('input', function () {
+      checks.forEach(function (c) { if (c.ok()) c.msg.hidden = true; });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errBox.hidden = true;
+      if (!validate()) return;
+
+      submit.disabled = true;
+      submit.textContent = 'Sending';
+
+      // Netlify collects the submission from a urlencoded POST to any path on
+      // the site. form-name in the body is what routes it to the right form.
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        form.hidden = true;
+        thanks.hidden = false;
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (window.gtag) gtag('event', 'first_concert_survey_submit');
+      })
+      .catch(function () {
+        // The reader must never be left with a form that silently did nothing.
+        errBox.hidden = false;
+        submit.disabled = false;
+        submit.textContent = 'Send It In';
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
