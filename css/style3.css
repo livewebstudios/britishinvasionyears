@@ -513,6 +513,33 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
   border-color: var(--accent);
 }
 
+
+/* Shown only on a card with no ticket button (see cardHtml in js/main2.js and
+   tools/prerender.js). Small and quiet on purpose: it is the consolation line
+   under WHAT TO DO IN TOWN, not a second call to action competing with it. */
+.show-mail {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.show-mail a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(208, 224, 255, .42);
+  text-shadow: 0 1px 3px rgba(4, 10, 34, .85);
+  padding-bottom: 1px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.show-mail a:hover,
+.show-mail a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+/* The TBA dimming is applied per element, and this line deliberately does NOT
+   opt in: on a "coming soon" card it is the only thing left to click, so it
+   reads at full strength while the placeholder venue text stays dimmed. */
+
 /* TBA cards read dimmer, but the dimming is applied per-element rather than as
    an opacity group on .show — an opacity group becomes a backdrop root, which
    would leave the frosted RSVP button above with nothing to blur. */

@@ -148,6 +148,15 @@ function cardHtml(s) {
         ? '<a class="btn btn-outline" href="blog/' + esc(s.whatToDoSlug) + '.html">WHAT TO DO IN TOWN</a>'
         : '') +
     '</div>' +
+    // No ticket button on the card means there is nothing to buy yet, so the
+    // fan gets pointed at the mailing list instead of a dead end. This rides on
+    // the same hasTicket test that suppresses the ticket button: a new "coming
+    // soon" date carries the line the moment Dave adds it, and drops it by
+    // itself the moment he pastes a ticket URL into that show. Nobody hand-
+    // maintains it, and there is nothing to remember to remove later.
+    (hasTicket
+      ? ''
+      : '<div class="show-mail"><a href="index.html#news">Get on the mailing list for updates</a></div>') +
   '</div>';
 }
 
