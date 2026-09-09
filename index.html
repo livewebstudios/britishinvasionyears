@@ -437,10 +437,31 @@
     })();
   </script>
 
-  <!-- Mailchimp popup. Library load deferred to first interaction so it never
-       enters the TBT window. Same pattern as the GA4 tag in <head>. -->
+  <!-- Mailchimp popup. Two jobs here.
+
+       1. SUPPRESSION. Mailchimp remembers "this person already joined or
+          already closed the popup" in its own cookie, and browser privacy
+          features delete that cookie fast, sometimes inside 30 minutes. So
+          people who were already on the list kept getting hit with the popup
+          again. We keep that memory in first-party localStorage instead,
+          which survives, and gate the whole thing on it: if the key is set
+          the library is never even requested. The poll copies Mailchimp's own
+          cookie signal into storage the moment it shows up, then gives up
+          after five minutes so it is not running forever on a long visit.
+          js/newsletter2.js sets the same key when the inline "Never Miss a
+          Show" form succeeds, since the popup has no idea about that signup.
+
+       2. PERFORMANCE. Library load stays deferred to first interaction so it
+          never enters the TBT window. Same pattern as the GA4 tag in <head>. -->
   <script>
     (function () {
+      var KEY = 'biy_mc_done';
+
+      // Storage can throw outright in locked-down or private contexts. If we
+      // cannot read it, fall through and load: better a repeat popup than a
+      // dead script block.
+      try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+
       var loaded = false;
       function loadMC() {
         if (loaded) return; loaded = true;
@@ -449,6 +470,14 @@
         s.async = true;
         s.src = 'https://chimpstatic.com/mcjs-connected/js/users/253e22431d5e453d8288ad630/7af9c1633724dd17a62fb942b.js';
         document.head.appendChild(s);
+
+        var t = setInterval(function () {
+          if (/MCPopupSubscribed=1|MCPopupClosed=yes/.test(document.cookie)) {
+            try { localStorage.setItem(KEY, Date.now()); } catch (e) {}
+            clearInterval(t);
+          }
+        }, 2000);
+        setTimeout(function () { clearInterval(t); }, 300000);
       }
       ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function (e) {
         window.addEventListener(e, loadMC, { passive: true, once: true });

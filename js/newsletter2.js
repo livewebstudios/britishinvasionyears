@@ -110,6 +110,12 @@
         setNote(form, COPY[state] || COPY.subscribed, 'is-ok');
         form.reset();
         track('newsletter_signup');
+        // Tell the popup gate in index.html to stand down. Mailchimp's popup
+        // has no idea this form exists, so without this it keeps asking
+        // someone who just signed up right here. Set on a confirmed server
+        // response only, never on click, so a failed submit does not kill the
+        // popup for someone who never actually joined.
+        try { localStorage.setItem('biy_mc_done', Date.now()); } catch (e) {}
         return;
       }
       if (state === 'bademail') {
