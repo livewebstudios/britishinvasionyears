@@ -76,6 +76,13 @@
       "venue": "Concert Announcement Coming Soon",
       "city": "Dania Beach, FL",
       "whatToDoSlug": "what-to-do-in-dania-beach-fl"
+    },
+    {
+      "status": "tba",
+      "date": "2026-12-19",
+      "time": "7:30 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "Holmdel, NJ"
     }
   ]
 }
