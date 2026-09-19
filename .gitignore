@@ -12,3 +12,22 @@ $RECYCLE.BIN/
 # Claude Code
 *.log
 .claude/
+
+# ============================================================
+# NOTES, SPECS AND PLANNING DOCS — NEVER COMMIT
+# ============================================================
+# netlify.toml sets publish = "." so EVERY committed file ships
+# to the CDN and is fetchable over HTTP. A _redirects rule can
+# shadow a path, but the file is still deployed and the shadow
+# is one line deep — on 2026-08-22 a whole-file upload wiped the
+# /netlify/* block and exposed the function source for an hour.
+#
+# So markdown and internal docs are kept OUT OF THE REPO, not
+# hidden inside it. They live in the parent project folder
+# (../), which git cannot see.
+#
+# If a .md ever genuinely has to ship, unignore it explicitly
+# with a ! rule and add a redirect only if it must stay private.
+# ============================================================
+*.md
+docs/

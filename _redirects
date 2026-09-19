@@ -95,9 +95,11 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /tools/*              /    301!
 /netlify.toml         /    301!
 
-# Internal docs and build specs. publish is the repo root, so anything
-# committed here is fetchable over HTTP unless a rule shadows it. Same
-# reason DOMAIN-CUTOVER.md has a rule below.
+# Internal docs and build specs. These are now kept OUT OF THE REPO
+# entirely — .gitignore blocks *.md and docs/, and the notes live in
+# the parent project folder instead. Nothing should match this rule
+# any more; it stays as a guard in case a doc is ever force-added.
+# Belt, not braces: the real fix is that the file never ships.
 /docs/*               /    301!
 
 # Function source, including every band document link.
@@ -107,6 +109,6 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /_headers             /    301!
 /_redirects           /    301!
 
-# Internal runbook. Lists the GA4 property, the Formspree
-# endpoint, and the repo. Not for the public.
+# Internal runbook. No longer in the repo (and *.md is now
+# gitignored). Kept as a guard only.
 /DOMAIN-CUTOVER.md    /    301!
