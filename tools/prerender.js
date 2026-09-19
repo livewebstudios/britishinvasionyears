@@ -3,7 +3,7 @@
    PRE-RENDER  —  runs on every Netlify build (see netlify.toml)
 
    WHY THIS EXISTS
-   The tour list is rendered client-side by js/main2.js from content/tour.json.
+   The tour list is rendered client-side by js/main3.js from content/tour.json.
    A crawler that fetches tour.html sees an empty <div id="tourList">. Google
    may execute the JS eventually, but "eventually" is not a plan when a show
    is nine weeks out and we are trying to sell seats for it.
@@ -16,7 +16,7 @@
 
    WHAT IT DOES
      1. Writes the upcoming shows into tour.html and index.html as real static
-        markup, byte-identical to what js/main2.js builds at runtime.
+        markup, byte-identical to what js/main3.js builds at runtime.
      2. Regenerates the MusicEvent JSON-LD from content/tour.json, with the
         ticket URL, a proper PostalAddress and a real timezone offset.
      3. Regenerates sitemap.xml from content/tour.json + content/blog.json.
@@ -45,7 +45,7 @@ const read  = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const write = (f, s) => fs.writeFileSync(path.join(ROOT, f), s);
 const json  = f => JSON.parse(read(f));
 
-/* ---------- helpers shared with js/main2.js (keep these in step) ---------- */
+/* ---------- helpers shared with js/main3.js (keep these in step) ---------- */
 
 const DOW = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -121,7 +121,7 @@ const shows = (json('content/tour.json').shows || [])
 const posts = (json('content/blog.json').posts || []);
 
 /* ---------- 1. visible show cards ------------------------------------------
-   Must match js/main2.js cardHtml output exactly. If they drift, the page
+   Must match js/main3.js cardHtml output exactly. If they drift, the page
    visibly reflows when the fetch lands. */
 
 function cardHtml(s) {

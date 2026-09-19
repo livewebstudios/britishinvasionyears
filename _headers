@@ -12,7 +12,7 @@
   Cache-Control: public, max-age=31536000
 
 # CSS / JS — short cache with revalidation so a redeploy is never stale.
-# (Rename the file, e.g. main.js -> main2.js, only if you need an instant bust.)
+# (Rename the file, e.g. main2.js -> main3.js, only if you need an instant bust.)
 /css/*
   Cache-Control: public, max-age=86400, must-revalidate
 /js/*

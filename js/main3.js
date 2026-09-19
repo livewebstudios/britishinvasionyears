@@ -34,16 +34,63 @@
   });
 
   /* ---------- Deep links (#hash) ----------
-     Every .reveal starts at opacity 0 / translateY(26px). On a deep link the
-     browser jumps before those sections have revealed, so the target sits at
-     the wrong offset and you land on whatever section happens to be mid-
-     animation, showing its 26px overlap. Settle everything above the target
-     first, then scroll. ---------- */
-  function settleHash(instant) {
+     Two things used to drop a reader in the wrong place. Every .reveal starts
+     at opacity 0 / translateY(26px), so a deep link measures the target before
+     the sections above it have revealed. And html carries scroll-behavior:
+     smooth, so the browser's own fragment scroll and ours both animate toward
+     an end point fixed at the instant the animation starts: a lazy image or a
+     webfont swap landing mid-flight leaves the reader parked short of the
+     target, or with its first 50px buried under the fixed header. So we reveal
+     everything above the target, take the scroll ourselves, then keep
+     correcting until the target really sits where it belongs. ---------- */
+
+  var ANCHOR_KEYS = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var anchorRun = 0;
+
+  function hashTarget() {
     var id = decodeURIComponent(location.hash.slice(1));
-    if (!id) return;
-    var target = document.getElementById(id);
+    return id ? document.getElementById(id) : null;
+  }
+
+  // How far below the viewport top the target should sit. scroll-margin-top is
+  // the source of truth; a target without one clears the fixed header itself.
+  function anchorGap(el) {
+    var gap = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+    if (gap) return gap;
+    var h = document.getElementById('hdr');
+    return (h ? h.getBoundingClientRect().height : 0) + 24;
+  }
+
+  function wantedTop(el) {
+    var top = el.getBoundingClientRect().top + window.scrollY - anchorGap(el);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    return Math.max(0, Math.min(Math.round(top), Math.max(0, Math.round(max))));
+  }
+
+  function syncHeader() {
+    // The header only restyles on a scroll event, and a programmatic jump does
+    // not always fire one, so it can sit in its top-of-page state (oversized
+    // guitar mark, no frosted bar) halfway down the document. Sync it here.
+    var h = document.getElementById('hdr');
+    if (h) h.classList.toggle('scrolled', window.scrollY > 40);
+  }
+
+  // No animation here on purpose: this is the corrector, and a second animation
+  // would only re-open the race it exists to close.
+  function snapTo(el) {
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, wantedTop(el));
+    root.style.scrollBehavior = prev;
+    syncHeader();
+  }
+
+  function settleHash(glide) {
+    var target = hashTarget();
     if (!target) return;
+
     document.querySelectorAll('.reveal:not(.in)').forEach(function (el) {
       // el is above the target, or contains it: reveal it now, no animation
       var rel = el.compareDocumentPosition(target);
@@ -52,13 +99,63 @@
         revealObserver.unobserve(el);
       }
     });
-    target.scrollIntoView({ block: 'start', behavior: instant ? 'instant' : 'auto' });
-    // The header only restyles on a scroll event, and a programmatic jump does
-    // not always fire one, so it can sit in its top-of-page state (oversized
-    // guitar mark, no frosted bar) halfway down the document. Sync it here.
-    var h = document.getElementById('hdr');
-    if (h) h.classList.toggle('scrolled', window.scrollY > 40);
+
+    // A hidden tab never animates a smooth scroll, so asking for one there
+    // leaves the reader exactly where they were. Jump instead.
+    var run = ++anchorRun;
+    if (glide && !reduceMotion.matches && !document.hidden) {
+      window.scrollTo({ top: wantedTop(target), behavior: 'smooth' });
+    } else {
+      snapTo(target);
+    }
+
+    // Hold the landing while the page finishes settling: wait for the scroll to
+    // stop moving, correct if the target drifted under us, and keep watching a
+    // few seconds longer in case a late image or font shifts it again. A real
+    // scroll from the reader bumps anchorRun and ends the watch, so the page is
+    // never yanked back out from under them.
+    // On a timer, not requestAnimationFrame: a backgrounded tab freezes rAF
+    // outright, and that is exactly the case where a smooth scroll silently
+    // does nothing and the correction is the only thing that lands the reader.
+    var lastY = null, still = 0, deadline = Date.now() + 4000;
+    (function tick() {
+      if (run !== anchorRun || Date.now() > deadline) return;
+      var el = hashTarget();
+      if (!el) return;
+      if (window.scrollY === lastY) { still++; } else { still = 0; lastY = window.scrollY; }
+      if (still > 2 && Math.abs(window.scrollY - wantedTop(el)) > 1) {
+        snapTo(el);
+        still = 0; lastY = null;
+      }
+      setTimeout(tick, 60);
+    })();
+
+    syncHeader();
   }
+
+  function releaseAnchor() { anchorRun++; }
+  window.addEventListener('wheel', releaseAnchor, { passive: true });
+  window.addEventListener('touchstart', releaseAnchor, { passive: true });
+  window.addEventListener('keydown', function (e) {
+    if (ANCHOR_KEYS.indexOf(e.key) > -1) releaseAnchor();
+  });
+
+  // Anchor clicks that stay on this page: run our own glide rather than let the
+  // browser's native fragment scroll and ours race to two different end points.
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var link = e.target.closest && e.target.closest('a[href*="#"]');
+    if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+    var url;
+    try { url = new URL(link.getAttribute('href'), location.href); } catch (err) { return; }
+    if (url.origin !== location.origin) return;
+    if (url.pathname !== location.pathname || url.search !== location.search) return;
+    if (!url.hash || url.hash === '#') return;
+    if (!document.getElementById(decodeURIComponent(url.hash.slice(1)))) return;
+    e.preventDefault();
+    history.pushState(null, '', url.hash);
+    settleHash(true);
+  });
 
   // Chrome restores the previous scroll position on a reload and on history
   // navigation, and it applies that restore AFTER our jump, so reloading a
@@ -71,28 +168,12 @@
 
   if (location.hash) {
     // arriving from another page: jump, never smooth-scroll the whole document
-    settleHash(true);
-
-    // An image that finishes late can move the target out from under that
-    // first jump, so re-assert once everything has settled. Stop the moment
-    // the reader scrolls for themselves, so we never yank the page back.
-    var userScrolled = false;
-    var markScrolled = function () { userScrolled = true; };
-    window.addEventListener('wheel', markScrolled, { passive: true, once: true });
-    window.addEventListener('touchstart', markScrolled, { passive: true, once: true });
-    window.addEventListener('keydown', function (e) {
-      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].indexOf(e.key) > -1) {
-        userScrolled = true;
-      }
-    }, { once: true });
-
-    window.addEventListener('load', function () {
-      if (!userScrolled) settleHash(true);
-      setTimeout(function () { if (!userScrolled) settleHash(true); }, 350);
-    });
+    settleHash(false);
+    window.addEventListener('load', function () { settleHash(false); });
   }
-  // clicking the nav on the page we are already on: let it glide
-  window.addEventListener('hashchange', function () { settleHash(false); });
+
+  // back / forward, or a hash typed into the bar: let it glide
+  window.addEventListener('hashchange', function () { settleHash(true); });
 
   /* ---------- Header: frosted on scroll ---------- */
   var hdr = document.getElementById('hdr');

@@ -514,7 +514,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 }
 
 
-/* Shown only on a card with no ticket button (see cardHtml in js/main2.js and
+/* Shown only on a card with no ticket button (see cardHtml in js/main3.js and
    tools/prerender.js). Small and quiet on purpose: it is the consolation line
    under WHAT TO DO IN TOWN, not a second call to action competing with it. */
 .show-mail {
@@ -594,7 +594,11 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: 500; color: var(--
 .shared-names { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink); line-height: 1.6; }
 
 /* member profile cards (about page) */
-.member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 8px; scroll-margin-top: 120px; }
+.member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 8px; }
+
+/* Fixed-header clearance for every in-page anchor target. Without this the
+   header sits on top of the first 73px of whatever you jumped to. */
+#news, #the-boys, .member-grid { scroll-margin-top: 120px; }
 .member {
   background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
   border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;
