@@ -370,6 +370,43 @@ const SHOW_BY_SLUG = {};
   if (s.whatToDoSlug) SHOW_BY_SLUG[s.whatToDoSlug] = s;
 });
 
+/* ---- show card under the hero: WHICH POSTS GET ONE ----------------------
+   The date line under a what-to-do hero repeats in plain text what the tour
+   card already says better, so these posts get the real card instead, with
+   its own ticket button, right where the reader lands.
+
+   Rolled out one slug at a time on purpose. To switch a page on, add its
+   slug. To switch the whole category on later, replace the has() test in
+   postPageHtml with p.category === 'what-to-do-in-town' and delete this set.
+   Nothing else has to change either way. */
+const SHOW_CARD_SLUGS = new Set([
+  'what-to-do-in-millsboro-de'
+]);
+
+/* ---- the tour date card, standalone ----
+   Same classes the tour grid uses (see cardHtml above), minus the time, badge
+   and WHAT TO DO IN TOWN button: the reader is already on that page. The
+   ticket link comes from the same tour.json row the bottom CTA reads, so the
+   URL is never spelled twice. */
+function showCardHtml(s) {
+  if (!s) return '';
+  const d = new Date(dayMs(s.date));
+  const when = DOW[d.getUTCDay()] + ', ' + MON[d.getUTCMonth()] + ' ' +
+               d.getUTCDate() + ', ' + d.getUTCFullYear();
+  // Same gate as the bottom CTA so the two can never disagree. A tba row or a
+  // show with no link renders the card cleanly with no button, not an empty one.
+  const hasTicket = s.status !== 'tba' && s.ticketUrl && String(s.ticketUrl).trim() !== '';
+  return '<div class="show card-glow post-show-card">' +
+    '<div class="show-date">' + when + '</div>' +
+    '<div class="show-venue">' + esc(s.venue) + '</div>' +
+    '<div class="show-addr">' + esc(s.city) + '</div>' +
+    (hasTicket
+      ? '<div class="show-cta"><a class="btn btn-primary" href="' + attr(s.ticketUrl) +
+        '" target="_blank" rel="noopener">GET TICKETS</a></div>'
+      : '') +
+  '</div>';
+}
+
 function metaHtml(p) {
   if (p.category === 'what-to-do-in-town') {
     const show = SHOW_BY_SLUG[p.slug];
@@ -481,15 +518,45 @@ function postPageHtml(p) {
       '" target="_blank" rel="noopener">GET TICKETS</a></div>'
     : '';
 
+  /* Lead paragraphs and the show card share a two-column row: the card is the
+     answer to "when and where", the lead text is the answer to "what else".
+     They belong next to each other, not stacked.
+
+     The lead is every plain paragraph before the first attraction card. Those
+     carry a line break and become .attraction-card, so the break is the split.
+     Every what-to-do post is written to that shape, which is why this needs no
+     per-post configuration. A post with no lead paragraph falls back to the
+     card on its own above the copy rather than rendering an empty column. */
+  let contentHtml;
+  const cardHtml_ = SHOW_CARD_SLUGS.has(p.slug) ? showCardHtml(show) : '';
+  const blocks = String(p.body || '').split(/\n{2,}/);
+  let lead = 0;
+  while (lead < blocks.length && !/\n/.test(blocks[lead])) lead++;
+
+  if (cardHtml_ && lead > 0) {
+    const rest = blocks.slice(lead);
+    contentHtml =
+      '<div class="post-show-row">' +
+        '<div class="post-show-lead">' + bodyToHtmlCarded(blocks.slice(0, lead).join('\n\n')) + '</div>' +
+        cardHtml_ +
+      '</div>' +
+      (rest.length ? bodyToHtmlCarded(rest.join('\n\n')) : '');
+  } else {
+    contentHtml = cardHtml_ +
+      (p.category === 'what-to-do-in-town' ? bodyToHtmlCarded(p.body) : bodyToHtml(p.body));
+  }
+
   const article =
     '<span class="post-cat">' + esc(p.categoryLabel) + '</span>' +
     '<h1>' + esc(p.title) + '</h1>' +
-    metaHtml(p) +
+    // The card states the date louder and in context, so the meta line above the
+    // hero would just say it twice. Dropped only when a card is actually there;
+    // every other post keeps its date line. datePublished in the JSON-LD is
+    // untouched, so nothing changes for a crawler.
+    (cardHtml_ ? '' : metaHtml(p)) +
     '<img class="post-hero" src="' + p.image + '" alt="' + attr(p.title) +
       '" fetchpriority="high" loading="eager">' +
-    '<div class="post-content">' +
-      (p.category === 'what-to-do-in-town' ? bodyToHtmlCarded(p.body) : bodyToHtml(p.body)) +
-    '</div>' +
+    '<div class="post-content">' + contentHtml + '</div>' +
     tagsHtml + ctaHtml +
     '<div class="post-back"><a class="textlink" href="blog.html">&larr; Back to the Blog</a></div>';
 

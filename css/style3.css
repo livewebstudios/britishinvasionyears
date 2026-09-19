@@ -982,6 +982,33 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 .post-article h1 { font-size: clamp(30px, 4.4vw, 50px); text-align: center; line-height: 1.18; margin-bottom: 16px; }
 .post-article .post-meta { text-align: center; font-size: 13px; margin-bottom: 36px; }
 .post-hero { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); margin-bottom: 40px; filter: grayscale(.08); }
+/* Tour date card sitting on its own under a post hero. Everything visual comes
+   from .show / .card-glow / .show-cta already. The only thing a standalone card
+   needs is the grid behaviour switched off: .show-venue carries a min-height so
+   venue names of different lengths line up across three columns, and there are
+   no columns here. Reusable, so the same class works on every what-to-do page. */
+.post-show-row { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 30px; align-items: center; margin-bottom: 34px; }
+.post-show-row .post-show-lead p:last-child { margin-bottom: 0; }
+.post-show-card { text-align: center; }
+.post-show-card .show-venue { min-height: 0; }
+.post-show-card .show-cta { justify-content: center; }
+/* The row lives inside .post-content, so .post-content a (0,1,1) outranks
+   .btn-primary (0,1,0) and repaints the button's label in --accent with an
+   underline: red text on the red button, invisible. These put the button back
+   in charge of its own label in both states. Any button dropped into the row
+   is covered, not just this one. */
+.post-show-row .btn { text-decoration: none; }
+.post-show-row .btn-primary { color: var(--cream); }
+.post-show-row .btn-primary:hover { color: var(--accent); }
+@media (max-width: 760px) {
+  /* one column on a phone: card first, so the date and ticket link are the
+     first thing under the hero, then the copy */
+  .post-show-row { grid-template-columns: 1fr; gap: 26px; }
+  /* no auto margin here: an auto margin on a grid item cancels the stretch and
+     shrinks it to its text, leaving it narrower than the attraction cards
+     underneath. Letting it stretch keeps the column edges lined up. */
+  .post-show-card { order: -1; }
+}
 .post-content p { color: var(--ink); font-size: 17px; font-weight: 300; line-height: 1.9; margin-bottom: 22px; }
 .post-content p strong { color: var(--cream); font-weight: 600; }
 .post-content em { color: var(--accent-soft); font-style: italic; }
