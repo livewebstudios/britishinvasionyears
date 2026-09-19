@@ -371,17 +371,21 @@ const SHOW_BY_SLUG = {};
 });
 
 /* ---- show card under the hero: WHICH POSTS GET ONE ----------------------
-   The date line under a what-to-do hero repeats in plain text what the tour
-   card already says better, so these posts get the real card instead, with
-   its own ticket button, right where the reader lands.
+   Every what-to-do post whose show is still ahead of us AND has a ticket link
+   to point at. That is the whole rule, and it is read from content/tour.json,
+   so nobody maintains a list: a tba date starts showing its card the moment
+   Dave pastes a ticket URL into Decap, and drops it again the day after the
+   show. A post with no card keeps the plain date line above its hero.
 
-   Rolled out one slug at a time on purpose. To switch a page on, add its
-   slug. To switch the whole category on later, replace the has() test in
-   postPageHtml with p.category === 'what-to-do-in-town' and delete this set.
-   Nothing else has to change either way. */
-const SHOW_CARD_SLUGS = new Set([
-  'what-to-do-in-millsboro-de'
-]);
+   The date test is what keeps a finished show from carrying a live GET
+   TICKETS card. It uses the BUILD date, same as the tour grid, which is why
+   the weekly rebuild in .github/workflows exists. */
+function wantsShowCard(p, s) {
+  return p.category === 'what-to-do-in-town' &&
+         !!s && s.status !== 'tba' &&
+         !!s.ticketUrl && String(s.ticketUrl).trim() !== '' &&
+         s.date >= TODAY_ISO;
+}
 
 /* ---- the tour date card, standalone ----
    Same classes the tour grid uses (see cardHtml above), minus the time, badge
@@ -528,7 +532,7 @@ function postPageHtml(p) {
      per-post configuration. A post with no lead paragraph falls back to the
      card on its own above the copy rather than rendering an empty column. */
   let contentHtml;
-  const cardHtml_ = SHOW_CARD_SLUGS.has(p.slug) ? showCardHtml(show) : '';
+  const cardHtml_ = wantsShowCard(p, show) ? showCardHtml(show) : '';
   const blocks = String(p.body || '').split(/\n{2,}/);
   let lead = 0;
   while (lead < blocks.length && !/\n/.test(blocks[lead])) lead++;
