@@ -103,6 +103,7 @@
     // A hidden tab never animates a smooth scroll, so asking for one there
     // leaves the reader exactly where they were. Jump instead.
     var run = ++anchorRun;
+    readerMoved = false;
     if (glide && !reduceMotion.matches && !document.hidden) {
       window.scrollTo({ top: wantedTop(target), behavior: 'smooth' });
     } else {
@@ -133,7 +134,8 @@
     syncHeader();
   }
 
-  function releaseAnchor() { anchorRun++; }
+  var readerMoved = false;
+  function releaseAnchor() { readerMoved = true; anchorRun++; }
   window.addEventListener('wheel', releaseAnchor, { passive: true });
   window.addEventListener('touchstart', releaseAnchor, { passive: true });
   window.addEventListener('keydown', function (e) {
@@ -169,7 +171,24 @@
   if (location.hash) {
     // arriving from another page: jump, never smooth-scroll the whole document
     settleHash(false);
-    window.addEventListener('load', function () { settleHash(false); });
+
+    // Re-assert, but never over a reader who has started scrolling for
+    // themselves.
+    function reassert() { if (!readerMoved) settleHash(false); }
+    window.addEventListener('load', reassert);
+
+    // The webfonts are the big one. The same copy set in the fallback face is
+    // far taller than it is in Montserrat / Mulish / Cheltenham, so the moment
+    // the real faces swap in, every section above the target collapses and the
+    // target climbs the page: measured at 437px on About at 1024 wide, and it
+    // grows with the window. That swap routinely lands after load, which is
+    // what left readers parked up at the photo band instead of on the boys.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reassert);
+      // Safari resolves fonts.ready before the last face has actually been
+      // applied often enough to be worth one more look.
+      setTimeout(reassert, 1200);
+    }
   }
 
   // back / forward, or a hash typed into the bar: let it glide
