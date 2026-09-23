@@ -114,7 +114,7 @@ const LINKS = [
         what: 'Where everybody stands on stage and what plugs into the sound board. 9/23/26 version.',
         href: 'https://drive.google.com/file/d/1E_z1aqJVoNOX4LqHporVVwdEXbDmVH_2/view?usp=drive_link',
         also: {
-          name: 'Rider',
+          name: 'Tech Rider',
           kind: 'PDF',
           kindClass: 'pdf',
           what: 'Goes with the stage plot. What the venue has to provide for us.',
