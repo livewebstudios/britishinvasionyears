@@ -118,8 +118,16 @@ const LINKS = [
         name: 'Stage plot and input list',
         kind: 'PDF',
         kindClass: 'pdf',
-        what: 'Where everybody stands on stage and what plugs into the sound board. May 2026 version.',
-        href: 'https://drive.google.com/file/d/1zU6iH5Ffc7A970LKTuSVWz5uJeWJAUEQ/view'
+        what: 'Where everybody stands on stage and what plugs into the sound board. 9/23/26 version.',
+        href: 'https://drive.google.com/file/d/1E_z1aqJVoNOX4LqHporVVwdEXbDmVH_2/view?usp=drive_link',
+        also: {
+          name: 'Rider',
+          kind: 'PDF',
+          kindClass: 'pdf',
+          what: 'Goes with the stage plot. What the venue has to provide for us.',
+          label: 'Open the rider',
+          href: 'https://drive.google.com/file/d/1TdSrCpGmax1N9SIRiHyjUIzznezrlFPq/view?usp=drive_link'
+        }
       }
     ]
   },
