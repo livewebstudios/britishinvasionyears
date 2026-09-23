@@ -108,13 +108,6 @@ const LINKS = [
     note: 'This is what goes to the sound company and the venue before a show.',
     rows: [
       {
-        name: 'Tech rider',
-        kind: 'PDF',
-        kindClass: 'pdf',
-        what: 'What the venue has to provide for us. June 2025 version.',
-        href: 'https://drive.google.com/file/d/1bhJq8xCZFx7isHUucV8Z0d4pu-VjbsLQ/view'
-      },
-      {
         name: 'Stage plot and input list',
         kind: 'PDF',
         kindClass: 'pdf',
