@@ -91,14 +91,27 @@
     var target = hashTarget();
     if (!target) return;
 
+    // el is above the target, or contains it: reveal it now, no animation.
+    // Adding .in alone is NOT enough: .reveal carries a .9s opacity/transform
+    // transition, so every section above the target would start animating at
+    // once while we scroll thousands of px past them. That is a dozen-plus
+    // fresh GPU layers mid-scroll, and Chrome falls behind and leaves stale
+    // pixels on screen (the photo band painted over The Band, under the
+    // header). Kill the transition, commit the end state, then hand it back.
+    var snapped = [];
     document.querySelectorAll('.reveal:not(.in)').forEach(function (el) {
-      // el is above the target, or contains it: reveal it now, no animation
       var rel = el.compareDocumentPosition(target);
       if ((rel & Node.DOCUMENT_POSITION_FOLLOWING) || (rel & Node.DOCUMENT_POSITION_CONTAINED_BY)) {
+        el.style.transition = 'none';
         el.classList.add('in');
         revealObserver.unobserve(el);
+        snapped.push(el);
       }
     });
+    if (snapped.length) {
+      void document.body.offsetHeight;   // commit the revealed state before the transition returns
+      snapped.forEach(function (el) { el.style.transition = ''; });
+    }
 
     // A hidden tab never animates a smooth scroll, so asking for one there
     // leaves the reader exactly where they were. Jump instead.
