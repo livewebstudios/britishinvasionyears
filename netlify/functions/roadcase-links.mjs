@@ -54,6 +54,13 @@ const LINKS = [
     note: 'These are the ones you will actually open.',
     rows: [
       {
+        name: 'Social Media Images and Videos',
+        kind: 'Media folder',
+        kindClass: 'folder',
+        what: 'This is where all photos and video to be used for social media can get pulled from. Jon will be adding to this media center often.',
+        href: 'https://github.com/livewebstudios/biy-media'
+      },
+      {
         name: 'Check off list',
         kind: 'Spreadsheet',
         kindClass: 'sheet',
