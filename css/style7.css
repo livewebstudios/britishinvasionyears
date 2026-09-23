@@ -921,6 +921,14 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
 .about-xmas { max-width: 820px; margin: 0 auto; text-align: center; }
 .about-xmas h3 { font-size: 27px; margin-bottom: 16px; }
 .about-xmas p { color: var(--ink); font-size: 18px; font-weight: 300; line-height: 1.85; }
+/* red and green words, the way the band's bio runs it. Brighter than
+   --accent so body-size text still clears 4.5:1 on the navy. */
+.xr { color: #ff6b5e; }
+.xg { color: #3ec46d; }
+.about-col .xmas-words, .about-xmas .xmas-words { font-weight: 400; }
+.mistletoe { display: block; width: 120px; height: 80px; margin: 0 auto 6px; }
+.about-col .mistletoe { margin: 30px 0 4px -14px; }
+.about-col h4.xmas-head { margin-top: 0; }
 
 /* four-up about photo strip, one per member */
 .about-trio { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1120px; margin: 56px auto 0; }
