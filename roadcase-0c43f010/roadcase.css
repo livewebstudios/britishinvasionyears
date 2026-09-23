@@ -106,23 +106,69 @@ h2.sec{
   color:var(--grey);
 }
 
-/* ---------- the cards ---------- */
+/* ---------- the cards: each one is a road case ----------
+   Black tolex in the middle, aluminum extrusion round the
+   edge, a steel ball corner on each corner, a latch on top. */
 .doc{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-left:5px solid var(--navy);
-  border-radius:8px;
-  padding:16px 18px 18px;
-  margin:14px 0;
+  --tolex:#18191b;
+  --alu-1:#e3e6ea;
+  --alu-2:#a4aab2;
+  --alu-3:#6f757d;
+  position:relative;
+  margin:30px 8px;
+  padding:26px 24px 24px;
+  border:9px solid transparent;
+  border-radius:10px;
+  color:#c9ced6;
+  background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px) padding-box,
+    repeating-linear-gradient(-45deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px) padding-box,
+    radial-gradient(120% 90% at 20% 0%,#2a2c30 0%,var(--tolex) 55%,#0e0f10 100%) padding-box,
+    linear-gradient(90deg,var(--alu-3),var(--alu-1) 20%,var(--alu-2) 50%,var(--alu-1) 80%,var(--alu-3)) border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.8),
+    inset 0 2px 10px rgba(0,0,0,.6),
+    0 1px 0 rgba(255,255,255,.5),
+    0 14px 28px rgba(15,20,30,.28),
+    0 3px 6px rgba(15,20,30,.22);
+}
+/* four ball corners, drawn in one layer */
+.doc::before{
+  content:"";
+  position:absolute;
+  inset:-16px;
+  pointer-events:none;
+  --ball:radial-gradient(circle at 38% 34%,#fbfcfd 0,#c8cdd3 22%,#848a92 52%,#3b3f45 68%,rgba(0,0,0,.35) 71%,transparent 73%);
+  background:
+    var(--ball) left top/32px 32px no-repeat,
+    var(--ball) right top/32px 32px no-repeat,
+    var(--ball) left bottom/32px 32px no-repeat,
+    var(--ball) right bottom/32px 32px no-repeat;
+}
+/* the latch on the top edge */
+.doc::after{
+  content:"";
+  position:absolute;
+  top:-15px;
+  left:50%;
+  width:54px;
+  height:16px;
+  margin-left:-27px;
+  border-radius:4px 4px 7px 7px;
+  background:
+    radial-gradient(circle at 50% 60%,#2b2e33 0 3px,transparent 3.5px),
+    linear-gradient(180deg,#f1f3f5,#aeb4bb 45%,#6f757d);
+  box-shadow:0 2px 3px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.8);
 }
 .doc .name{
   display:block;
   font-family:"Hanken Grotesk",sans-serif;
-  font-weight:700;
-  font-size:21px;
-  line-height:1.25;
-  color:var(--navy);
-  margin-bottom:4px;
+  font-weight:800;
+  font-size:22px;
+  line-height:1.2;
+  letter-spacing:.01em;
+  color:#fff;
+  margin-bottom:6px;
 }
 /* a short call-out sitting directly under the name */
 .doc .flag{
@@ -131,72 +177,169 @@ h2.sec{
   font-weight:700;
   font-size:16px;
   line-height:1.35;
-  color:var(--red);
+  color:#ff7a70;
   margin-bottom:6px;
 }
-.doc .what{display:block;font-size:16px;color:var(--grey)}
+.doc .what{display:block;font-size:16px;color:#b8bec7}
+/* the label is a strip of gaffer tape, marker on it */
 .doc .kind{
   display:inline-block;
   font-family:"Hanken Grotesk",sans-serif;
-  font-weight:700;
+  font-weight:800;
   font-size:11px;
-  letter-spacing:.1em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:#fff;
-  background:var(--grey);
-  border-radius:3px;
-  padding:2px 7px;
-  margin-bottom:8px;
+  color:var(--ink);
+  background:linear-gradient(180deg,#f3efe3,#e2dccb);
+  padding:4px 14px 3px;
+  margin-bottom:12px;
+  transform:rotate(-1.5deg);
+  clip-path:polygon(0 8%,4% 0,8% 10%,92% 0,96% 12%,100% 4%,98% 50%,100% 96%,95% 88%,90% 100%,6% 92%,2% 100%,0 60%,3% 45%);
+  box-shadow:0 1px 2px rgba(0,0,0,.4);
 }
-.kind.folder{background:var(--navy)}
-.kind.sheet{background:var(--green)}
-.kind.doc-k{background:#2C5FA8}
-.kind.pdf{background:var(--red)}
-.kind.site{background:#6B4E9E}
+.kind.folder{color:var(--navy)}
+.kind.sheet{color:var(--green)}
+.kind.doc-k{color:#2C5FA8}
+.kind.pdf{color:var(--red)}
+.kind.site{color:#6B4E9E}
 
-/* ---------- a second document inside the same card ---------- */
+/* ---------- a second document inside the same case ---------- */
 .also{
-  margin-top:20px;
-  padding-top:18px;
-  border-top:1px solid var(--line);
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.1);
+  box-shadow:inset 0 1px 0 rgba(0,0,0,.6);
 }
-.also .name{font-size:18px}
-.also .go{
-  background:var(--green);
-  font-size:16px;
-  padding:11px 22px;
-}
+.also .name{font-size:19px}
 
-/* ---------- button under the words ---------- */
+/* ---------- the button: a rack-mount VU meter ----------
+   Borrowed from the Live Band Web Studios pricing page,
+   narrower. The needle swings to --peak on hover. */
 .go{
-  display:inline-block;
-  margin-top:16px;
-  min-height:48px;
-  padding:12px 26px;
-  background:var(--navy);
-  color:#fff;
-  font-family:"Hanken Grotesk",sans-serif;
-  font-weight:700;
-  font-size:17px;
-  letter-spacing:.02em;
+  --alu-1:#d8dbdf;
+  --alu-2:#9aa0a8;
+  --alu-3:#6f757d;
+  --peak:34deg;
+  --ease:cubic-bezier(.4,0,.2,1);
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:stretch;
+  width:100%;
+  max-width:300px;
+  margin-top:18px;
+  border-radius:8px;
+  overflow:hidden;
   text-decoration:none;
-  border-radius:6px;
-  transition:background .12s ease;
+  background:linear-gradient(#14181d 0%,#0a0d11 52%,#05070a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 -1px 0 rgba(0,0,0,.75),
+    0 1px 0 rgba(255,255,255,.06),
+    0 12px 26px rgba(0,0,0,.55),
+    0 2px 6px rgba(0,0,0,.6);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
 }
-.go:hover,.go:focus-visible{background:var(--red)}
-.go:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.go-cap{
+  flex:0 0 auto;
+  width:13px;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 1px,rgba(0,0,0,.1) 1px 2px),
+    linear-gradient(90deg,var(--alu-3),var(--alu-1) 38%,var(--alu-2) 62%,var(--alu-3));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.45);
+}
+.go-cap.l{border-right:1px solid rgba(0,0,0,.7)}
+.go-cap.r{border-left:1px solid rgba(0,0,0,.7)}
+.go-face{
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  min-width:0;
+  padding:.55rem .75rem;
+  background:
+    radial-gradient(120% 140% at 30% -10%,rgba(255,255,255,.08),transparent 60%),
+    linear-gradient(#10141a 0%,#080b0f 60%,#04060a 100%);
+}
+.go-meter{
+  position:relative;
+  flex:0 0 auto;
+  width:72px;
+  height:46px;
+  border-radius:5px;
+  overflow:hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.9),
+    inset 0 2px 6px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.07),
+    0 0 16px rgba(40,120,210,.35);
+  transition:box-shadow .35s var(--ease);
+}
+.go-meter svg{display:block;width:100%;height:100%}
+.go-glass{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(152deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.06) 26%,transparent 52%);
+}
+.go-needle{
+  transform-box:fill-box;
+  transform-origin:50% 100%;
+  transform:rotate(-46deg);
+  transition:transform .55s cubic-bezier(.2,1.5,.35,1);
+}
+.go-plate{display:flex;flex-direction:column;justify-content:center;gap:.22rem;min-width:0}
+.go-label{
+  font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.8rem;
+  line-height:1.15;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#eef3f8;
+  text-shadow:0 -1px 0 rgba(0,0,0,.9),0 1px 0 rgba(255,255,255,.14);
+}
+.go-sub{
+  font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.5rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(252,211,77,.72);
+  text-shadow:0 0 8px rgba(252,211,77,.35);
+}
+.go:hover,.go:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.34),
+    inset 0 -1px 0 rgba(0,0,0,.75),
+    0 1px 0 rgba(255,255,255,.08),
+    0 18px 34px rgba(0,0,0,.6),
+    0 3px 8px rgba(0,0,0,.65);
+}
+.go:hover .go-needle,.go:focus-visible .go-needle{transform:rotate(var(--peak))}
+.go:hover .go-meter,.go:focus-visible .go-meter{
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.9),
+    inset 0 2px 6px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.12),
+    0 0 30px rgba(70,160,250,.68);
+}
+.go:focus-visible{outline:2px solid #8fbdf0;outline-offset:3px}
+.go:active{
+  transform:translateY(1px);
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.8),inset 0 -1px 0 rgba(255,255,255,.05),0 4px 10px rgba(0,0,0,.5);
+}
 
 /* ---------- the plain address under the button ---------- */
 .url{
   display:block;
-  margin-top:10px;
+  margin-top:12px;
   font-size:13px;
   line-height:1.35;
-  color:var(--grey);
+  color:#8b929c;
   text-decoration:underline;
   overflow-wrap:anywhere;
 }
-.url:hover,.url:focus-visible{color:var(--red)}
+.url:hover,.url:focus-visible{color:#fff}
 
 footer{
   margin-top:56px;
@@ -209,9 +352,11 @@ footer{
 
 @media (max-width:520px){
   h1{font-size:30px}
+  .doc{margin:28px 6px;padding:22px 16px 20px;border-width:7px}
   .doc .name{font-size:19px}
-  .go{display:block;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){
-  .go{transition:none}
+  .go,.go-needle,.go-meter{transition:none}
+  .go-needle,.go:hover .go-needle,.go:focus-visible .go-needle{transform:rotate(-8deg)}
+  .go:hover,.go:focus-visible{transform:none}
 }
