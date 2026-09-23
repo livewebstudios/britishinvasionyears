@@ -122,8 +122,57 @@
     return box;
   }
 
+  /* Road case hardware. The steel is drawn once into a hidden
+     sprite, then every case points at it. */
+  var SPRITE =
+    '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' +
+    '<linearGradient id="rc-steel" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0" stop-color="#f3f5f7"/><stop offset=".45" stop-color="#b3b9c0"/>' +
+    '<stop offset=".7" stop-color="#dfe3e7"/><stop offset="1" stop-color="#8e949b"/></linearGradient>' +
+    '<radialGradient id="rc-ball" cx=".36" cy=".32" r=".75">' +
+    '<stop offset="0" stop-color="#ffffff"/><stop offset=".18" stop-color="#e3e7eb"/>' +
+    '<stop offset=".55" stop-color="#8f959d"/><stop offset=".85" stop-color="#4b5056"/>' +
+    '<stop offset="1" stop-color="#2d3035"/></radialGradient>' +
+    '<radialGradient id="rc-rivet" cx=".4" cy=".35" r=".7">' +
+    '<stop offset="0" stop-color="#fafbfc"/><stop offset=".6" stop-color="#8d939a"/>' +
+    '<stop offset="1" stop-color="#3c4046"/></radialGradient>' +
+    '<linearGradient id="rc-dish" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0" stop-color="#6f757c"/><stop offset="1" stop-color="#c9ced3"/></linearGradient>' +
+    '<symbol id="rc-corner" viewBox="0 0 64 64">' +
+    '<path d="M7 2 H42 A9 9 0 0 1 42 20 H29 Q20 20 20 29 V42 A9 9 0 0 1 2 42 V7 A5 5 0 0 1 7 2 Z" fill="url(#rc-steel)" stroke="#5f656c" stroke-width=".9"/>' +
+    '<path d="M8 4 H41" stroke="#fff" stroke-opacity=".7" stroke-width=".8" fill="none"/>' +
+    '<circle cx="40" cy="11" r="2.8" fill="url(#rc-rivet)" stroke="#3c4046" stroke-width=".4"/>' +
+    '<circle cx="11" cy="40" r="2.8" fill="url(#rc-rivet)" stroke="#3c4046" stroke-width=".4"/>' +
+    '<circle cx="12.5" cy="12.5" r="12" fill="url(#rc-ball)" stroke="#2d3035" stroke-width=".6"/>' +
+    '<ellipse cx="9" cy="8" rx="3.6" ry="2.4" fill="#fff" opacity=".75"/>' +
+    '</symbol>' +
+    '<symbol id="rc-latch" viewBox="0 0 40 30">' +
+    '<rect x="1" y="1" width="38" height="28" rx="4" fill="url(#rc-steel)" stroke="#5f656c" stroke-width=".8"/>' +
+    '<rect x="8" y="6" width="24" height="18" rx="3" fill="url(#rc-dish)" stroke="#4b5056" stroke-width=".6"/>' +
+    '<rect x="11" y="13" width="18" height="4" rx="2" fill="url(#rc-steel)" stroke="#4b5056" stroke-width=".5"/>' +
+    '<circle cx="20" cy="15" r="4.2" fill="url(#rc-ball)" stroke="#3c4046" stroke-width=".5"/>' +
+    '<circle cx="4.5" cy="4.5" r="1.6" fill="url(#rc-rivet)"/><circle cx="35.5" cy="4.5" r="1.6" fill="url(#rc-rivet)"/>' +
+    '<circle cx="4.5" cy="25.5" r="1.6" fill="url(#rc-rivet)"/><circle cx="35.5" cy="25.5" r="1.6" fill="url(#rc-rivet)"/>' +
+    '</symbol></defs></svg>';
+
+  function part(cls, symbol) {
+    var s = el('span', cls);
+    s.setAttribute('aria-hidden', 'true');
+    s.innerHTML = '<svg viewBox="' + (symbol === 'rc-corner' ? '0 0 64 64' : '0 0 40 30') +
+      '" width="100%" height="100%"><use href="#' + symbol + '"/></svg>';
+    return s;
+  }
+
+  function hardware(card) {
+    ['tl', 'tr', 'bl', 'br'].forEach(function (c) {
+      card.appendChild(part('rc-corner ' + c, 'rc-corner'));
+    });
+    card.appendChild(part('rc-latch a', 'rc-latch'));
+    card.appendChild(part('rc-latch b', 'rc-latch'));
+  }
+
   function draw(sections) {
-    rows.textContent = '';
+    rows.innerHTML = SPRITE;
 
     sections.forEach(function (section) {
       var h = el('h2', 'sec', section.section);
@@ -133,9 +182,13 @@
         rows.appendChild(el('p', 'note', section.note));
       }
 
+      var cases = el('div', 'cases');
+      rows.appendChild(cases);
+
       section.rows.forEach(function (row) {
         var card = el('div', 'doc');
         fill(card, row, 'Open it');
+        hardware(card);
 
         /* A second document that belongs with the first one.
            Same card, under a dividing line. */
@@ -145,7 +198,7 @@
           card.appendChild(extra);
         }
 
-        rows.appendChild(card);
+        cases.appendChild(card);
       });
     });
 
