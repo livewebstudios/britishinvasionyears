@@ -1053,7 +1053,11 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 80
    Two layered blobs per section (a lighter azure + a deeper royal) read
    against the deep-navy background while staying subtle. Behind content.
    ============================================================ */
-.block { overflow: hidden; }
+/* clip, not hidden: an overflow:hidden box is still scrollable by the browser,
+   and the glow blobs make .block taller inside than out. A #the-boys jump
+   scrolled .block.alt 426px internally, sliding The Band up under the photo
+   band. clip hides the blobs the same way but can never be scrolled. */
+.block { overflow: hidden; overflow: clip; }
 .block > .wrap { position: relative; z-index: 1; }
 
 /* Rickenbacker drift canvas — transparent overlay behind section content */
