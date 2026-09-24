@@ -17,7 +17,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;
-  background:var(--paper) url("../images/bg/roadcase-bg.jpg") center top/cover no-repeat;
+  background:var(--paper) url("../images/bg/roadcase-bg.jpg") center top/100% auto repeat-y;
   color:var(--ink);
   font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:18px;
