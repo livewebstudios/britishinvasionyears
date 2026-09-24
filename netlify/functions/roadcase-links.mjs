@@ -58,7 +58,7 @@ const LINKS = [
         kind: 'Media folder',
         kindClass: 'folder',
         what: 'This is where all photos and video to be used for social media can get pulled from. Jon will be adding to this media center often.',
-        href: 'https://github.com/livewebstudios/biy-media'
+        href: 'https://drive.google.com/drive/folders/1MbHKqUeuIOK73gPIfOeBjiBBqz8Q55HJ?usp=drive_link'
       },
       {
         name: 'Check off list',
