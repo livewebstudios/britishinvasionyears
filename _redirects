@@ -67,6 +67,12 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /fan-photos           /fan-photos.html   301!
 /band-gallery         /band-gallery.html 301!
 
+# Old site event pages, e.g. /event/mccallum-theatre-2/. Search
+# Console flagged that one as a 404 on 2026-09-19. Every past
+# event now lives on the tour page. No bang needed: nothing in
+# the repo answers /event/*.
+/event/*              /tour.html         301
+
 # ------------------------------------------------------------
 # BLOG POST URLS
 # ------------------------------------------------------------
