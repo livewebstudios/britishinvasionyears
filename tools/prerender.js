@@ -38,7 +38,7 @@ const path = require('path');
 
 const ROOT   = path.resolve(__dirname, '..');
 const ORIGIN = 'https://britishinvasionyears.com';
-const OG_IMAGE = ORIGIN + '/images/home/band-onstage-peace-sign-backdrop.jpg';
+const OG_IMAGE = ORIGIN + '/images/home/band-onstage-peace-sign-backdrop-joe.jpg';
 const BAND   = 'The British Invasion Years';
 
 const read  = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
