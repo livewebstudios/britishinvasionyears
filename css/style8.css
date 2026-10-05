@@ -1624,6 +1624,7 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   margin-bottom: 18px; max-width: 60ch;
 }
 .fc-intro:last-of-type { margin-bottom: 36px; }
+.fc-intro strong { color: var(--cream); font-weight: 600; }
 
 .fc-form { display: flex; flex-direction: column; gap: 30px; }
 .fc-field { display: flex; flex-direction: column; gap: 9px; }
