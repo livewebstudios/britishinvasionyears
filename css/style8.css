@@ -1698,3 +1698,38 @@ a, button, .btn, .card, .news-card, .gcell, .blog-card, .video-feature,
   .fc-opt label { padding: 0 18px; font-size: 12px; }
   .fc-form { gap: 26px; }
 }
+
+/* ============================================================
+   HOLIDAY DRESSING: tour cards whose venue says "Christmas"
+   (js/main4.js + tools/prerender.js add .xmas and .xmas-deco).
+   A cedar garland with six red glass balls drapes across the top
+   and trails down both sides, hanging a little past the card edge, so this card alone lets overflow show.
+   Decoration only: aria-hidden, pointer-events off, under the text.
+   ============================================================ */
+.show.xmas {
+  overflow: visible;
+  padding: 104px 46px 30px;
+  text-align: center;
+  border-color: rgba(214,176,92,.45);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(80,140,60,.14) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+.show.xmas:hover { border-color: rgba(214,176,92,.7); }
+.show.xmas .show-cta { justify-content: center; }
+/* the card-glow and spotlight layers relied on overflow:hidden to stay in the card */
+.show.xmas.card-glow::before { left: 0; right: 0; }
+.show.xmas::after { border-radius: inherit; }
+.show.xmas .show-date, .show.xmas .show-venue,
+.show.xmas .show-addr, .show.xmas .show-time { text-shadow: 0 1px 8px rgba(7,12,40,.85); }
+
+.show .xmas-deco { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.tour-xmas-garland {
+  position: absolute; top: -18px; left: -6px; right: -6px;
+  aspect-ratio: 1158 / 398;
+  background: url("../images/xmas-cedar-garland.webp") no-repeat 50% 0 / 100% auto;
+}
+@media (max-width: 600px) {
+  .show.xmas { padding: 96px 40px 28px; }
+  .tour-xmas-garland { top: -16px; left: -8px; right: -8px; }
+}

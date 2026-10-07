@@ -267,6 +267,11 @@
       return String(str == null ? '' : str)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
+    // Holiday dressing for any show whose venue says "Christmas". Must match
+    // XMAS_DECO in tools/prerender.js byte for byte.
+    var XMAS_DECO = '<div class="xmas-deco" aria-hidden="true">' +
+      '<span class="tour-xmas-garland"></span></div>';
+    function isXmas(s) { return /christmas/i.test(String(s.venue || '')); }
     function localDate(iso) {                       // 'YYYY-MM-DD' → local Date (no TZ shift)
       var p = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
       return p ? new Date(+p[1], +p[2] - 1, +p[3]) : null;
@@ -301,8 +306,9 @@
           var hasTicket = s.ticketUrl && String(s.ticketUrl).trim() !== '';
           var when = DOW[d.getDay()] + ', ' + MON[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
           var card = document.createElement('div');
-          card.className = 'show card-glow' + (tba ? ' tba' : '');
+          card.className = 'show card-glow' + (tba ? ' tba' : '') + (isXmas(s) ? ' xmas' : '');
           card.innerHTML =
+            (isXmas(s) ? XMAS_DECO : '') +
             '<div class="show-date">' + when + '</div>' +
             '<div class="show-venue">' + esc(s.venue) + '</div>' +
             '<div class="show-addr">' + esc(s.city) + '</div>' +

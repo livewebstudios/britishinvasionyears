@@ -124,6 +124,15 @@ const posts = (json('content/blog.json').posts || []);
    Must match js/main4.js cardHtml output exactly. If they drift, the page
    visibly reflows when the fetch lands. */
 
+/* ---- holiday dressing ----
+   Any show whose venue name says "Christmas" gets a cedar garland
+   with red glass balls draped across the top (pure CSS, see .show.xmas in style8.css). Keyed off the venue
+   text so it rides on Dave's Decap entry: no flag to set, nothing to remove
+   in January. Must match XMAS_DECO in js/main4.js byte for byte. */
+const XMAS_DECO = '<div class="xmas-deco" aria-hidden="true">' +
+  '<span class="tour-xmas-garland"></span></div>';
+const isXmas = s => /christmas/i.test(String(s.venue || ''));
+
 function cardHtml(s) {
   const t   = dayMs(s.date);
   const d   = new Date(t);
@@ -131,7 +140,8 @@ function cardHtml(s) {
   const when = DOW[d.getUTCDay()] + ', ' + MON[d.getUTCMonth()] + ' ' +
                d.getUTCDate() + ', ' + d.getUTCFullYear();
   const hasTicket = s.ticketUrl && String(s.ticketUrl).trim() !== '';
-  return '<div class="show card-glow' + (tba ? ' tba' : '') + '">' +
+  return '<div class="show card-glow' + (tba ? ' tba' : '') + (isXmas(s) ? ' xmas' : '') + '">' +
+    (isXmas(s) ? XMAS_DECO : '') +
     '<div class="show-date">' + when + '</div>' +
     '<div class="show-venue">' + esc(s.venue) + '</div>' +
     '<div class="show-addr">' + esc(s.city) + '</div>' +
@@ -400,7 +410,8 @@ function showCardHtml(s) {
   // Same gate as the bottom CTA so the two can never disagree. A tba row or a
   // show with no link renders the card cleanly with no button, not an empty one.
   const hasTicket = s.status !== 'tba' && s.ticketUrl && String(s.ticketUrl).trim() !== '';
-  return '<div class="show card-glow post-show-card">' +
+  return '<div class="show card-glow post-show-card' + (isXmas(s) ? ' xmas' : '') + '">' +
+    (isXmas(s) ? XMAS_DECO : '') +
     '<div class="show-date">' + when + '</div>' +
     '<div class="show-venue">' + esc(s.venue) + '</div>' +
     '<div class="show-addr">' + esc(s.city) + '</div>' +
