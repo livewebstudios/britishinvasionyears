@@ -78,12 +78,13 @@
       "whatToDoSlug": "what-to-do-in-dania-beach-fl"
     },
     {
-      "status": "tba",
+      "status": "onsale",
       "date": "2026-12-19",
-      "time": "7:30 PM",
-      "venue": "Concert Announcement Coming Soon",
-      "city": "Holmdel, NJ",
-      "whatToDoSlug": "what-to-do-in-holmdel-nj"
+      "time": "8:00 PM",
+      "venue": "Bell Theater at Bell Works",
+      "city": " 101 Crawfords Corner Road, Holmdel, NJ 07733",
+      "whatToDoSlug": "what-to-do-in-holmdel-nj",
+      "ticketUrl": "https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111"
     }
   ]
 }
