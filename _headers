@@ -22,3 +22,8 @@
 # (the renderers also append ?v= as a belt-and-suspenders bust).
 /content/*
   Cache-Control: public, max-age=0, must-revalidate
+
+# Band photo review pages: never index.
+/joe-swap/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache

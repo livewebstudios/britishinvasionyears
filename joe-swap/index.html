@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Photo Review</title>
+<link rel="icon" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1645;--bg-2:#0d1c54;--panel:#122562;--cream:#f3eee6;--ink:#c6cfe2;--muted:#8694b2;--accent:#e12f26;--accent-soft:#f0564c;--accent-deep:#a01b15;--line:rgba(190,206,245,.16);--line-2:rgba(190,206,245,.30);--good:#3fae6a;--serif:'Montserrat',system-ui,-apple-system,sans-serif;--sans:'Mulish',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 64px}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:clamp(28px,6vw,42px);line-height:1.12;margin:8px 0 12px}
+.lede{color:var(--ink);font-size:18px;margin-bottom:6px}
+.count{color:var(--muted);font-size:15px}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:22px;transition:border-color .25s,box-shadow .25s}
+.card.missing{border-color:var(--accent);box-shadow:0 0 0 2px rgba(225,47,38,.35)}
+.num{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:18px;margin-bottom:10px}
+.photo{display:block;border-radius:8px;overflow:hidden;background:#000}
+.photo img{display:block;width:100%;height:auto}
+.cap{color:var(--muted);font-size:13.5px;margin-top:8px;word-break:break-word}
+.cap b{color:var(--ink);font-weight:600}
+.sil{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--cream);background:var(--panel);border:1px solid var(--line-2);border-radius:999px;padding:4px 12px}
+fieldset{border:0;margin-top:14px}
+legend{font-weight:700;color:var(--cream);font-size:15px;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;cursor:pointer;color:var(--cream);font-weight:600;background:rgba(255,255,255,.02)}
+.opt input{width:22px;height:22px;accent-color:var(--accent);flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--accent);background:rgba(225,47,38,.10)}
+.opt.ok:has(input:checked){border-color:var(--good);background:rgba(63,174,106,.12)}
+.ok input{accent-color:var(--good)}
+.notes{margin-top:12px}
+.notes[hidden]{display:none}
+.notes label{display:block;font-weight:700;color:var(--cream);font-size:15px;margin-bottom:6px}
+textarea{width:100%;min-height:96px;font:inherit;font-size:16px;color:var(--cream);background:rgba(255,255,255,.05);border:1px solid var(--line-2);border-radius:8px;padding:10px 12px}
+textarea:focus{outline:none;border-color:var(--accent)}
+.who{background:var(--panel)}
+.who .opts{flex-direction:row;flex-wrap:wrap}
+.who .opt{flex:1 1 120px}
+.err{color:var(--accent-soft);font-weight:700;font-size:14px;margin-top:8px}
+.err[hidden]{display:none}
+.send{display:block;width:100%;margin-top:22px;min-height:56px;border:0;border-radius:7px;background:var(--accent);color:#fff;font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:.04em;cursor:pointer;box-shadow:0 10px 30px -12px rgba(225,47,38,.6)}
+.send:hover{background:var(--accent-soft)}
+.send:disabled{opacity:.6;cursor:wait}
+.status{margin-top:14px;font-weight:600}
+.status.bad{color:var(--accent-soft)}
+.done{background:var(--bg-2);border:1px solid var(--good);border-radius:12px;padding:28px 18px;margin-top:22px;text-align:center}
+.done p{font-family:var(--serif);font-size:26px;color:var(--cream);font-weight:600;margin-bottom:14px}
+.btn-link{display:inline-block;padding:14px 22px;border-radius:7px;border:1px solid var(--line-2);color:var(--cream);font-weight:700;text-decoration:none}
+.btn-link:hover{border-color:var(--accent)}
+.hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+.list a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 16px;margin-top:14px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg-2);color:var(--cream);text-decoration:none;font-family:var(--serif);font-weight:600;font-size:20px}
+.list a:hover{border-color:var(--accent)}
+.list span{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--muted)}
+.foot{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+@media (min-width:700px){.wrap{padding:44px 24px 80px}.card{padding:22px}.opts{flex-direction:row}.opt{flex:1}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+<div class="eyebrow">The British Invasion Years</div>
+<h1>Photo Review</h1>
+<p class="lede">Joe's in, Lee's out. Go through each page below, mark every photo, and hit Send at the bottom of each one.</p>
+<p class="count">4 pages, 31 photos</p>
+<nav class="list">
+<a href="home/">Home Page <span>14 photos</span></a>
+<a href="about/">About Page <span>6 photos</span></a>
+<a href="band-gallery/">Band Gallery Page <span>9 photos</span></a>
+<a href="fan-photos/">Fan Photos Page <span>2 photos</span></a>
+</nav>
+<p class="foot">Private review pages for the band.</p>
+</main>
+</body>
+</html>

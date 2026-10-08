@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Photo Review: About Page</title>
+<link rel="icon" href="../../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1645;--bg-2:#0d1c54;--panel:#122562;--cream:#f3eee6;--ink:#c6cfe2;--muted:#8694b2;--accent:#e12f26;--accent-soft:#f0564c;--accent-deep:#a01b15;--line:rgba(190,206,245,.16);--line-2:rgba(190,206,245,.30);--good:#3fae6a;--serif:'Montserrat',system-ui,-apple-system,sans-serif;--sans:'Mulish',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 64px}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:clamp(28px,6vw,42px);line-height:1.12;margin:8px 0 12px}
+.lede{color:var(--ink);font-size:18px;margin-bottom:6px}
+.count{color:var(--muted);font-size:15px}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:22px;transition:border-color .25s,box-shadow .25s}
+.card.missing{border-color:var(--accent);box-shadow:0 0 0 2px rgba(225,47,38,.35)}
+.num{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:18px;margin-bottom:10px}
+.photo{display:block;border-radius:8px;overflow:hidden;background:#000}
+.photo img{display:block;width:100%;height:auto}
+.cap{color:var(--muted);font-size:13.5px;margin-top:8px;word-break:break-word}
+.cap b{color:var(--ink);font-weight:600}
+.sil{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--cream);background:var(--panel);border:1px solid var(--line-2);border-radius:999px;padding:4px 12px}
+fieldset{border:0;margin-top:14px}
+legend{font-weight:700;color:var(--cream);font-size:15px;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;cursor:pointer;color:var(--cream);font-weight:600;background:rgba(255,255,255,.02)}
+.opt input{width:22px;height:22px;accent-color:var(--accent);flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--accent);background:rgba(225,47,38,.10)}
+.opt.ok:has(input:checked){border-color:var(--good);background:rgba(63,174,106,.12)}
+.ok input{accent-color:var(--good)}
+.notes{margin-top:12px}
+.notes[hidden]{display:none}
+.notes label{display:block;font-weight:700;color:var(--cream);font-size:15px;margin-bottom:6px}
+textarea{width:100%;min-height:96px;font:inherit;font-size:16px;color:var(--cream);background:rgba(255,255,255,.05);border:1px solid var(--line-2);border-radius:8px;padding:10px 12px}
+textarea:focus{outline:none;border-color:var(--accent)}
+.who{background:var(--panel)}
+.who .opts{flex-direction:row;flex-wrap:wrap}
+.who .opt{flex:1 1 120px}
+.err{color:var(--accent-soft);font-weight:700;font-size:14px;margin-top:8px}
+.err[hidden]{display:none}
+.send{display:block;width:100%;margin-top:22px;min-height:56px;border:0;border-radius:7px;background:var(--accent);color:#fff;font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:.04em;cursor:pointer;box-shadow:0 10px 30px -12px rgba(225,47,38,.6)}
+.send:hover{background:var(--accent-soft)}
+.send:disabled{opacity:.6;cursor:wait}
+.status{margin-top:14px;font-weight:600}
+.status.bad{color:var(--accent-soft)}
+.done{background:var(--bg-2);border:1px solid var(--good);border-radius:12px;padding:28px 18px;margin-top:22px;text-align:center}
+.done p{font-family:var(--serif);font-size:26px;color:var(--cream);font-weight:600;margin-bottom:14px}
+.btn-link{display:inline-block;padding:14px 22px;border-radius:7px;border:1px solid var(--line-2);color:var(--cream);font-weight:700;text-decoration:none}
+.btn-link:hover{border-color:var(--accent)}
+.hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+.list a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 16px;margin-top:14px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg-2);color:var(--cream);text-decoration:none;font-family:var(--serif);font-weight:600;font-size:20px}
+.list a:hover{border-color:var(--accent)}
+.list span{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--muted)}
+.foot{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+@media (min-width:700px){.wrap{padding:44px 24px 80px}.card{padding:22px}.opts{flex-direction:row}.opt{flex:1}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+<div class="eyebrow">The British Invasion Years</div>
+<h1>Photo Review: About Page</h1>
+<p class="lede">Joe's in, Lee's out. Check every photo, mark it, and hit Send at the bottom.</p>
+<p class="count">6 photos on this page</p>
+<form id="review" action="https://formspree.io/f/xdajjkor" method="POST" data-page="about" data-title="About" novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+<section class="card" data-photo data-key="01 band-london-phone-booth-pink-shirts.jpg">
+  <div class="num">Photo 1 of 6</div>
+  <a class="photo" href="../img/about/band-london-phone-booth-pink-shirts-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/band-london-phone-booth-pink-shirts-joe.jpg" width="1280" height="1600" alt="Photo 1: band-london-phone-booth-pink-shirts.jpg" loading="eager"></a>
+  <div class="cap"><b>band-london-phone-booth-pink-shirts.jpg</b> &middot; Only on this page</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p01" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p01" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p01n">What needs to change?</label><textarea id="p01n" name="p01n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card" data-photo data-key="02 show-composite-carnaby-and-60s-couple.jpg">
+  <div class="num">Photo 2 of 6</div>
+  <a class="photo" href="../img/about/show-composite-carnaby-and-60s-couple-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/show-composite-carnaby-and-60s-couple-joe.jpg" width="600" height="414" alt="Photo 2: show-composite-carnaby-and-60s-couple.jpg" loading="eager"></a>
+  <div class="cap"><b>show-composite-carnaby-and-60s-couple.jpg</b> &middot; Only on this page</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p02" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p02" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p02n">What needs to change?</label><textarea id="p02n" name="p02n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card" data-photo data-key="03 theater-wide-dark-purple-orange.jpg">
+  <div class="num">Photo 3 of 6</div>
+  <a class="photo" href="../img/about/theater-wide-dark-purple-orange-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/theater-wide-dark-purple-orange-joe.jpg" width="1200" height="800" alt="Photo 3: theater-wide-dark-purple-orange.jpg" loading="lazy"></a>
+  <div class="cap"><b>theater-wide-dark-purple-orange.jpg</b> &middot; Only on this page</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p03" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p03" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p03n">What needs to change?</label><textarea id="p03n" name="p03n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card" data-photo data-key="04 band-beatles-portraits-backdrop-red.jpg">
+  <div class="num">Photo 4 of 6</div>
+  <a class="photo" href="../img/about/band-beatles-portraits-backdrop-red-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/band-beatles-portraits-backdrop-red-joe.jpg" width="1008" height="666" alt="Photo 4: band-beatles-portraits-backdrop-red.jpg" loading="lazy"></a>
+  <div class="cap"><b>band-beatles-portraits-backdrop-red.jpg</b> &middot; Also on: Band Gallery, Blog, 3 blog posts</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p04" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p04" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p04n">What needs to change?</label><textarea id="p04n" name="p04n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card" data-photo data-key="05 band-carnaby-backdrop-center-stage.jpg">
+  <div class="num">Photo 5 of 6</div>
+  <a class="photo" href="../img/about/band-carnaby-backdrop-center-stage-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/band-carnaby-backdrop-center-stage-joe.jpg" width="1199" height="800" alt="Photo 5: band-carnaby-backdrop-center-stage.jpg" loading="lazy"></a>
+  <div class="cap"><b>band-carnaby-backdrop-center-stage.jpg</b> &middot; Also on: Band Gallery, Blog, 3 blog posts</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p05" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p05" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p05n">What needs to change?</label><textarea id="p05n" name="p05n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card" data-photo data-key="06 band-wide-purple-orange-fringe-outfits.jpg">
+  <div class="num">Photo 6 of 6</div>
+  <a class="photo" href="../img/about/band-wide-purple-orange-fringe-outfits-joe.jpg" target="_blank" rel="noopener"><img src="../img/about/band-wide-purple-orange-fringe-outfits-joe.jpg" width="1600" height="1011" alt="Photo 6: band-wide-purple-orange-fringe-outfits.jpg" loading="lazy"></a>
+  <div class="cap"><b>band-wide-purple-orange-fringe-outfits.jpg</b> &middot; Also on: Band Gallery, Blog, 3 blog posts</div>
+  
+  <fieldset>
+    <legend>How does this one look?</legend>
+    <div class="opts">
+      <label class="opt ok"><input type="radio" name="p06" value="good" required> Good / Keep the photo</label>
+      <label class="opt"><input type="radio" name="p06" value="edit"> Photo editing needed</label>
+    </div>
+  </fieldset>
+  <div class="notes" hidden><label for="p06n">What needs to change?</label><textarea id="p06n" name="p06n"></textarea></div>
+  <div class="err" hidden></div>
+</section>
+<section class="card who" id="who">
+  <fieldset>
+    <legend>Who's reviewing this page?</legend>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="reviewer" value="Bob" required> Bob</label>
+      <label class="opt"><input type="radio" name="reviewer" value="Dave"> Dave</label>
+      <label class="opt"><input type="radio" name="reviewer" value="Joe"> Joe</label>
+    </div>
+  </fieldset>
+  <div class="err" hidden>Pick your name.</div>
+</section>
+<button type="submit" class="send">Send My Review</button>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+</form>
+<div id="done" class="done" hidden><p></p><a class="btn-link" href="../band-gallery/">Next: Band Gallery Page &rarr;</a></div>
+<p class="foot">Private review page for the band. Tap any photo to open it full size.</p>
+</main>
+
+<script>
+(function(){
+  var form = document.getElementById('review');
+  var PAGE = form.dataset.page, KEY = 'biy-joe-review-' + PAGE;
+  var cards = Array.prototype.slice.call(form.querySelectorAll('.card[data-photo]'));
+  function store(){ try { return window.localStorage; } catch(e){ return null; } }
+  function save(){
+    var s = store(); if(!s) return;
+    var d = {};
+    form.querySelectorAll('input[type=radio]:checked').forEach(function(r){ d[r.name] = r.value; });
+    form.querySelectorAll('textarea').forEach(function(t){ if(t.value) d[t.name] = t.value; });
+    try { s.setItem(KEY, JSON.stringify(d)); } catch(e){}
+  }
+  function load(){
+    var s = store(); if(!s) return;
+    var d; try { d = JSON.parse(s.getItem(KEY) || '{}'); } catch(e){ d = {}; }
+    Object.keys(d).forEach(function(k){
+      var r = form.querySelector('input[type=radio][name="'+k+'"][value="'+d[k]+'"]');
+      if(r) r.checked = true;
+      var t = form.querySelector('textarea[name="'+k+'"]');
+      if(t) t.value = d[k];
+    });
+  }
+  function sync(card){
+    var edit = card.querySelector('input[value="edit"]');
+    var box = card.querySelector('.notes'), ta = box.querySelector('textarea');
+    var on = edit && edit.checked;
+    box.hidden = !on; ta.required = !!on;
+  }
+  load();
+  cards.forEach(function(c){
+    sync(c);
+    c.addEventListener('change', function(){ sync(c); c.classList.remove('missing'); c.querySelector('.err').hidden = true; save(); });
+    c.querySelector('textarea').addEventListener('input', function(){ c.classList.remove('missing'); c.querySelector('.err').hidden = true; save(); });
+  });
+  var who = document.getElementById('who');
+  who.addEventListener('change', function(){ who.classList.remove('missing'); who.querySelector('.err').hidden = true; save(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var first = null;
+    cards.forEach(function(c){
+      var pick = c.querySelector('input[type=radio]:checked');
+      var ta = c.querySelector('textarea');
+      var bad = !pick || (pick.value === 'edit' && !ta.value.trim());
+      c.classList.toggle('missing', bad);
+      var er = c.querySelector('.err');
+      er.hidden = !bad;
+      er.textContent = !pick ? 'Pick one for this photo.' : 'Tell us what needs to change.';
+      if(bad && !first) first = c;
+    });
+    var reviewer = who.querySelector('input:checked');
+    who.classList.toggle('missing', !reviewer);
+    who.querySelector('.err').hidden = !!reviewer;
+    if(!reviewer && !first) first = who;
+    if(first){ first.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+
+    var name = reviewer.value;
+    var payload = {
+      _subject: 'BIY PHOTO REVIEW: ' + form.dataset.title + ' – ' + name,
+      page: form.dataset.title,
+      reviewer: name,
+      _gotcha: form.querySelector('[name=_gotcha]').value
+    };
+    cards.forEach(function(c){
+      var pick = c.querySelector('input[type=radio]:checked');
+      payload[c.dataset.key] = pick.value === 'good' ? 'GOOD' : 'EDIT NEEDED: ' + c.querySelector('textarea').value.trim();
+    });
+    var btn = form.querySelector('.send'), st = document.getElementById('status');
+    btn.disabled = true; btn.textContent = 'Sending...'; st.textContent = ''; st.className = 'status';
+    fetch(form.action, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body: JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(){
+        var s = store(); if(s){ try { s.removeItem(KEY); } catch(e){} }
+        var done = document.getElementById('done');
+        done.querySelector('p').textContent = 'Thanks, ' + name + '. Got it.';
+        form.hidden = true; done.hidden = false;
+        done.scrollIntoView({behavior:'smooth', block:'center'});
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Send My Review';
+        st.className = 'status bad';
+        st.textContent = "That didn't go through. Your answers are still here, so try Send My Review again in a minute. If it keeps failing, text Jon.";
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
