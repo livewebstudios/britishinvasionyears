@@ -346,9 +346,14 @@ function mdInline(s) {
   });
   return s;
 }
+// "## " block -> h2 (the page already has its one h1), "- " lines -> bullet list.
 function bodyToHtml(body) {
-  return String(body || '').split(/\n{2,}/).map(p =>
-    '<p>' + mdInline(p).replace(/\n/g, '<br>') + '</p>').join('');
+  return String(body || '').split(/\n{2,}/).map(p => {
+    if (/^## /.test(p)) return '<h2>' + mdInline(p.slice(3)) + '</h2>';
+    if (/^- /.test(p)) return '<ul>' + p.split('\n').map(li =>
+      '<li>' + mdInline(li.replace(/^- /, '')) + '</li>').join('') + '</ul>';
+    return '<p>' + mdInline(p).replace(/\n/g, '<br>') + '</p>';
+  }).join('');
 }
 // "what to do in town" posts: a heading line plus its description becomes a card.
 function bodyToHtmlCarded(body) {

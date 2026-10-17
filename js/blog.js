@@ -31,8 +31,16 @@
     });
     return s;
   }
+  // A block starting "## " is an h2 (the page already has its one h1); a block
+  // of "- " lines is a bullet list. Everything else is a paragraph.
   function bodyToHtml(body) {
     return body.split(/\n{2,}/).map(function (para) {
+      if (/^## /.test(para)) return '<h2>' + inline(para.slice(3)) + '</h2>';
+      if (/^- /.test(para)) {
+        return '<ul>' + para.split('\n').map(function (li) {
+          return '<li>' + inline(li.replace(/^- /, '')) + '</li>';
+        }).join('') + '</ul>';
+      }
       return '<p>' + inline(para).replace(/\n/g, '<br>') + '</p>';
     }).join('');
   }
