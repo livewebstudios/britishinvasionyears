@@ -80,6 +80,7 @@ collections:
               - { label: "Show Date", name: "showDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Only for posts about one specific show. The day after this date the post drops to the bottom of the blog. Leave blank for anything evergreen. What-To-Do posts ignore this and use the date on the matching show in Tour Dates." }
               - { label: "Tags", name: "tags", widget: "list", required: false }
               - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "The most recent featured post is highlighted at the top of the blog." }
+              - { label: "Hide from Google", name: "noindex", widget: "boolean", default: false, required: false, hint: "Keeps this post out of Google search. The page still works and still shows on the blog, so links to it keep working." }
               - { label: "Hero Image", name: "image", widget: "image", required: false, hint: "Leave blank to reuse an existing stage photo path." }
               - { label: "Excerpt", name: "excerpt", widget: "text", hint: "1–2 sentence summary shown on the blog index." }
               - { label: "Body", name: "body", widget: "text", hint: "Plain text. Blank line = new paragraph. Supports **bold**, *italic*, and [link text](url)." }

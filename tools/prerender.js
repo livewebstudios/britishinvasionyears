@@ -277,8 +277,11 @@ const rows = STATIC.map(([loc, freq, pri]) =>
 
 // Posts keep their real publish date as lastmod. What To Do guides rank above
 // the rest because they are the ones pulling local search for a live show.
+// A post flagged noindex ("Hide from Google" in Decap) stays live and stays on
+// the blog index, but is left out here so we never ask Google to crawl a page
+// that tells it not to index.
 posts
-  .filter(p => p.slug)
+  .filter(p => p.slug && !p.noindex)
   .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
   .forEach(p => {
     const pri = p.category === 'what-to-do-in-town' ? '0.7' : '0.5';
@@ -591,7 +594,9 @@ function postPageHtml(p) {
   swap(/<meta name="description" content="[^"]*">/,
        '<meta name="description" content="' + attr(p.excerpt) + '">', 'meta description');
   swap(/<link rel="canonical" href="[^"]*">/,
-       '<link rel="canonical" href="' + url + '">', 'canonical');
+       '<link rel="canonical" href="' + url + '">' +
+       // Kept out of search, link still works. "follow" so the links on it still count.
+       (p.noindex ? '\n    <meta name="robots" content="noindex, follow">' : ''), 'canonical');
   swap(/<meta property="og:title" content="[^"]*">/,
        '<meta property="og:title" content="' + attr(p.title) + '">', 'og:title');
   swap(/<meta property="og:description" content="[^"]*">/,
