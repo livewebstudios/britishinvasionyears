@@ -69,7 +69,13 @@
        Row look matches the checkbox rows in the email.
        ============================================================ -->
   <style>
-    .pq-banner .eyebrow { font-size: 14px; letter-spacing: .24em; }
+    /* The banner photo is busy right where the kicker sits, so it gets its
+       own dark pill. White on this page only, per Jon. */
+    .pq-banner .eyebrow {
+      font-size: 14px; letter-spacing: .24em; font-weight: 700; color: #fff;
+      background: rgba(7,12,40,.78); border-radius: 100px;
+      padding: 9px 14px 9px calc(14px + .24em);
+    }
 
     .pq-card { text-align: left; background: var(--panel); }
     .pq-sub {
@@ -81,19 +87,49 @@
     .pq-fieldset { border: 0; padding: 0; margin: 0; }
     .pq-rows { display: flex; flex-direction: column; gap: 12px; }
 
-    /* The whole row is the label, so a tap anywhere on it toggles the box. */
-    .pq-row {
-      display: flex; align-items: center; gap: 16px;
-      min-height: 56px; padding: 14px 18px; cursor: pointer;
+    /* .pq-item draws the row box. The label inside fills it, so a tap
+       anywhere on the row toggles the box. */
+    .pq-item {
+      display: flex; align-items: center;
       background: #0d1c54; border: 1px solid #2b3a72; border-radius: 8px;
+      transition: border-color .2s, background .2s;
+    }
+    .pq-item:hover { border-color: var(--splash); }
+    .pq-item:has(input:checked) { border-color: var(--accent); background: #1a1f5c; }
+    .pq-row {
+      flex: 1; display: flex; align-items: center; gap: 16px;
+      min-height: 56px; padding: 12px 12px 12px 18px; cursor: pointer;
       font-family: var(--sans); font-size: 18px; line-height: 1.45;
       color: var(--cream); font-weight: 500;
-      transition: border-color .2s, background .2s;
       -webkit-tap-highlight-color: transparent;
     }
-    .pq-row:hover { border-color: var(--splash); }
-    .pq-row:has(input:checked) { border-color: var(--accent); background: #1a1f5c; }
+    .pq-text { flex: 1; }
     .pq-row em { font-style: italic; color: #8694b2; font-weight: 400; }
+
+    .pq-thumb { flex: none; width: 104px; height: 104px; border-radius: 6px; display: block; object-fit: cover; }
+    /* The photo opens bigger. A small zoom badge says it does something
+       different from the rest of the row. */
+    .pq-zoom {
+      position: relative; padding: 0; margin-right: 12px; border: 0; background: none;
+      cursor: zoom-in; overflow: visible;
+    }
+    .pq-zoom img { width: 100%; height: 100%; border-radius: 6px; object-fit: cover; display: block; box-shadow: 0 0 0 2px var(--cream); }
+    .pq-zoom::after {
+      content: ""; position: absolute; right: -7px; bottom: -7px; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3eee6' stroke-width='2.6' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 16px no-repeat;
+      box-shadow: 0 2px 6px rgba(7,12,40,.6);
+    }
+    .pq-zoom:focus-visible { outline: 3px solid var(--splash); outline-offset: 4px; border-radius: 8px; }
+
+    /* Caption under the enlarged photo. The overlay itself is the site's
+       .lightbox from style8.css, so it looks like the gallery one. */
+    .pq-lb-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 0 20px; }
+    .pq-lb-fig .lb-img { max-width: min(90vw, 640px); max-height: 72vh; width: auto; height: auto; }
+    .pq-lb-fig figcaption:empty { display: none; }
+    .pq-lb-fig figcaption {
+      font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 20px;
+      color: var(--cream); text-align: center; line-height: 1.4; max-width: 30ch;
+    }
 
     /* A real checkbox, restyled. appearance:none keeps it in the tab order
        and in the accessibility tree as a checkbox. */
@@ -148,27 +184,43 @@
     }
     .pq-thanks p { font-family: var(--sans); font-size: 18px; color: var(--cream); line-height: 1.6; }
 
-    /* ---------- Ticket cards ---------- */
+    /* ---------- Ticket cards ----------
+       Same markup and classes as the tour page cards (.show, .card-glow,
+       .xmas), so they read as the same thing. Only the type is scaled up
+       here: the tour card's 10.5 to 13.5px text is too small for this crowd. */
     .pq-tix-head { text-align: center; margin-bottom: 36px; }
     .pq-tix-head .eyebrow { font-size: 14px; letter-spacing: .24em; }
-    .pq-tix { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 980px; margin: 0 auto; }
-    .pq-tix-card {
-      background: var(--panel); border: 1px solid var(--line-2); border-radius: 12px;
-      padding: 34px 30px; display: flex; flex-direction: column; gap: 14px; text-align: left;
+    .pq-tix {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 460px));
+      justify-content: center; gap: 28px; margin: 0 auto;
     }
-    .pq-tix-card h3 { font-size: clamp(24px, 2.8vw, 30px); line-height: 1.2; color: var(--cream); }
-    .pq-tix-card p { font-family: var(--sans); font-size: 18px; line-height: 1.6; color: var(--cream); flex: 1; }
-    .pq-tix-card .pq-btn { margin-top: 6px; }
+    .pq-tix .show-date { font-size: 14px; }
+    .pq-tix .show-venue { font-size: 28px; min-height: 0; }
+    .pq-tix .show-addr, .pq-tix .show-time { font-size: 18px; color: var(--cream); }
+    .pq-tix .show-addr { opacity: .85; }
+    .pq-line {
+      font-family: var(--serif); font-style: italic; font-weight: 600;
+      font-size: 20px; line-height: 1.35; color: var(--cream); margin-top: 18px;
+    }
+    .pq-tix .show-cta { margin-top: auto; padding-top: 24px; }
+    .pq-tix .show-cta .btn {
+      min-height: 56px; font-size: 14px; letter-spacing: .14em; padding: 16px 26px;
+      white-space: normal; text-align: center;
+    }
+    .pq-tix .show.xmas .pq-line { text-shadow: 0 1px 8px rgba(7,12,40,.85); }
 
     .pq-form[hidden], .pq-results[hidden], .pq-thanks[hidden], .pq-err[hidden],
-    .pq-count[hidden], .pq-tix-card[hidden] { display: none; }
+    .pq-count[hidden], .pq-tix .show[hidden] { display: none; }
 
     @media (max-width: 640px) {
       .pq-card { padding: 34px 20px; }
-      .pq-row { padding: 14px 14px; gap: 14px; }
+      .pq-row { padding: 10px 10px 10px 14px; gap: 12px; }
+      .pq-thumb { width: 80px; height: 80px; }
+      .pq-banner .eyebrow { letter-spacing: .12em; padding: 8px 12px 8px calc(12px + .12em); }
+      .pq-zoom { margin-right: 10px; }
       .pq-btn { align-self: stretch; }
       .pq-tix { grid-template-columns: 1fr; }
-      .pq-tix-card { padding: 28px 22px; }
+      .pq-tix .show-cta .btn { flex: 1; }
     }
     @media (prefers-reduced-motion: reduce) { .pq-fill { transition: none; } }
   </style>
@@ -274,13 +326,36 @@
 
             <fieldset class="pq-fieldset">
               <legend class="pq-sub">Check everything that applies. Most people check more than one.</legend>
+              <!-- The label fills each row, so a tap anywhere on the words or the
+                   box toggles it. The photo on the right opens bigger instead, so
+                   it sits outside the label as its own button (a button inside a
+                   label is invalid and fights the toggle). data-caption is
+                   optional: only Jon's photo carries one. -->
               <div class="pq-rows">
-                <label class="pq-row"><input type="checkbox" name="hair" value="yes"><span>The hair. <em>&ldquo;Is that a boy or a girl?&rdquo;</em></span></label>
-                <label class="pq-row"><input type="checkbox" name="volume" value="yes"><span>The volume. <em>&ldquo;Turn that noise DOWN.&rdquo;</em></span></label>
-                <label class="pq-row"><input type="checkbox" name="clothes" value="yes"><span>The clothes</span></label>
-                <label class="pq-row"><input type="checkbox" name="stones" value="yes"><span>The Rolling Stones, specifically</span></label>
-                <label class="pq-row"><input type="checkbox" name="guitar-kid" value="yes"><span>The kid with the guitar who kept coming over</span></label>
-                <label class="pq-row"><input type="checkbox" name="cool" value="yes"><span>Nothing. My parents were cool.</span></label>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="hair" value="yes"><span class="pq-text">The hair. <em>&ldquo;Is that a boy or a girl?&rdquo;</em></span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/jon-back-in-the-day.jpg" data-alt="Our keyboard player Jon with long curly hair and a beard, back in the day" data-caption="This is our keyboard player Jon back in the day" aria-label="Bigger photo: our keyboard player Jon back in the day"><img src="images/parents/thumb-hair-jon.webp" alt="" width="104" height="104"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="volume" value="yes"><span class="pq-text">The volume. <em>&ldquo;Turn that noise DOWN.&rdquo;</em></span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/volume.jpg" data-alt="A teenager turns up the record player while his father covers his ears in the doorway" aria-label="Bigger photo: turning up the record player"><img src="images/parents/thumb-volume.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="clothes" value="yes"><span class="pq-text">The clothes</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/clothes.jpg" data-alt="A teenager in a paisley shirt and striped bell bottoms while his mother stares in the hallway" aria-label="Bigger photo: paisley shirt and bell bottoms"><img src="images/parents/thumb-clothes.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="stones" value="yes"><span class="pq-text">The Rolling Stones, specifically</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/stones.jpg" data-alt="A mother holds a rock and roll record at arm's length, disgusted" aria-label="Bigger photo: a mother holding a rock record at arm's length"><img src="images/parents/thumb-stones.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="guitar-kid" value="yes"><span class="pq-text">The kid with the guitar who kept coming over</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/guitar-kid.jpg" data-alt="A teenager with a guitar on the front porch while a father blocks the door, arms folded" aria-label="Bigger photo: the kid with the guitar at the front door"><img src="images/parents/thumb-guitar-kid.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="cool" value="yes"><span class="pq-text">Nothing. My parents were cool.</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/cool.jpg" data-alt="A mom and dad dancing in the living room by the record player while their teenager watches" aria-label="Bigger photo: parents dancing in the living room"><img src="images/parents/thumb-cool.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
               </div>
             </fieldset>
 
@@ -321,15 +396,22 @@
           <span class="eyebrow">Come hear it live</span>
         </div>
         <div class="pq-tix">
-          <div class="pq-tix-card reveal" data-show-date="2026-11-07" data-hide-from="2026-11-08">
-            <h3>Turn it up. Your parents aren&rsquo;t coming.</h3>
-            <p>Saturday, November 7, 8:00 PM. Tupelo Music Hall, Derry NH.</p>
-            <a class="btn btn-primary pq-btn" href="https://tickets.tupelohall.com/eventperformances.asp?evt=1008">Get Tupelo tickets &rarr;</a>
+          <div class="show card-glow reveal" data-show-date="2026-11-07" data-hide-from="2026-11-08">
+            <div class="show-date">Saturday, Nov 7, 2026</div>
+            <div class="show-venue">Tupelo Music Hall</div>
+            <div class="show-addr">10 A St, Derry, NH 03038</div>
+            <div class="show-time">8:00 PM</div>
+            <p class="pq-line">Turn it up. Your parents aren&rsquo;t coming.</p>
+            <div class="show-cta"><a class="btn btn-primary" href="https://tickets.tupelohall.com/eventperformances.asp?evt=1008">Get Tupelo tickets &rarr;</a></div>
           </div>
-          <div class="pq-tix-card reveal" data-show-date="2026-12-19">
-            <h3>A Very 60&rsquo;s Christmas</h3>
-            <p>Saturday, December 19, 8:00 PM. Bell Theater at Bell Works, Holmdel NJ.</p>
-            <a class="btn btn-primary pq-btn" href="https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111">Get Christmas tickets &rarr;</a>
+          <div class="show card-glow xmas reveal" data-show-date="2026-12-19">
+            <div class="xmas-deco" aria-hidden="true"><span class="tour-xmas-garland"></span></div>
+            <div class="show-date">Saturday, Dec 19, 2026</div>
+            <div class="show-venue">Bell Theater at Bell Works</div>
+            <div class="show-addr">101 Crawfords Corner Road, Holmdel, NJ 07733</div>
+            <div class="show-time">8:00 PM</div>
+            <p class="pq-line">A Very 60&rsquo;s Christmas</p>
+            <div class="show-cta"><a class="btn btn-primary" href="https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111">Get Christmas tickets &rarr;</a></div>
           </div>
         </div>
       </div>
@@ -438,7 +520,7 @@
     // The bar labels reuse the exact markup of the checkbox rows, so the copy
     // only lives in one place.
     var labels = {};
-    SLUGS.forEach(function (s) { labels[s] = box(s).nextElementSibling.innerHTML; });
+    SLUGS.forEach(function (s) { labels[s] = box(s).parentNode.querySelector('.pq-text').innerHTML; });
 
     function box(slug) { return form.querySelector('input[name="' + slug + '"]'); }
     function picked() { return SLUGS.filter(function (s) { return box(s).checked; }); }
@@ -563,6 +645,47 @@
 
       if (window.gtag) gtag('event', 'parents_quiz_vote', { picks: mine.join(',') });
     });
+
+    /* ---------- Row photos open bigger ---------- */
+
+    // Built the same way as the gallery lightbox in main4.js and styled by its
+    // .lightbox rules, plus a caption. main4 only wires the gallery pages, so
+    // this page opens its own.
+    var zoomBtns = document.querySelectorAll('.pq-zoom');
+    if (zoomBtns.length) {
+      var lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.innerHTML =
+        '<button class="lb-close" aria-label="Close">&#x2715;</button>' +
+        '<figure class="pq-lb-fig"><img class="lb-img" src="" alt=""><figcaption></figcaption></figure>';
+      document.body.appendChild(lb);
+      var lbImg = lb.querySelector('.lb-img');
+      var lbCap = lb.querySelector('figcaption');
+      var lbClose = lb.querySelector('.lb-close');
+      var opener = null;
+
+      function closeLb() {
+        if (!lb.classList.contains('open')) return;
+        lb.classList.remove('open');
+        if (opener) opener.focus();
+      }
+      Array.prototype.forEach.call(zoomBtns, function (btn) {
+        btn.addEventListener('click', function () {
+          opener = btn;
+          lbImg.src = btn.getAttribute('data-full');
+          lbImg.alt = btn.getAttribute('data-alt') || '';
+          lbCap.textContent = btn.getAttribute('data-caption') || '';
+          lb.classList.add('open');
+          lbImg.classList.remove('pop'); void lbImg.offsetWidth; lbImg.classList.add('pop');
+          lbClose.focus();
+        });
+      });
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('pq-lb-fig')) closeLb(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+    }
 
     /* ---------- Ticket cards ---------- */
 
