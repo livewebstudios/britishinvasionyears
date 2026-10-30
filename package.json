@@ -1,0 +1,8 @@
+{
+  "name": "britishinvasionyears",
+  "private": true,
+  "description": "Only here so Netlify installs @netlify/blobs for netlify/functions/parents-vote.mjs. The site itself has no build dependencies.",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.7"
+  }
+}
