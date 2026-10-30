@@ -101,6 +101,11 @@ http://britishinvasionyears.netlify.app/*   https://britishinvasionyears.com/:sp
 /tools/*              /    301!
 /netlify.toml         /    301!
 
+# Only here so Netlify installs @netlify/blobs for the parents quiz
+# vote function. Nothing secret in them, but nothing public either.
+/package.json         /    301!
+/package-lock.json    /    301!
+
 # Internal docs and build specs. These are now kept OUT OF THE REPO
 # entirely — .gitignore blocks *.md and docs/, and the notes live in
 # the parent project folder instead. Nothing should match this rule
