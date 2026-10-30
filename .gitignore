@@ -31,3 +31,6 @@ $RECYCLE.BIN/
 # ============================================================
 *.md
 docs/
+
+# Installed by Netlify at build time for the functions. Never commit.
+node_modules/

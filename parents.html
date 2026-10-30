@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <title>What Did Your Parents Hate Most? | British Invasion Years</title>
+  <meta name="description" content="One question. Six answers. Check every one that applies, then see what everyone else said.">
+
+  <!-- November 2026 newsletter quiz. Kept out of the index for the same reason
+       as first-concert.html: a campaign page, not an SEO page. "follow" so the
+       ticket links still count. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://britishinvasionyears.com/parents.html">
+
+  <!-- OG -->
+  <meta property="og:title" content="What did your parents hate most?">
+  <meta property="og:description" content="One question. Six answers. Check every one that applies, then see what everyone else said.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://britishinvasionyears.com/parents.html">
+  <meta property="og:image" content="https://britishinvasionyears.com/images/home/carnaby-st-stage-wide-purple-joe2.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What did your parents hate most?">
+  <meta name="twitter:description" content="One question. Six answers. Check every one that applies, then see what everyone else said.">
+  <meta name="twitter:image" content="https://britishinvasionyears.com/images/home/carnaby-st-stage-wide-purple-joe2.jpg">
+
+  <!-- GA4 -->
+  <script>
+    // GA4 - library load deferred to first interaction (10s timeout fallback)
+    // so gtag.js execution stays off the critical path / out of the TBT window.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-EFCNHJG812");
+    (function(){
+      var loaded = false;
+      function loadGA(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-EFCNHJG812";
+        document.head.appendChild(s);
+      }
+      var evts = ["scroll","mousemove","touchstart","keydown","pointerdown"];
+      evts.forEach(function(e){ window.addEventListener(e, loadGA, {passive:true, once:true}); });
+      setTimeout(loadGA, 10000);
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/home/carnaby-st-stage-wide-purple-joe2.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style8.css">
+
+  <!-- ============================================================
+       PARENTS QUIZ  (this page only)
+       ============================================================
+       Kept in the page rather than style8.css so the campaign can be
+       deleted as one file without leaving dead rules behind, and so
+       no selector another page renders through is touched.
+
+       Readers are 55 to 75 and mostly on phones: 18px body minimum,
+       every tap target at least 56px, cream on navy throughout.
+       Row look matches the checkbox rows in the email.
+       ============================================================ -->
+  <style>
+    /* The banner photo is busy right where the kicker sits, so it gets its
+       own dark pill. White on this page only, per Jon. */
+    .pq-banner .eyebrow {
+      font-size: 14px; letter-spacing: .24em; font-weight: 700; color: #fff;
+      background: rgba(7,12,40,.78); border-radius: 100px;
+      padding: 9px 14px 9px calc(14px + .24em);
+    }
+
+    .pq-card { text-align: left; background: var(--panel); }
+    .pq-sub {
+      font-family: var(--sans); font-size: 19px; line-height: 1.6;
+      color: var(--cream); font-weight: 400; margin-bottom: 26px;
+    }
+
+    .pq-form { display: flex; flex-direction: column; gap: 24px; }
+    .pq-fieldset { border: 0; padding: 0; margin: 0; }
+    .pq-rows { display: flex; flex-direction: column; gap: 12px; }
+
+    /* .pq-item draws the row box. The label inside fills it, so a tap
+       anywhere on the row toggles the box. */
+    .pq-item {
+      display: flex; align-items: center;
+      background: #0d1c54; border: 1px solid #2b3a72; border-radius: 8px;
+      transition: border-color .2s, background .2s;
+    }
+    .pq-item:hover { border-color: var(--splash); }
+    .pq-item:has(input:checked) { border-color: var(--accent); background: #1a1f5c; }
+    .pq-row {
+      flex: 1; display: flex; align-items: center; gap: 16px;
+      min-height: 56px; padding: 12px 12px 12px 18px; cursor: pointer;
+      font-family: var(--sans); font-size: 18px; line-height: 1.45;
+      color: var(--cream); font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pq-text { flex: 1; }
+    .pq-row em { font-style: italic; color: #8694b2; font-weight: 400; }
+
+    .pq-thumb { flex: none; width: 104px; height: 104px; border-radius: 6px; display: block; object-fit: cover; }
+    /* The photo opens bigger. A small zoom badge says it does something
+       different from the rest of the row. */
+    .pq-zoom {
+      position: relative; padding: 0; margin-right: 12px; border: 0; background: none;
+      cursor: zoom-in; overflow: visible;
+    }
+    .pq-zoom img { width: 100%; height: 100%; border-radius: 6px; object-fit: cover; display: block; box-shadow: 0 0 0 2px var(--cream); }
+    .pq-zoom::after {
+      content: ""; position: absolute; right: -7px; bottom: -7px; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3eee6' stroke-width='2.6' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 16px no-repeat;
+      box-shadow: 0 2px 6px rgba(7,12,40,.6);
+    }
+    .pq-zoom:focus-visible { outline: 3px solid var(--splash); outline-offset: 4px; border-radius: 8px; }
+
+    /* Caption under the enlarged photo. The overlay itself is the site's
+       .lightbox from style8.css, so it looks like the gallery one. */
+    .pq-lb-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 0 20px; }
+    .pq-lb-fig .lb-img { max-width: min(90vw, 640px); max-height: 72vh; width: auto; height: auto; }
+    .pq-lb-fig figcaption:empty { display: none; }
+    .pq-lb-fig figcaption {
+      font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 20px;
+      color: var(--cream); text-align: center; line-height: 1.4; max-width: 30ch;
+    }
+
+    /* A real checkbox, restyled. appearance:none keeps it in the tab order
+       and in the accessibility tree as a checkbox. */
+    .pq-row input[type=checkbox] {
+      appearance: none; -webkit-appearance: none; flex: none;
+      width: 28px; height: 28px; margin: 0; cursor: pointer;
+      border: 2px solid #8694b2; border-radius: 6px; background: transparent;
+      display: grid; place-content: center;
+      transition: background .15s, border-color .15s;
+    }
+    .pq-row input[type=checkbox]:checked {
+      background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f3eee6' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 20px no-repeat;
+      border-color: var(--accent);
+    }
+    .pq-row input[type=checkbox]:focus-visible { outline: 3px solid var(--splash); outline-offset: 3px; }
+
+    .pq-err {
+      font-family: var(--sans); font-size: 18px; font-weight: 600;
+      color: var(--accent-soft); line-height: 1.5;
+    }
+
+    .pq-btn {
+      align-self: flex-start; min-height: 56px; font-size: 15px;
+      letter-spacing: .12em; padding: 16px 32px; white-space: normal; text-align: center;
+    }
+
+    /* ---------- Results ---------- */
+    .pq-results h2 { font-size: clamp(28px, 3.8vw, 42px); margin-bottom: 26px; line-height: 1.2; }
+    .pq-bars { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+    .pq-bar-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+      font-family: var(--sans); font-size: 18px; line-height: 1.4; color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .pq-bar-label { font-weight: 500; }
+    .pq-bar-pct { font-family: var(--serif); font-weight: 700; font-size: 20px; flex: none; }
+    .pq-you {
+      display: inline-flex; align-items: center; gap: 4px; vertical-align: 2px;
+      margin-left: 8px; padding: 2px 8px 2px 6px; border-radius: 100px;
+      background: var(--accent); color: var(--cream);
+      font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .pq-you svg { width: 12px; height: 12px; }
+    .pq-track { height: 14px; border-radius: 100px; background: #0d1c54; border: 1px solid #2b3a72; overflow: hidden; }
+    .pq-fill { height: 100%; width: 0; border-radius: 100px; background: var(--splash); transition: width .9s var(--ease); }
+    .pq-mine .pq-fill { background: var(--accent); }
+    .pq-count { font-family: var(--sans); font-size: 18px; color: var(--cream); margin-bottom: 10px; }
+    .pq-count strong { font-weight: 700; }
+    .pq-kicker {
+      font-family: var(--serif); font-size: clamp(20px, 2.4vw, 24px); font-weight: 600;
+      font-style: italic; color: var(--cream); line-height: 1.4; margin-top: 8px;
+    }
+    .pq-thanks p { font-family: var(--sans); font-size: 18px; color: var(--cream); line-height: 1.6; }
+
+    /* ---------- Ticket cards ----------
+       Same markup and classes as the tour page cards (.show, .card-glow,
+       .xmas), so they read as the same thing. Only the type is scaled up
+       here: the tour card's 10.5 to 13.5px text is too small for this crowd. */
+    .pq-tix-head { text-align: center; margin-bottom: 36px; }
+    .pq-tix-head .eyebrow { font-size: 14px; letter-spacing: .24em; }
+    .pq-tix {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 460px));
+      justify-content: center; gap: 28px; margin: 0 auto;
+    }
+    .pq-tix .show-date { font-size: 14px; }
+    .pq-tix .show-venue { font-size: 28px; min-height: 0; }
+    .pq-tix .show-addr, .pq-tix .show-time { font-size: 18px; color: var(--cream); }
+    .pq-tix .show-addr { opacity: .85; }
+    .pq-line {
+      font-family: var(--serif); font-style: italic; font-weight: 600;
+      font-size: 20px; line-height: 1.35; color: var(--cream); margin-top: 18px;
+    }
+    .pq-tix .show-cta { margin-top: auto; padding-top: 24px; }
+    .pq-tix .show-cta .btn {
+      min-height: 56px; font-size: 14px; letter-spacing: .14em; padding: 16px 26px;
+      white-space: normal; text-align: center;
+    }
+    .pq-tix .show.xmas .pq-line { text-shadow: 0 1px 8px rgba(7,12,40,.85); }
+
+    .pq-form[hidden], .pq-results[hidden], .pq-thanks[hidden], .pq-err[hidden],
+    .pq-count[hidden], .pq-tix .show[hidden] { display: none; }
+
+    @media (max-width: 640px) {
+      .pq-card { padding: 34px 20px; }
+      .pq-row { padding: 10px 10px 10px 14px; gap: 12px; }
+      .pq-thumb { width: 80px; height: 80px; }
+      .pq-banner .eyebrow { letter-spacing: .12em; padding: 8px 12px 8px calc(12px + .12em); }
+      .pq-zoom { margin-right: 10px; }
+      .pq-btn { align-self: stretch; }
+      .pq-tix { grid-template-columns: 1fr; }
+      .pq-tix .show-cta .btn { flex: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pq-fill { transition: none; } }
+  </style>
+</head>
+<body>
+
+  <header id="hdr">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <img src="images/logo.webp" alt="The British Invasion Years" class="nav-logo nav-logo-mark" loading="eager" width="1500" height="1097">
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="tour.html">TOUR</a></li>
+          <li class="has-dropdown">
+            <a href="about.html">ABOUT &#9662;</a>
+            <ul class="dropdown">
+              <li><a href="about.html#the-show">THE SHOW</a></li>
+              <li><a href="about.html#the-boys">THE BOYS</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">MEDIA &#9662;</a>
+            <ul class="dropdown">
+              <li><a href="band-gallery.html">BAND GALLERY</a></li>
+              <li><a href="fan-photos.html">FAN PHOTOS</a></li>
+              <li><a href="videos.html">VIDEOS</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html">INSIGHTS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li class="nav-cta"><a class="btn-subscribe" href="#news">SUBSCRIBE</a></li>
+        </ul>
+        <div class="nav-social">
+          <a href="https://www.facebook.com/britishinvasionyears" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V11H7.3v3H10v8h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/britishinvasionyears" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5zm0 5.8A2.3 2.3 0 1 1 14.3 12 2.3 2.3 0 0 1 12 14.3zm4.5-6a.8.8 0 1 1-.8-.8.8.8 0 0 1 .8.8zM20 8.7a4 4 0 0 0-1.1-2.8A4 4 0 0 0 16 4.8c-1.1-.1-4.6-.1-5.7 0A4 4 0 0 0 7.5 5.9 4 4 0 0 0 6.4 8.7c-.1 1.1-.1 4.6 0 5.7a4 4 0 0 0 1.1 2.8 4 4 0 0 0 2.8 1.1c1.1.1 4.6.1 5.7 0a4 4 0 0 0 2.8-1.1 4 4 0 0 0 1.1-2.8c.1-1.1.1-4.6 0-5.7z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/watch?v=72q_s4ppvxI" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.4 2.4 0 0 0-1.7-1.7C19.4 5.2 12 5.2 12 5.2s-7.4 0-8.9.4A2.4 2.4 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.4 2.4 0 0 0 1.7 1.7c1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4a2.4 2.4 0 0 0 1.7-1.7C23 15.2 23 12 23 12zM9.7 15V9l5.2 3z"/></svg>
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="marquee">
+      <div class="marquee-stage" role="img" aria-label="British Invasion Years, The Greatest and Longest Running Show of Its Kind">
+        <img class="marquee-frame" src="images/marquee-frame.png" alt="" width="1070" height="225" aria-hidden="true">
+        <div class="marquee-bulbs" aria-hidden="true"></div>
+        <div class="marquee-text" aria-hidden="true">
+          <span class="mq-line2">THE GREATEST AND LONGEST RUNNING SHOW OF ITS KIND</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="tour.html">TOUR</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="about.html#the-show">THE SHOW</a></li>
+        <li><a href="about.html#the-boys">THE BOYS</a></li>
+        <li><a href="band-gallery.html">BAND GALLERY</a></li>
+        <li><a href="fan-photos.html">FAN PHOTOS</a></li>
+        <li><a href="videos.html">VIDEOS</a></li>
+        <li><a href="blog.html">INSIGHTS</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li class="drawer-cta"><a class="btn-subscribe" href="#news">SUBSCRIBE</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- BANNER -->
+    <section class="page-banner pq-banner">
+      <div class="hero-bg">
+        <img src="images/home/carnaby-st-stage-wide-purple-joe2.jpg" alt="The British Invasion Years on stage" loading="eager" fetchpriority="high" width="1600" height="965">
+      </div>
+      <div class="beam"></div>
+      <div class="banner-inner reveal">
+        <span class="eyebrow">Back when you were sixteen</span>
+        <h1>What did your parents hate most?</h1>
+      </div>
+    </section>
+
+    <section class="block">
+      <canvas id="notes-bg-pq" class="notes-bg" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div class="news-card pq-card reveal">
+
+          <!-- Netlify finds this form by parsing the deployed HTML, so it has to
+               exist as static markup at deploy time. Each answer is its own field
+               and sends "yes" only when checked, which is the backup record if
+               the vote function ever has a bad day. -->
+          <form name="parents-quiz" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="pqForm" class="pq-form">
+            <input type="hidden" name="form-name" value="parents-quiz">
+            <p class="mc-trap"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <fieldset class="pq-fieldset">
+              <legend class="pq-sub">Check everything that applies. Most people check more than one.</legend>
+              <!-- The label fills each row, so a tap anywhere on the words or the
+                   box toggles it. The photo on the right opens bigger instead, so
+                   it sits outside the label as its own button (a button inside a
+                   label is invalid and fights the toggle). data-caption is
+                   optional: only Jon's photo carries one. -->
+              <div class="pq-rows">
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="hair" value="yes"><span class="pq-text">The hair. <em>&ldquo;Is that a boy or a girl?&rdquo;</em></span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/jon-back-in-the-day.jpg" data-alt="Our keyboard player Jon with long curly hair and a beard, back in the day" data-caption="This is our keyboard player Jon back in the day" aria-label="Bigger photo: our keyboard player Jon back in the day"><img src="images/parents/thumb-hair-jon.webp" alt="" width="104" height="104"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="volume" value="yes"><span class="pq-text">The volume. <em>&ldquo;Turn that noise DOWN.&rdquo;</em></span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/volume.jpg" data-alt="A teenager turns up the record player while his father covers his ears in the doorway" aria-label="Bigger photo: turning up the record player"><img src="images/parents/thumb-volume.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="clothes" value="yes"><span class="pq-text">The clothes</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/clothes.jpg" data-alt="A teenager in a paisley shirt and striped bell bottoms while his mother stares in the hallway" aria-label="Bigger photo: paisley shirt and bell bottoms"><img src="images/parents/thumb-clothes.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="stones" value="yes"><span class="pq-text">The Rolling Stones, specifically</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/stones.jpg" data-alt="A mother holds a rock and roll record at arm's length, disgusted" aria-label="Bigger photo: a mother holding a rock record at arm's length"><img src="images/parents/thumb-stones.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="guitar-kid" value="yes"><span class="pq-text">The kid with the guitar who kept coming over</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/guitar-kid.jpg" data-alt="A teenager with a guitar on the front porch while a father blocks the door, arms folded" aria-label="Bigger photo: the kid with the guitar at the front door"><img src="images/parents/thumb-guitar-kid.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+                <div class="pq-item">
+                  <label class="pq-row"><input type="checkbox" name="cool" value="yes"><span class="pq-text">Nothing. My parents were cool.</span></label>
+                  <button type="button" class="pq-thumb pq-zoom" data-full="images/parents/cool.jpg" data-alt="A mom and dad dancing in the living room by the record player while their teenager watches" aria-label="Bigger photo: parents dancing in the living room"><img src="images/parents/thumb-cool.webp" alt="" width="104" height="104" loading="lazy"></button>
+                </div>
+              </div>
+            </fieldset>
+
+            <p class="pq-err" id="pqErr" role="alert" hidden>Check at least one. We won&rsquo;t tell your mother.</p>
+
+            <button type="submit" class="btn btn-primary pq-btn" id="pqSubmit">Show me the results</button>
+          </form>
+
+          <!-- Results, swapped in where the form was. No reload. -->
+          <div id="pqResults" class="pq-results" role="status" aria-live="polite" hidden>
+            <h2 id="pqResultsHead" tabindex="-1">Here&rsquo;s what everyone else checked.</h2>
+            <ol class="pq-bars" id="pqBars"></ol>
+            <p class="pq-count" id="pqCount" hidden></p>
+            <p class="pq-kicker">They were right about one thing. It was loud.</p>
+          </div>
+
+          <!-- If the tallies can't be fetched the reader still gets a thank-you,
+               never an error. Their answer is already in the Netlify Form. -->
+          <div id="pqThanks" class="pq-thanks" role="status" hidden>
+            <h2 id="pqThanksHead" tabindex="-1">Got it. Thanks for playing.</h2>
+            <p class="pq-kicker">Your parents were right about one thing. It was loud.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKETS
+         The real point of the page. Visible before and after voting.
+         The hrefs below are copies of ticketUrl in content/tour.json, and the
+         script refreshes them from that file by show date on load, so an edit
+         the band makes at /admin/ reaches this page too.
+         UTM tags are left off on purpose: neither ticketing site is known to
+         carry them through checkout. -->
+    <section class="block alt" id="tickets">
+      <div class="wrap">
+        <div class="pq-tix-head reveal">
+          <span class="eyebrow">Come hear it live</span>
+        </div>
+        <div class="pq-tix">
+          <div class="show card-glow reveal" data-show-date="2026-11-07" data-hide-from="2026-11-08">
+            <div class="show-date">Saturday, Nov 7, 2026</div>
+            <div class="show-venue">Tupelo Music Hall</div>
+            <div class="show-addr">10 A St, Derry, NH 03038</div>
+            <div class="show-time">8:00 PM</div>
+            <p class="pq-line">Turn it up. Your parents aren&rsquo;t coming.</p>
+            <div class="show-cta"><a class="btn btn-primary" href="https://tickets.tupelohall.com/eventperformances.asp?evt=1008">Get Tupelo tickets &rarr;</a></div>
+          </div>
+          <div class="show card-glow xmas reveal" data-show-date="2026-12-19">
+            <div class="xmas-deco" aria-hidden="true"><span class="tour-xmas-garland"></span></div>
+            <div class="show-date">Saturday, Dec 19, 2026</div>
+            <div class="show-venue">Bell Theater at Bell Works</div>
+            <div class="show-addr">101 Crawfords Corner Road, Holmdel, NJ 07733</div>
+            <div class="show-time">8:00 PM</div>
+            <p class="pq-line">A Very 60&rsquo;s Christmas</p>
+            <div class="show-cta"><a class="btn btn-primary" href="https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111">Get Christmas tickets &rarr;</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="block" id="news">
+      <div class="wrap">
+        <div class="news-card reveal">
+          <span class="eyebrow">Find Out First</span>
+          <h2>Never Miss <em>a Show</em></h2>
+          <p>The band tells you where they're playing before anyone else. One email a month. That's it.</p>
+          <form class="news-form">
+            <div class="news-row">
+              <input type="text" name="FNAME" placeholder="First name" autocomplete="given-name" required>
+              <input type="text" name="LNAME" placeholder="Last name" autocomplete="family-name">
+            </div>
+            <input type="email" name="EMAIL" placeholder="Email address" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">JOIN THE MAILING LIST</button>
+            <p class="news-note" role="status" aria-live="polite">We respect your privacy.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-lights" aria-hidden="true"><span class="fl-set"><span class="flb flb-r"></span><span class="flb flb-c"></span><span class="flb flb-b"></span></span><span class="fl-set"><span class="flb flb-r"></span><span class="flb flb-c"></span><span class="flb flb-b"></span></span><span class="fl-set"><span class="flb flb-r"></span><span class="flb flb-c"></span><span class="flb flb-b"></span></span></div>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="images/logo.webp" alt="The British Invasion Years" class="foot-logo" loading="lazy">
+          <p>&ldquo;The British Invasion Years&rdquo; Live in theaters coast to coast!</p>
+          <div class="foot-social">
+            <a href="https://www.facebook.com/britishinvasionyears" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V11H7.3v3H10v8h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/britishinvasionyears" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5zm0 5.8A2.3 2.3 0 1 1 14.3 12 2.3 2.3 0 0 1 12 14.3zm4.5-6a.8.8 0 1 1-.8-.8.8.8 0 0 1 .8.8zM20 8.7a4 4 0 0 0-1.1-2.8A4 4 0 0 0 16 4.8c-1.1-.1-4.6-.1-5.7 0A4 4 0 0 0 7.5 5.9 4 4 0 0 0 6.4 8.7c-.1 1.1-.1 4.6 0 5.7a4 4 0 0 0 1.1 2.8 4 4 0 0 0 2.8 1.1c1.1.1 4.6.1 5.7 0a4 4 0 0 0 2.8-1.1 4 4 0 0 0 1.1-2.8c.1-1.1.1-4.6 0-5.7z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/watch?v=72q_s4ppvxI" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.4 2.4 0 0 0-1.7-1.7C19.4 5.2 12 5.2 12 5.2s-7.4 0-8.9.4A2.4 2.4 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.4 2.4 0 0 0 1.7 1.7c1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4a2.4 2.4 0 0 0 1.7-1.7C23 15.2 23 12 23 12zM9.7 15V9l5.2 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="foot-col">
+          <h4>EXPLORE</h4>
+          <a class="foot-link" href="tour.html">TOUR</a>
+          <a class="foot-link" href="about.html">ABOUT</a>
+          <a class="foot-link" href="band-gallery.html">BAND GALLERY</a>
+          <a class="foot-link" href="fan-photos.html">FAN PHOTOS</a>
+          <a class="foot-link" href="videos.html">VIDEOS</a>
+          <a class="foot-link" href="blog.html">INSIGHTS</a>
+          <a class="foot-link" href="contact.html">CONTACT</a>
+        </div>
+
+        <div class="foot-col">
+          <h4>BOOKINGS &amp; MANAGEMENT</h4>
+          <p class="foot-booking-name">Blue Raven Entertainment</p>
+          <a class="foot-link" href="tel:+16107626413">Rachel Hill, <strong>610.762.6413</strong></a>
+          <a class="foot-link" href="tel:+19739283565">Main, <strong>973.928.3565</strong></a>
+          <a class="foot-link" href="mailto:rachel@blueravenartists.com?subject=New%20message%20from%20britishinvasionyears.com%20website%20contact%20form">rachel@blueravenartists.com</a>
+          <p class="foot-license">License # BA1810800</p>
+        </div>
+
+        <div class="foot-col foot-col-br">
+          <a href="https://www.blueravenartists.com" target="_blank" rel="noopener">
+            <img src="images/br-square.webp" width="700" height="702" alt="Exclusively represented by Blue Raven Entertainment" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>British Invasion Years &copy; 2026 &middot; All Rights Reserved</span>
+        <span class="footer-credit">Powered by <a href="https://livewebstudios.com" target="_blank" rel="noopener">Live Web Studios</a></span>
+        <a href="https://livewebstudios.com" target="_blank" rel="noopener">
+          <img src="images/verifiedsecured.png" width="150" height="37" alt="Verified &amp; Secured by Live Web Studios" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main4.js"></script>
+  <script defer src="js/newsletter2.js"></script>
+  <script defer src="js/notes-bg2.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initNotesBg('notes-bg-pq'); });</script>
+
+  <script>
+  (function () {
+    var SLUGS     = ['hair', 'volume', 'clothes', 'stones', 'guitar-kid', 'cool'];
+    var ENDPOINT  = '/.netlify/functions/parents-vote';
+    var STORE_KEY = 'biy-parents-quiz-2026-11';
+    var SHOW_COUNT_FROM = 50;  // Below this the "N people" line stays hidden. Small numbers look sad.
+
+    var form     = document.getElementById('pqForm');
+    var err      = document.getElementById('pqErr');
+    var submit   = document.getElementById('pqSubmit');
+    var results  = document.getElementById('pqResults');
+    var bars     = document.getElementById('pqBars');
+    var countEl  = document.getElementById('pqCount');
+    var thanks   = document.getElementById('pqThanks');
+    var CHECK    = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+    // The bar labels reuse the exact markup of the checkbox rows, so the copy
+    // only lives in one place.
+    var labels = {};
+    SLUGS.forEach(function (s) { labels[s] = box(s).parentNode.querySelector('.pq-text').innerHTML; });
+
+    function box(slug) { return form.querySelector('input[name="' + slug + '"]'); }
+    function picked() { return SLUGS.filter(function (s) { return box(s).checked; }); }
+
+    // localStorage can throw in private windows and locked-down browsers.
+    // Losing the flag only means someone could vote twice, which is fine.
+    function loadVote() {
+      try { var v = JSON.parse(localStorage.getItem(STORE_KEY)); return v && v.picks ? v : null; }
+      catch (e) { return null; }
+    }
+    function saveVote(picks) {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify({ picks: picks, at: Date.now() })); }
+      catch (e) {}
+    }
+
+    function withTimeout(p, ms) {
+      return Promise.race([p, new Promise(function (_, no) { setTimeout(no, ms); })]);
+    }
+    function getJSON(res) { if (!res.ok) throw new Error(res.status); return res.json(); }
+
+    /* ---------- Results ---------- */
+
+    function showThanks() {
+      form.hidden = true;
+      results.hidden = true;
+      thanks.hidden = false;
+      return thanks;
+    }
+
+    function render(data, mine) {
+      if (!data || !data.counts || !(data.total > 0)) return showThanks();
+
+      // Percent of respondents who checked each answer. These add up to more
+      // than 100 because people check more than one. That is correct.
+      var rows = SLUGS.map(function (s, i) {
+        return { slug: s, order: i, n: Number(data.counts[s]) || 0 };
+      }).sort(function (a, b) { return b.n - a.n || a.order - b.order; });
+
+      bars.innerHTML = rows.map(function (r) {
+        var pct  = Math.round(r.n / data.total * 100);
+        var mineRow = mine.indexOf(r.slug) > -1;
+        return '<li class="pq-bar' + (mineRow ? ' pq-mine' : '') + '">' +
+          '<div class="pq-bar-head">' +
+            '<span class="pq-bar-label">' + labels[r.slug] +
+              (mineRow ? ' <span class="pq-you">' + CHECK + 'You</span>' : '') + '</span>' +
+            '<span class="pq-bar-pct">' + pct + '%</span>' +
+          '</div>' +
+          '<div class="pq-track" aria-hidden="true"><div class="pq-fill" data-w="' + pct + '"></div></div>' +
+        '</li>';
+      }).join('');
+
+      if (data.total >= SHOW_COUNT_FROM) {
+        countEl.innerHTML = '<strong>' + data.total.toLocaleString('en-US') + ' people have answered so far.</strong>';
+        countEl.hidden = false;
+      } else {
+        countEl.hidden = true;
+      }
+
+      form.hidden = true;
+      thanks.hidden = true;
+      results.hidden = false;
+
+      // Reading offsetWidth forces a layout at width 0, so setting the real
+      // width next is a change the transition can animate.
+      void bars.offsetWidth;
+      bars.querySelectorAll('.pq-fill').forEach(function (f) { f.style.width = f.getAttribute('data-w') + '%'; });
+      return results;
+    }
+
+    function reveal(el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var head = el.querySelector('h2');
+      if (head) head.focus({ preventScroll: true });
+    }
+
+    /* ---------- Returning visitor: straight to results ---------- */
+
+    var prior = loadVote();
+    if (prior) {
+      prior.picks.forEach(function (s) { if (SLUGS.indexOf(s) > -1) box(s).checked = true; });
+      form.hidden = true;
+      withTimeout(fetch(ENDPOINT, { cache: 'no-store' }).then(getJSON), 8000)
+        .then(function (d) { render(d, prior.picks); }, showThanks);
+    } else {
+      // Pre-check from the email link: parents.html?pick=hair etc.
+      // Unknown or missing pick leaves every box clear.
+      var pick = new URLSearchParams(location.search).get('pick');
+      if (pick && SLUGS.indexOf(pick) > -1) box(pick).checked = true;
+    }
+
+    /* ---------- Vote ---------- */
+
+    form.addEventListener('change', function () { if (picked().length) err.hidden = true; });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var mine = picked();
+      if (!mine.length) {
+        err.hidden = false;
+        err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      err.hidden = true;
+      submit.disabled = true;
+      submit.textContent = 'Counting';
+      saveVote(mine);
+
+      // Backup record in Netlify Forms. Fire and forget: the reader never
+      // waits on it and never hears about it if it fails.
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).catch(function () {});
+
+      withTimeout(fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ picks: mine })
+      }).then(getJSON), 8000)
+        .then(function (d) { reveal(render(d, mine)); }, function () { reveal(showThanks()); });
+
+      if (window.gtag) gtag('event', 'parents_quiz_vote', { picks: mine.join(',') });
+    });
+
+    /* ---------- Row photos open bigger ---------- */
+
+    // Built the same way as the gallery lightbox in main4.js and styled by its
+    // .lightbox rules, plus a caption. main4 only wires the gallery pages, so
+    // this page opens its own.
+    var zoomBtns = document.querySelectorAll('.pq-zoom');
+    if (zoomBtns.length) {
+      var lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.innerHTML =
+        '<button class="lb-close" aria-label="Close">&#x2715;</button>' +
+        '<figure class="pq-lb-fig"><img class="lb-img" src="" alt=""><figcaption></figcaption></figure>';
+      document.body.appendChild(lb);
+      var lbImg = lb.querySelector('.lb-img');
+      var lbCap = lb.querySelector('figcaption');
+      var lbClose = lb.querySelector('.lb-close');
+      var opener = null;
+
+      function closeLb() {
+        if (!lb.classList.contains('open')) return;
+        lb.classList.remove('open');
+        if (opener) opener.focus();
+      }
+      Array.prototype.forEach.call(zoomBtns, function (btn) {
+        btn.addEventListener('click', function () {
+          opener = btn;
+          lbImg.src = btn.getAttribute('data-full');
+          lbImg.alt = btn.getAttribute('data-alt') || '';
+          lbCap.textContent = btn.getAttribute('data-caption') || '';
+          lb.classList.add('open');
+          lbImg.classList.remove('pop'); void lbImg.offsetWidth; lbImg.classList.add('pop');
+          lbClose.focus();
+        });
+      });
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('pq-lb-fig')) closeLb(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+    }
+
+    /* ---------- Ticket cards ---------- */
+
+    // A card with data-hide-from disappears from that date on, in the
+    // visitor's own time zone. The page will outlive the Tupelo show.
+    function hideExpired(now) {
+      document.querySelectorAll('[data-hide-from]').forEach(function (card) {
+        var p = card.getAttribute('data-hide-from').split('-');
+        card.hidden = now >= new Date(+p[0], +p[1] - 1, +p[2]);
+      });
+    }
+    hideExpired(new Date());
+    window.pqHideExpired = hideExpired;  // for testing: pqHideExpired(new Date(2026, 10, 8))
+
+    // The ticket links in the markup are copies. Refresh them from the tour
+    // data by show date so a change made at /admin/ shows up here too.
+    fetch('content/tour.json', { cache: 'no-store' }).then(getJSON).then(function (data) {
+      var shows = (data && data.shows) || [];
+      document.querySelectorAll('[data-show-date]').forEach(function (card) {
+        var show = shows.filter(function (s) { return s.date === card.getAttribute('data-show-date'); })[0];
+        var a = card.querySelector('a');
+        if (show && show.ticketUrl && a) a.href = show.ticketUrl;
+      });
+    }).catch(function () {});
+  })();
+  </script>
+</body>
+</html>
