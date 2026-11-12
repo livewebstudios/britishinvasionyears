@@ -75,6 +75,13 @@
       "city": " 101 Crawfords Corner Road, Holmdel, NJ 07733",
       "whatToDoSlug": "what-to-do-in-holmdel-nj",
       "ticketUrl": "https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111"
+    },
+    {
+      "status": "tba",
+      "date": "2027-07-18",
+      "time": "7:00 PM",
+      "venue": "The Lamp Theater",
+      "city": "222 Main St, Irwin, PA 15642"
     }
   ]
 }
