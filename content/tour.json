@@ -89,6 +89,13 @@
       "time": "8:00 PM",
       "venue": "The Tupelo Music Hall",
       "city": "10 A St, Derry, NH 03038"
+    },
+    {
+      "status": "tba",
+      "date": "2027-05-15",
+      "time": "8:00",
+      "venue": "New Hope Winery",
+      "city": "6123 Lower York Road New Hope, PA 18938"
     }
   ]
 }
