@@ -385,8 +385,21 @@ function fmtEventDate(iso) {
    would blank the date line early. */
 const SHOW_BY_SLUG = {};
 (json('content/tour.json').shows || []).forEach(s => {
-  if (s.whatToDoSlug) SHOW_BY_SLUG[s.whatToDoSlug] = s;
+  if (!s.whatToDoSlug) return;
+  const cur = SHOW_BY_SLUG[s.whatToDoSlug];
+  if (!cur || showWins(s, cur)) SHOW_BY_SLUG[s.whatToDoSlug] = s;
 });
+
+/* Two shows can share one post (Irwin 2026 and Irwin 2027 both point at
+   what-to-do-in-irwin-pa). The post belongs to the next one coming up, and
+   once they have all played, to the most recent. Picking by date instead of
+   by row order means reordering shows in Decap can't flip it. */
+function showWins(a, b) {
+  const t = new Date(today).toISOString().slice(0, 10);
+  const aUp = String(a.date || '') >= t, bUp = String(b.date || '') >= t;
+  if (aUp !== bUp) return aUp;
+  return aUp ? a.date < b.date : a.date > b.date;
+}
 
 /* ---- show card under the hero: WHICH POSTS GET ONE ----------------------
    Every what-to-do post whose show is still ahead of us AND has a ticket link

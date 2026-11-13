@@ -115,6 +115,15 @@
     if (show && show.date) return show.date;
     return p.showDate || '';
   }
+  // Two shows can share one post (Irwin 2026 and Irwin 2027). The post follows
+  // the next one coming up, and once they've all played, the most recent.
+  // Same rule as tools/prerender.js, so the two never disagree.
+  function showWins(a, b) {
+    var aUp = String(a.date || '') >= TODAY, bUp = String(b.date || '') >= TODAY;
+    if (aUp !== bUp) return aUp;
+    return aUp ? a.date < b.date : a.date > b.date;
+  }
+
   // Strictly before today, so a post is still live ON the day of its show.
   function isExpired(p) {
     var d = showDateOf(p);
@@ -304,7 +313,9 @@
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (data) {
         (data && data.shows || []).forEach(function (s) {
-          if (s.whatToDoSlug) SHOW_BY_SLUG[s.whatToDoSlug] = s;
+          if (!s.whatToDoSlug) return;
+          var cur = SHOW_BY_SLUG[s.whatToDoSlug];
+          if (!cur || showWins(s, cur)) SHOW_BY_SLUG[s.whatToDoSlug] = s;
         });
       })
       .catch(function () { /* no show dates — posts render without a date line */ });
