@@ -99,6 +99,13 @@
       "venue": "Concert Announcement Coming Soon",
       "city": "New Hope, PA",
       "whatToDoSlug": "what-to-do-in-new-hope-pa"
+    },
+    {
+      "status": "tba",
+      "date": "2027-06-26",
+      "time": "7:30 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "Redbank, NJ"
     }
   ]
 }
