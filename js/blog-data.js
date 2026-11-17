@@ -18,7 +18,7 @@ window.BIY_POSTS = [
     "excerpt": "Central Florida turns out for live music like nowhere else. We're taking the whole two-act show to The Villages.",
     "body": "Nobody shows up for a live band quite like The Villages.\n\nThat sprawling Central Florida community is built around music. Town squares full of people dancing after dinner, and most of them grew up on the exact songs The British Invasion Years plays. For a band like this one, walking into a room like that is about the easiest welcome there is.\n\nThe band is heading south with the complete two-act show. The British Invasion of the 1960s first, then the American acts that fired back. Played live, no tracks, with the period photos and the era outfits that make the decade feel like it just walked back through the door.\n\nFlorida keeps turning into a second home for this stuff. The snowbirds who caught it the first time around, the year-round folks who never let it go. Everybody knows the words. That's the thing about these rooms… the singing starts before anyone asks for it.\n\nWinter escapee or full-time resident, come dance in your seat with the band. Dates and tickets live on the [tour dates](tour.html) page.",
     "featured": false,
-    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe.jpg"
+    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe2.jpg"
   },
   {
     "title": "Tupelo Music Hall, Derry NH: We're Heading North",
@@ -38,7 +38,7 @@ window.BIY_POSTS = [
     "excerpt": "Tupelo Music Hall in Derry is one of New England's great listening rooms. We're bringing the '60s up to New Hampshire.",
     "body": "New England, this one's yours.\n\nTupelo Music Hall in Derry, New Hampshire earned its name the slow way. By getting the sound right night after night. The mix is dialed, the sightlines are honest, and people come to actually *listen*. For a band that plays everything live with no tracks, you could not ask for a better setup.\n\nThe British Invasion Years is driving up to Derry with the full production. Two acts, both sides of the Atlantic, every song played by four guys who've been doing this a long time, with the period photos and visuals running behind them all night.\n\nNew England has always loved this era hard. Rooms like Tupelo are a big part of why. No bad seat. No giant video wall pretending to be the real thing… just the band, the songs, and a few hundred people having the night of the week.\n\nAnybody anywhere in southern New Hampshire or up around greater Boston, it's a short trip and a sure thing. Showtime and tickets sit on the [tour dates](tour.html) page.",
     "featured": false,
-    "image": "images/home/stage-wide-time-for-tea-bright-joe2.jpg"
+    "image": "images/home/stage-wide-time-for-tea-bright-joe3.jpg"
   },
   {
     "title": "Backlash Fest, Millsboro DE: Saturday, September 19, 2026",
@@ -57,7 +57,7 @@ window.BIY_POSTS = [
     "excerpt": "We're playing Backlash Fest in Millsboro, Delaware on Saturday, September 19, 2026. Come find us out in the field.",
     "body": "Delaware, mark it down. The British Invasion Years is heading to Millsboro for Backlash Fest on Saturday, September 19, 2026.\n\nFestivals hit different. Open air, a stack of acts, that loose community buzz you only get when a town shows up together. Backlash Fest in Millsboro is shaping up to be exactly that.\n\nThe band is bringing the whole show to the festival stage. Every era-defining song, every arrangement played live the way the records were cut. It works just as well out in a field as it does in a theater. Good songs don't need four walls to land.\n\nSeptember 19th. Put it on the calendar. More on Backlash Fest and ticket info coming soon.",
     "featured": false,
-    "image": "images/home/band-onstage-rolling-stones-backdrop-joe.jpg"
+    "image": "images/home/band-onstage-rolling-stones-backdrop-joe2.jpg"
   },
   {
     "title": "What to Do in Bridgewater Before the Show",
@@ -76,7 +76,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Bridgewater for the show… here's what to do while you're there.",
     "body": "Bridgewater, VA. Saturday, January 9, 2027 at 7:30 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nGRAND CAVERNS\nAbout twenty minutes down the road in Grottoes sits the oldest continually operating show cave in the country, open since 1806 and a National Natural Landmark. It holds a steady 55 degrees year round, which makes it a fine way to spend a January afternoon. [Grand Caverns](https://grandcaverns.com)\n\nWILDWOOD PARK & COOK'S CREEK ARBORETUM\nBridgewater keeps a dozen parks for a town of six thousand people. Wildwood runs along the North River and the arboretum next to it is an easy walk under the trees. [Bridgewater parks](https://www.bridgewater.town/parks/parks.php)\n\nDOWNTOWN HARRISONBURG\nFifteen minutes north is Virginia's first designated culinary district. Independent restaurants, record shops, and a couple of good breweries, all walkable before you head back for the show. [Visit Harrisonburg](https://visitharrisonburgva.com)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/band-bow-silhouette-theater-alt.jpg"
+    "image": "images/band-gallery/band-bow-silhouette-theater-alt-joe.jpg"
   },
   {
     "title": "What to Do in The Villages Before the Show",
@@ -95,7 +95,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to The Villages for the show… here's what to do while you're there.",
     "body": "The Villages, FL. Thursday, April 8, 2027 at 7:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nTHE THREE TOWN SQUARES\nSpanish Springs, Lake Sumter Landing, and Brownwood Paddock Square each run live music most nights of the week. Spanish Springs has the '50s and '60s look down to the storefronts, so it's the natural warm-up for this one. [The Villages town squares](https://www.thevillages.com)\n\nSILVER SPRINGS STATE PARK\nAbout forty minutes north in Ocala, and the glass-bottom boats have been running there since the 1870s. You look straight down into the spring and it's clear the whole way to the bottom. [Silver Springs](https://silversprings.com)\n\nSHOLOM PARK\nAlso in Ocala, forty-four acres of gardens and quiet walking paths, and it's free. A good, slow hour before an evening show. [Sholom Park](https://www.sholompark.org)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/stage-overhead-multicolor-lights.jpg"
+    "image": "images/band-gallery/stage-overhead-multicolor-lights-joe.jpg"
   },
   {
     "title": "What to Do in Windber Before the Show",
@@ -114,7 +114,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Windber for the show… here's what to do while you're there.",
     "body": "Windber, PA. Saturday, October 23, 2027 at 7:30 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nWINDBER COAL HERITAGE CENTER & MINERS' PARK\nWindber was a company coal town, and the heritage center right in the middle of it tells that story straight. Miners' Park around it holds the monuments and the old buildings. [Windber Coal Heritage Center](https://www.echf.org)\n\nFLIGHT 93 NATIONAL MEMORIAL\nTwenty-five minutes away in Stoystown. The visitor center, the Wall of Names, and the Tower of Voices. Give yourself more time there than you think you need. [Flight 93 National Memorial](https://www.nps.gov/flni/)\n\nJOHNSTOWN FLOOD MUSEUM\nFifteen minutes north in Johnstown, the museum tells the story of the 1889 flood that put the town in every newspaper in the country. Late October in the Laurel Highlands, the drive over is worth it on its own. [Johnstown Flood Museum](https://www.heritagejohnstown.org/attractions/johnstown-flood-museum/)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe.jpg"
+    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe2.jpg"
   },
   {
     "title": "Mt. Airy Casino, Mt. Pocono PA: Saturday, August 3",
@@ -134,7 +134,7 @@ window.BIY_POSTS = [
     "excerpt": "We're up in the Poconos at Mt. Airy Casino on Saturday, August 3. And no, it's not just the Beatles.",
     "body": "The Poconos are calling. The British Invasion Years is answering on Saturday, August 3rd at Mt. Airy Casino Resort in Mount Pocono, PA.\n\nMt. Airy is one of the top entertainment rooms in northeastern Pennsylvania. Sharp production, and a crowd that knows exactly how to have a night.\n\nHere's what separates this one from the usual '60s tribute. The band doesn't stop at the Beatles. This is the whole era… the Rolling Stones, The Kinks, The Who, The Dave Clark Five, The Hollies, The Animals, plus the American acts that were trading chart spots with their British counterparts week after week.\n\nLove '60s music in any shape? Be in the Poconos on August 3rd. Come for the Casino Royale glow. Stay for the songs.",
     "featured": false,
-    "image": "images/home/band-onstage-carnaby-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-carnaby-backdrop-joe3.jpg"
   },
   {
     "title": "What to Do in Cape May Before the Show",
@@ -153,7 +153,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Cape May for the show… here's what to do while you're there.",
     "body": "Cape May, NJ. Friday, July 9, 2027 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nCAPE MAY LIGHTHOUSE\nClimb the 1859 lighthouse out at Cape May Point and you'll see the whole tip of the Jersey Shore spread out below you. It's a National Historic Landmark and an easy hour before showtime. [Cape May Lighthouse](https://capemaymac.org)\n\nWASHINGTON STREET MALL & THE VICTORIAN DISTRICT\nWalk the gaslit streets and you'll understand why this town has been a shore destination since the 1800s. The pedestrian mall is full of shops, and the gingerbread Victorian homes are worth the stroll alone. [Cape May's Victorian district](https://www.capemay.com)\n\nTHE BEACH & PROMENADE\nThe venue sits right by the water, so come down early and walk the promenade. Salt air, a sunset, and the ocean a few steps away… hard to beat before a night of '60s music. [Cape May beaches](https://www.capemay.com)\n\nVenue and tickets are coming soon. Keep an eye on the tour page and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/stage-overhead-blue-green-light.jpg"
+    "image": "images/band-gallery/stage-overhead-blue-green-light-joe.jpg"
   },
   {
     "title": "What to Do in Irwin Before the Show",
@@ -172,7 +172,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Irwin for the show… here's what to do while you're there.",
     "body": "The Lamp Theatre, Irwin. Sunday, July 26 at 7:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nKENNYWOOD\nOne of America's classic amusement parks, open since 1898 and only about fifteen minutes up the road in West Mifflin. The old wooden coasters alone make it a Pittsburgh rite of passage. [Kennywood](https://www.kennywood.com)\n\nIDLEWILD & SOAKZONE\nOut toward Ligonier you'll find Idlewild, one of the oldest amusement parks in the country and a favorite with families for generations. Easygoing rides, big shade trees, and a water park when it's warm. [Idlewild & SoakZone](https://www.idlewild.com)\n\nFORT LIGONIER\nA fully reconstructed French and Indian War fort with real history behind it. Walk the grounds and the museum and you get a feel for what this corner of Pennsylvania looked like 250 years ago. [Fort Ligonier](https://www.fortligonier.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/band-buddy-holly-backdrop-green-lights.jpg"
+    "image": "images/band-gallery/band-buddy-holly-backdrop-green-lights-joe.jpg"
   },
   {
     "title": "What to Do in Millsboro Before the Show",
@@ -191,7 +191,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Millsboro for the show… here's what to do while you're there.",
     "body": "Backlash Fest, Millsboro. Saturday, September 19 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nREHOBOTH BEACH & BOARDWALK\nDelaware's best-known beach town is only about twenty-five minutes away. Spend the afternoon on the sand, then walk the mile-long boardwalk before you head to the festival. [Rehoboth Beach](https://www.visitrehoboth.com)\n\nTRAP POND STATE PARK\nJust outside town sits one of the prettiest spots in southern Delaware, home to the northernmost stand of bald cypress trees in the country. Rent a kayak and paddle through them. [Trap Pond State Park](https://destateparks.com)\n\nNANTICOKE INDIAN MUSEUM\nMillsboro's own cultural landmark tells the story of the Nanticoke people who've called this land home for centuries. A quick, worthwhile stop right in town. [Nanticoke Indian Museum](https://www.nanticokeindians.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/home/band-onstage-rolling-stones-backdrop-joe.jpg"
+    "image": "images/home/band-onstage-rolling-stones-backdrop-joe2.jpg"
   },
   {
     "title": "What to Do in Derry Before the Show",
@@ -210,7 +210,7 @@ window.BIY_POSTS = [
     "excerpt": "You're coming to Derry for the show… here's what to do while you're there.",
     "body": "Tupelo Music Hall, Derry. Saturday, November 7 at 8:00 PM.\n\nWhile you're in town for the show, here's a few things worth doing in the area.\n\nROBERT FROST FARM\nThe poet lived and wrote here, and the restored farmstead is Derry's signature stop. Walk the grounds and the poetry trail before the show. [Robert Frost Farm](https://www.robertfrostfarm.org)\n\nCANOBIE LAKE PARK\nA beloved old-school amusement park about fifteen minutes away in Salem. Coasters, a lake, and that classic New England summer-park feel. [Canobie Lake Park](https://www.canobie.com)\n\nTAYLOR MILL STATE HISTORIC SITE\nA preserved 19th-century up-and-down sawmill tucked into Ballard State Forest. Quiet trails and a real piece of New Hampshire history. [Taylor Mill State Historic Site](https://www.nhstateparks.org)\n\nGrab your tickets and we'll see you there. [Tour dates](tour.html)",
     "featured": false,
-    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe2.jpg"
+    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe3.jpg"
   },
   {
     "title": "A '60s Night at Cape May Convention Hall, Right on the Beach",
@@ -230,7 +230,7 @@ window.BIY_POSTS = [
     "excerpt": "The British Invasion by the ocean might be the best summer night going. We're at Cape May Convention Hall. Bring the whole family.",
     "body": "Some shows just belong to summer. This is one.\n\nCape May Convention Hall sits right on the sand at the southern tip of the Jersey Shore, in one of the prettiest Victorian beach towns anywhere. Add a salt breeze and a sunset, then stack two hours of '60s classics on top. That's a night people still talk about years later.\n\nThe British Invasion Years is bringing the full show down to Cape May. The British acts that stormed America's charts, the American acts that fired straight back, all played live by four musicians who came up on this music.\n\nCape May is a destination, not just a stop. That's half the fun. Come down early. Walk the promenade, grab dinner, let the evening build toward the music. It's a great family night out too… the songs reach across generations, and grandparents and kids end up singing the same choruses.\n\nSummer by the ocean doesn't get much better. Grab seats on the [tour page](tour.html) before the shore crowd gets there first.",
     "featured": false,
-    "image": "images/band-gallery/stage-behind-band-audience-wide.jpg"
+    "image": "images/band-gallery/stage-behind-band-audience-wide-joe.jpg"
   },
   {
     "title": "May 30 at 7:30PM Is Almost Gone: A Few Tables Left",
@@ -249,7 +249,7 @@ window.BIY_POSTS = [
     "excerpt": "Only tables remain, and not many. Saturday, May 30 at 7:30PM is nearly sold out. Off the fence. Now.",
     "body": "Straight talk. Saturday's show on May 30th at 7:30PM EDT is almost sold out.\n\nA handful of table seats are still up for grabs. At the rate they're moving, that won't hold. Anyone who's been telling themselves they'll grab tickets later… later showed up.\n\nThe British Invasion Years runs the whole '60s. The Beatles, The Rolling Stones, The Kinks, The Who, and the American acts that defined the decade right alongside them. Live. No tracks. The real thing.\n\nDon't be the one who finds out it sold out while still deciding. Grab your seats and the band will see you Saturday night.",
     "featured": true,
-    "image": "images/band-gallery/stage-overhead-multicolor-lights.jpg"
+    "image": "images/band-gallery/stage-overhead-multicolor-lights-joe.jpg"
   },
   {
     "title": "Two Shows in One Night: Harrington Raceway & Casino, Delaware",
@@ -269,7 +269,7 @@ window.BIY_POSTS = [
     "excerpt": "We like Delaware enough to play twice in one night. Two shows at Harrington Raceway & Casino. First State fans, pick your seat.",
     "body": "Delaware, the band likes you so much it's playing twice in one night.\n\nThe British Invasion Years is heading to Harrington Raceway & Casino for back-to-back shows. An early one and a late one. So there's really no excuse to miss it. Dinner-and-a-show type or a roll-in-later type, there's a seat with your name on it either way.\n\nHarrington brings that easy casino energy. Simple to get to, plenty to do before and after, and a crowd that came out to have a good time. Perfect fit for a show that's all about feeling good.\n\nAnd because this runs the whole era… not just the Beatles, but the Stones, the Kinks, the Who, the Dave Clark Five, plus the American acts that traded chart spots with them… every set's got something for every kind of '60s fan.\n\nDelaware always brings it. The band plans to bring it right back, twice over. Grab seats for whichever show fits your night on the [tour dates](tour.html) page. And if the first one sells out, the second one's waiting.",
     "featured": false,
-    "image": "images/home/carnaby-st-stage-wide-purple-joe2.jpg"
+    "image": "images/home/carnaby-st-stage-wide-purple-joe3.jpg"
   },
   {
     "title": "The Window to Hear This Music Live Is Closing",
@@ -307,7 +307,7 @@ window.BIY_POSTS = [
     "excerpt": "Sixty years on, Revolver is still arguably the most inventive rock album ever cut. Here's why it hasn't aged a day.",
     "body": "August 1966. The Beatles put out *Revolver*, and popular music never sat quite right in its chair again.\n\nMost rock bands were still cutting fairly straight arrangements at the time. The Beatles handed in something genuinely strange. A string octet on \"Eleanor Rigby.\" Backwards guitar on \"I'm Only Sleeping.\" The tape loops and drones of \"Tomorrow Never Knows.\" Then that big Motown bounce on \"Got to Get You into My Life.\" One record.\n\nSixty years later it still holds up as maybe the most ambitious rock album anyone's made. You can hear everything that came after it sitting inside it. Psychedelia. Art rock. Ambient. Sampling. And it still sounds completely planted in 1966.\n\nFor The British Invasion Years, records like *Revolver* are the inspiration and the standard both. The craft. The way every arrangement got real thought. That's the bar the '60s set. It's the bar the band holds itself to onstage.\n\nSome songs just need a crowd. Come hear them with one.",
     "featured": false,
-    "image": "images/band-gallery/band-wide-purple-orange-fringe-outfits-joe2.jpg"
+    "image": "images/band-gallery/band-wide-purple-orange-fringe-outfits-joe3.jpg"
   },
   {
     "title": "Beatles, Stones, Kinks or Who? Pick a Side",
@@ -328,7 +328,7 @@ window.BIY_POSTS = [
     "excerpt": "The Beatles. The Stones. The Kinks. The Who. The Animals. Everybody's got a favorite, and everybody's got a story about why the '60s rewired their ears.",
     "body": "Ask a room of '60s fans to name their favorite British Invasion band. Go ahead. You've just started an argument that won't wrap up for hours. Best part? There's no wrong answer.\n\n**Team Beatles?** The songwriting, the leap from *Please Please Me* to *Abbey Road*, a whole stack of different eras inside one decade. Tough to argue with.\n\n**Team Stones?** Raw blues swagger and a refusal to quit. Keith's riffs are baked into the DNA of rock and roll at this point.\n\n**Team Kinks?** Underrated for years. Ray Davies was sneaking social commentary into pop songs while half the charts were still writing about holding hands.\n\n**Team Who?** Townshend's windmill. Keith Moon behind the kit. \"My Generation.\" That's the whole pitch.\n\nAt a British Invasion Years show you don't have to pick. You get all of them, plus the American acts that climbed up to meet the moment. The '60s were a golden run *because* of the competition. So much great music landing at once because everybody was trying to top everybody.\n\nSo who's yours? Come see the band and let the songs settle it.",
     "featured": false,
-    "image": "images/home/band-onstage-peace-sign-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-peace-sign-backdrop-joe3.jpg"
   },
   {
     "title": "Red Bank, NJ: We're at The Vogel at the Count Basie Center",
@@ -348,7 +348,7 @@ window.BIY_POSTS = [
     "excerpt": "The Vogel at Red Bank's Count Basie Center for the Arts is one of the Jersey Shore's finest intimate rooms. We're bringing the full '60s show there.",
     "body": "Jersey crowds mean something to this band. This is home turf, and Red Bank is one of its best stops.\n\nThe Vogel is the intimate room at the Count Basie Center for the Arts, and it's exactly what this show was built for. Warm, modern, close. Nothing gets lost between the stage and your seat. A real listening room with some polish, sitting in the heart of one of the Shore's great downtowns.\n\nThe four of them always bring a little extra for a hometown crowd. The full two-act run. The British Invasion of the '60s, then the American answer to it. Played live, no backing tracks, with the period visuals running behind the band all night.\n\nMake a night of it. Red Bank is built for exactly that. Dinner downtown, a short walk to the theater, a couple hours of the best songs ever written. Coming from Monmouth County, down the Shore, or up the Parkway, this one's an easy yes.\n\nShowtime and tickets are on the [tour dates](tour.html) page. If you've been waiting to catch the band close to home, this is the one.",
     "featured": false,
-    "image": "images/home/carnaby-st-stage-wide-purple-joe2.jpg"
+    "image": "images/home/carnaby-st-stage-wide-purple-joe3.jpg"
   },
   {
     "title": "This Saturday in New Hope, PA: Good Table Seats Left",
@@ -367,7 +367,7 @@ window.BIY_POSTS = [
     "excerpt": "New Hope Winery is one of the most unusual, intimate concert rooms in Pennsylvania. We're there this Saturday, and some great table seats are still open.",
     "body": "Looking for a great night out in Bucks County this weekend? Stop looking. The British Invasion Years hits the stage at New Hope Winery this Saturday, and there are still some excellent table seats on the board.\n\nNew Hope Winery is a strange, wonderful mix. Part boutique winery, part listening room. The music feels personal in there, and the night takes on a character all its own. Add a glass of wine and some good company to the sounds of the '60s and you've got the makings of a night you'll actually remember.\n\nDon't sit on it. The room is small by design, and the band expects the last seats to move fast. Head over to New Hope Winery's site now and lock yours in.\n\nSee you Saturday night.",
     "featured": false,
-    "image": "images/home/band-onstage-carnaby-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-carnaby-backdrop-joe3.jpg"
   },
   {
     "title": "1964: The Year Four Liverpool Kids Flipped the Charts",
@@ -386,7 +386,7 @@ window.BIY_POSTS = [
     "excerpt": "In 1964 the music world turned over for good. The British Invasion wasn't only a chart story. It was a cultural one. Here's how it went down.",
     "body": "Before 1964, American rock and roll owned the radio. Elvis. Chuck Berry. Buddy Holly. The sound was electric and vital, and it was ours.\n\nThen came February 9, 1964. The Beatles walked out on The Ed Sullivan Show and 73 million Americans tuned in. It's still one of the most-watched broadcasts in U.S. history.\n\nWhat came next was a full takeover of the American charts. The Stones showed up rawer and bluesier. The Kinks brought those angular riffs and a dry streak of wit. The Who arrived loud and detonating. The Animals, The Hollies, The Searchers, Gerry and the Pacemakers, Herman's Hermits, The Dave Clark Five. Wave after wave of British talent storming the Top 40.\n\nThe American acts hit back. The Beach Boys pushed their harmonies further out. The Byrds invented folk-rock more or less on the spot. The whole landscape of popular music shifted, and you can still feel it today.\n\nThe British Invasion Years was built to honor the whole thing. Not just the Beatles. The entire movement. Come to a show and you get the full run of it.",
     "featured": false,
-    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe2.jpg"
+    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe3.jpg"
   },
   {
     "title": "Bring the Whole Family: Why '60s Music Still Fills Theaters",
@@ -405,7 +405,7 @@ window.BIY_POSTS = [
     "excerpt": "Grandparents who lived it. Parents who inherited it. Kids who found it on a soundtrack. '60s music is one of the last things that still gets three generations singing at once.",
     "body": "Look around the room at a British Invasion Years show. You'll catch something you almost never see at a concert anymore. Three generations, all singing the same words.\n\nThat's the quiet superpower of '60s music. It belongs to everybody now.\n\nThe grandparents lived it the first time. They can tell you exactly where they were when the Beatles hit Ed Sullivan. Their kids grew up with these songs running in the house and the car. And the youngest fans found them somewhere brand new. A movie. A streaming playlist. A video game. A parent's old records.\n\nSomehow all three land in the same spot, knowing the same choruses. \"Twist and Shout.\" \"Happy Together.\" \"Sweet Caroline.\" Songs that need no introduction at any age.\n\nThat makes the band's show one of those rare nights the whole family actually enjoys *together*. Not one group white-knuckling through another group's taste. Everybody having a good time at the same time. No explicit content. No long stretch of songs nobody knows. No reason to glance at your phone.\n\nJust a couple of hours of music that somehow stayed everybody's music.\n\nIf you've been hunting for an outing that works for the grandparents and the grandkids in one trip, this is it. Find a [date near you](tour.html) and bring the whole crew.",
     "featured": false,
-    "image": "images/band-gallery/band-wide-purple-orange-fringe-outfits-joe2.jpg"
+    "image": "images/band-gallery/band-wide-purple-orange-fringe-outfits-joe3.jpg"
   },
   {
     "title": "Arena Prices vs. a Night at the Theater",
@@ -424,7 +424,7 @@ window.BIY_POSTS = [
     "excerpt": "A nosebleed seat to a legacy act can run $300 before fees. A great '60s show in a 1,000-seat theater might be the smartest ticket in live music.",
     "body": "Let's talk about what a concert ticket costs now.\n\nThe last time a real legacy act rolled through a stadium near you, what did the good seats run? Three hundred bucks. More, once the \"service fees\" stacked up. And for that you got a view of a video screen and a $16 beer.\n\nNow picture the other option. A restored theater. A thousand seats instead of twenty thousand. Real sightlines. You can see the players' hands. And a ticket that costs a fraction of the arena.\n\nThat's the live-tribute pitch. It has quietly become one of the best values in entertainment.\n\n**Here's why it works.** The songs are the same songs. A clean \"Satisfaction\" or \"Hey Jude\" hits just as hard whether it's the original artist or four seasoned pros who spent their lives learning to play it right. Maybe harder, when you're close enough to feel it.\n\nThe band isn't knocking the big shows. Some are worth the splurge. But for a night out that leaves money in your pocket and sends you home humming, a great '60s show in a great room is awfully hard to beat.\n\nCheck the [tour dates](tour.html) and compare an evening with The British Invasion Years against that arena stub in your drawer. The math speaks for itself.",
     "featured": false,
-    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe2.jpg"
+    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe3.jpg"
   },
   {
     "title": "More Than a Tribute: Bringing the '60s Back to Life",
@@ -443,7 +443,7 @@ window.BIY_POSTS = [
     "excerpt": "A tribute show can be a cheap impression. Or a time machine. The difference is research, respect, and refusing to fake it.",
     "body": "The word \"tribute\" carries baggage. For a lot of people it means wigs, backing tracks, and a loose approximation of songs everybody half-remembers.\n\nThe band gets the skepticism. They also think it's beatable.\n\nThe gap between a forgettable tribute and a real time machine comes down to a few things audiences feel even when they can't name them.\n\n**Authenticity over imitation.** The British Invasion Years plays live, no tracks. Four musicians, every note, the way these bands actually did it. When something sounds full, it's because it *is* full.\n\n**Research, not guesswork.** Building this show meant studying the era. Which songs charted, what they meant, how the British and American sides traded blows week after week. The set list is curated.\n\n**The whole era.** Yes, the Beatles. Also The Zombies, The Kinks, The Who, The Dave Clark Five, and the American acts… The Monkees, Tommy James, The Turtles, Steppenwolf.\n\nDo all that, add the period outfits and the visuals running behind the band, and something happens in the room. People stop watching a *tribute* and start reliving a *decade.*\n\nThat's the bar the four of them set every night. Come see whether they clear it. [Tour dates are here](tour.html).",
     "featured": false,
-    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe2.jpg"
+    "image": "images/band-gallery/band-carnaby-backdrop-center-stage-joe3.jpg"
   },
   {
     "title": "\"This Group Is That Good\": Grunin Center, Toms River",
@@ -463,7 +463,7 @@ window.BIY_POSTS = [
     "excerpt": "Spotlight Central caught The British Invasion Years at the Grunin Center in Toms River, NJ. The verdict came from lead singer Lee Scott Howard's big sister: \"This group is that good.\"",
     "body": "Spotlight Central reviewed the band's night at the Grunin Center of the Arts in Toms River, NJ, and the write-up captured exactly what The British Invasion Years hopes every audience feels when the lights go down.\n\nThe writer went backstage before the show and sat down with co-founders Lee Scott Howard and Bobby M. As Lee explained it, the first half of the show covers *the British Invasion of the 1960s* and the second half is *the American response to that invasion.* Same two-act build they still use every night.\n\nThere's a detail in there worth pulling out. Putting this show together took real homework. Lee and Bobby spent serious time researching where each song landed on the charts and what it meant culturally. That's why the set feels less like a greatest-hits jukebox and more like a guided tour of the decade.\n\nAnd because the motto has always been **\"all that noise with just four boys,\"** there are no backing tracks. Synthesizers, sound effects, and a digital guitar that, as Lee told the writer, \"emulates thirty different kinds of guitars, and at the push of a button will even retune itself.\"\n\nThe recap walked the night song by song. A Beatles opening trio of \"A Hard Day's Night,\" \"Can't Buy Me Love\" and \"Please Please Me,\" then The Zombies, Manfred Mann, The Troggs, The Kinks, and a first-act closer of \"Back in the U.S.S.R.\" with airplane sound effects. Act II brought the American side roaring back. The Monkees, \"Secret Agent Man,\" \"Wooly Bully,\" \"Hang on Sloopy,\" \"Mony Mony,\" \"Born to Be Wild,\" \"Happy Together.\" Then a Beatles finale and a \"Hey Jude\" singalong that turned the auditorium into a sea of swaying phone lights.\n\nThe best line came from an audience member named Paige. Who, as the writer found out, happens to be Lee's big sister. \"I tell people to come to his show not because he's my brother,\" she said, \"but because *this group is that good.*\"\n\nHard to say it better. Read the full write-up at Spotlight Central, then come find out for yourself on the [tour dates](tour.html) page.",
     "featured": true,
-    "image": "images/band-gallery/band-onstage-carnaby-backdrop.jpg"
+    "image": "images/band-gallery/band-onstage-carnaby-backdrop-joe.jpg"
   },
   {
     "title": "The Harmonies, The Hooks, The Energy",
@@ -482,7 +482,7 @@ window.BIY_POSTS = [
     "excerpt": "Sixty years on, the songs of the 1960s still get strangers singing together in a dark room. Here's what those records got right.",
     "body": "Why does a room full of people who've never met still know every word to \"Happy Together\"?\n\nIt isn't only nostalgia. The music of the 1960s was built on craft that aged well. Hear it live and you understand why it refuses to fade.\n\n**The harmonies.** From the Beatles to the Beach Boys to the Mamas and the Papas, this was an era obsessed with stacked vocals. Three and four parts locking together in a way that still gives people chills.\n\n**The hooks.** Songs were short and ruthlessly memorable. A great '60s single grabs you in the first eight seconds and never lets go. There's a reason these melodies survived sixty years of changing tastes.\n\n**The energy.** Before everything got polished to a sheen, these records had a live, in-the-room urgency. Real drums, real amps, four people feeding off each other. You can hear the sweat.\n\n**The competition.** The British acts and the American acts were locked in a creative arms race, each pushing the other. That rivalry produced an absurd density of great music in a short window.\n\nPut all of that in a theater with a band that can actually deliver it, and you get the thing that keeps audiences coming back. A couple of hours where everyone in the building feels good at the same time.\n\nThat feeling is the whole point of what The British Invasion Years does. Come get some. Find a [show near you](tour.html).",
     "featured": false,
-    "image": "images/home/band-onstage-peace-sign-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-peace-sign-backdrop-joe3.jpg"
   },
   {
     "title": "Musoscribe: \"The British Invasion Years Are Now\"",
@@ -502,7 +502,7 @@ window.BIY_POSTS = [
     "excerpt": "Music journalist Bill Kopp sat down with us for Musoscribe and got to the heart of the show: dozens of songs, zero backing tracks, a couple of hours where the only thing on your mind is the joy of the music.",
     "body": "The band has done a lot of interviews. Bill Kopp's piece for Musoscribe captured something they don't always manage to put into words themselves.\n\nThe headline said it best. *The British Invasion Years Are Now.* Bill traced the band back to its roots. Two friends, Lee Scott Howard and Bobby M., who'd been playing restaurants and bars and realized that wasn't the future they wanted. As Bobby told him, *\"We felt we had more to offer; we wanted to do something special.\"*\n\nWhat they built wasn't a setlist of covers with \"no rhyme or reason.\" It was an evening with a real flow. Open with the British acts that kicked the door open in 1964, segue into the American response… the Monkees, Neil Diamond, Steppenwolf and the rest… then wrap back around to late-period Beatles, circa *Abbey Road.*\n\nBill latched onto a detail the four of them are proud of. The sheer density. **\"We do 35 to 40 songs each night,\"** Bobby explained, noting that '60s songs were often tight three-minute affairs. \"You can get a *lot* of songs into two hours.\" One song ends, they're rolling straight into the next.\n\nThe visuals matter too. Fashion, style, toys, TV shows of the era flashing behind the band. Older fans say, \"I almost forgot about that!\" Younger ones recognize the songs from a commercial or a video game. The connection lands either way.\n\nThe line that stuck was about *why* they do it. As Bobby put it, at a British Invasion Years show, \"you go back in time, and there's nothing to think about other than the joy of the music, peace and love.\" In a heavy world, a couple of hours like that is worth a lot.\n\nRead Bill's full piece over at Musoscribe. Then come experience it for yourself. [Tour dates are here](tour.html).",
     "featured": false,
-    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe2.jpg"
+    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe3.jpg"
   },
   {
     "title": "You Know The Songs. Now Hear Them Live.",
@@ -520,7 +520,7 @@ window.BIY_POSTS = [
     "excerpt": "More than just the Beatles. The British Invasion Years brings the whole decade to the stage… both sides of the Atlantic, played live, no tracks.",
     "body": "You know these songs. You grew up with them, or you inherited them from someone who did. They've been in movies, in commercials, in the back of your mind since before you can remember.\n\nThere's no substitute for hearing them *live.*\n\nThe British Invasion Years is more than a Beatles tribute. It's a full celebration of the decade. The British acts who stormed America's airwaves and the American acts who rose to meet them. The Beatles, yes. Also The Rolling Stones, The Kinks, The Who, The Animals, The Dave Clark Five, and the homegrown acts that turned the era into one long musical arms race.\n\nThe band is four seasoned professionals. Musicians who've played alongside and opened for some of the biggest names in music history. They play it live, no tracks. The energy is the real thing.\n\nFind a show near you on the Tour Dates page. You already know every word.",
     "featured": true,
-    "image": "images/home/band-onstage-60s-couple-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-60s-couple-backdrop-joe3.jpg"
   },
   {
     "title": "The Beatles' Last Year: A 1969 to 1970 Timeline",
@@ -541,7 +541,7 @@ window.BIY_POSTS = [
     "excerpt": "George Harrison walks out in January 1969. The rooftop concert on Savile Row. Then April 1970, and the biggest band in the world is quietly done. Here's that final year, month by month.",
     "body": "No breakup in music has been picked over more than this one. And no stretch of time holds the whole sad, strange story like 1969 rolling into 1970.\n\nThe end didn't arrive all at once. It came in pieces.\n\n**January 10, 1969**: George Harrison quits during the *Let It Be* sessions. Worn down by the tension in the room. He's back in a few days, but a crack like that doesn't unsee itself.\n\n**January 30, 1969**: The Beatles climb to the roof of the Apple Corps building on Savile Row in London and play. It's the last time the four of them ever perform live in public. A crowd gathers on the street below. The police show up and pull the plug. Lucky for everyone, the cameras were rolling.\n\n**August 20, 1969**: The last day all four are in the studio together, finishing *Abbey Road* overdubs.\n\n**September 26, 1969**: *Abbey Road* comes out. It's the last album they recorded together, even though *Let It Be* lands later.\n\n**April 10, 1970**: Paul McCartney says he's left. And that's it. The greatest band there ever was is over.\n\nThe music didn't end, though. It never does. The British Invasion Years plays it every year on stages all over the country, and the rooms still sing every word.",
     "featured": false,
-    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe2.jpg"
+    "image": "images/band-gallery/band-beatles-portraits-backdrop-red-joe3.jpg"
   },
   {
     "title": "Two River Times on The British Invasion Years: \"Good for the Soul\"",
@@ -582,7 +582,7 @@ window.BIY_POSTS = [
     "excerpt": "The Jane Pickens Film + Event Center and Spectacle Live are running a $25 all-in ticket deal on select shows. Ours is one of them.",
     "body": "Newport, Rhode Island. One of New England's great destinations, sitting right there on the water.\n\nAnd the Jane Pickens Film + Event Center is one of its best rooms. A historic theater where every show feels like an occasion. The band is glad to be playing it.\n\nHere's the good part. The Jane Pickens, working with Spectacle Live, is running an all-in ticket deal on select shows. Just $25. The British Invasion Years is on the list.\n\nA full night of live '60s music in a beautiful Newport room for twenty-five bucks. That's a steal, plain and simple. Deals like this fill a house fast, so don't sit on it.\n\nTickets run through the Jane Pickens site or Spectacle Live. New England, this one's for you.",
     "featured": false,
-    "image": "images/band-gallery/band-from-behind-audience-view.jpg"
+    "image": "images/band-gallery/band-from-behind-audience-view-joe.jpg"
   },
   {
     "title": "BroadwayWorld Called Us \"Three Shows in One\"",
@@ -603,7 +603,7 @@ window.BIY_POSTS = [
     "excerpt": "Ahead of our Summer Jamfest date at Centenary Stage Company, BroadwayWorld described the show as \"three shows in one\": a single night that runs the whole 1960s, both sides of the Atlantic.",
     "body": "The band has been called a lot of things. \"Three shows in one\" might be the favorite. That's how BroadwayWorld set up The British Invasion Years before the Summer Jamfest stop at Centenary Stage Company.\n\nHonestly, it's accurate.\n\nOne evening that walks the audience through the *whole* decade. The Beatles, the Beach Boys, the Monkees on one hand. The Rolling Stones, the Kinks, the Who on the other. A nostalgic ride, as the piece put it, \"grooving through some of the world's most famous and well-loved tunes.\"\n\nThe write-up also told the origin story the band keeps coming back to. Every guy in this band knew he wanted to play this music after watching the Beatles' first TV spot on Ed Sullivan in February 1964. Bassist Bobby M. and guitarist Lee Scott Howard connected as session players in 1988 once they realized they'd both seen that same broadcast. And keyboardist Jon Wolf heard a British Invasion group was forming and wanted in. So he dropped hints at sessions. Not subtle ones. He'd launch into Side B of *Abbey Road* to get their attention. It worked.\n\nBroadwayWorld also caught how the band picks the songs. They go by what sparks something and keeps the room having fun, because this music is built for dredging up old happy memories and making new ones.\n\nThat's still how every set comes together. Want the full back-story? It's on the [about page](about.html). Ready to pick a night? Here are the [tour dates](tour.html).",
     "featured": false,
-    "image": "images/home/band-onstage-peace-sign-backdrop-joe2.jpg"
+    "image": "images/home/band-onstage-peace-sign-backdrop-joe3.jpg"
   },
   {
     "title": "Two November Dates: Irwin, PA and Delray Beach, FL",
@@ -624,7 +624,7 @@ window.BIY_POSTS = [
     "excerpt": "November means the road. Nov. 12 in Irwin, PA. Nov. 18 in Delray Beach, FL. Plus a New England date on November 7th.",
     "body": "November's a big month on the road for The British Invasion Years. The band is ready for it.\n\nHere's the rundown.\n\n**November 7**: New England. On sale now and moving fast. If you've been waiting, quit waiting.\n\n**November 12**: Irwin, PA. Back to the Pittsburgh area for a night at the Lamp Theatre.\n\n**November 18**: Delray Beach, FL. The band takes the British Invasion south, into one of South Florida's best live music towns.\n\nThree cities. Three nights of the '60s the way they were meant to sound. Get tickets early. Rooms like these don't stay open long.",
     "featured": false,
-    "image": "images/home/band-onstage-rolling-stones-backdrop-joe.jpg"
+    "image": "images/home/band-onstage-rolling-stones-backdrop-joe2.jpg"
   },
   {
     "title": "Venue Spotlight: The Lamp Theatre, Irwin, PA",
@@ -643,7 +643,7 @@ window.BIY_POSTS = [
     "excerpt": "The historic Lamp Theatre sits in the heart of Irwin, PA, one of the best small rooms in the greater Pittsburgh area. We can't wait to take that stage.",
     "body": "Right in the heart of Irwin, Pennsylvania, you'll find the Lamp Theatre. A historic room, restored, and one of the most loved small venues around greater Pittsburgh.\n\nThis is the kind of house you don't get in an arena. Up close. Personal. The crowd is close enough to feel.\n\nFor British Invasion fans, the Lamp is just about perfect. The acoustics are warm and the sightlines are honest. And when the room locks in, the energy in there is electric.\n\nThe British Invasion Years is bringing the full '60s set to Irwin. The Beatles. The Stones. The Kinks, the Who, the Dave Clark Five, and the American chart-toppers trading punches with them week after week. All of it played live, no tracks, by four guys who've shared stages with some of the biggest names in the business.\n\nTickets are on sale now at [lamptheatre.org](https://lamptheatre.org). If you're anywhere near Pittsburgh or Westmoreland County, this one's worth the trip.",
     "featured": true,
-    "image": "images/home/stage-wide-time-for-tea-bright-joe2.jpg"
+    "image": "images/home/stage-wide-time-for-tea-bright-joe3.jpg"
   },
   {
     "title": "Venue Spotlight: Stage 954, Dania Beach, FL",
@@ -663,7 +663,7 @@ window.BIY_POSTS = [
     "excerpt": "Stage 954 inside The Casino at Dania Beach is one of South Florida's top entertainment rooms. We're bringing the British Invasion there.",
     "body": "Looking for a real live music night in South Florida? Stage 954 is the spot. It's the concert and entertainment room inside The Casino at Dania Beach.\n\nThe production here is top-tier. A serious sound system, sharp lighting, and a layout that handles both intimate table seating and a standing-room crowd. Players and audiences both feel right at home in this room.\n\nThe British Invasion Years is bringing the '60s to Dania Beach. If you've never caught a live British Invasion set played by guys at this level, here's your shot. The greatest songs ever cut, played live with no tracks, by a band that's shared stages with some of the legends.\n\nFort Lauderdale, Dania Beach, Hollywood, Miami. Anywhere in South Florida, make the drive. Tickets won't last.",
     "featured": false,
-    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe.jpg"
+    "image": "images/band-gallery/theater-wide-dark-purple-orange-joe2.jpg"
   },
   {
     "title": "We're Playing State Theatre DC",
@@ -681,7 +681,7 @@ window.BIY_POSTS = [
     "excerpt": "DC, we're coming. The British Invasion Years hits State Theatre DC, one of the District's most respected rooms.",
     "body": "Washington, DC. The band is coming for you.\n\nThe British Invasion Years is making a stop at State Theatre DC. It's one of the District's most respected live music rooms. A long history of hosting artists at the top of their game.\n\nCircle the date. District, Northern Virginia, suburban Maryland, out past the Beltway… doesn't matter. State Theatre DC is worth the trip.\n\nThe show covers the full British Invasion era. The Beatles, the Rolling Stones, the Who, the Kinks, the Animals, and the American acts that held their own against the transatlantic onslaught. Played live. No tracks. Four guys who've been doing this a long time.\n\nTickets are on sale. Grab yours before this one fills up.",
     "featured": false,
-    "image": "images/band-gallery/band-from-behind-audience-view.jpg"
+    "image": "images/band-gallery/band-from-behind-audience-view-joe.jpg"
   },
   {
     "title": "The Screaming Crowds. The Matching Suits. The Songs Everyone Knew.",
