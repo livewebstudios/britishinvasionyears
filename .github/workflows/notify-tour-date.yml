@@ -1,10 +1,18 @@
 name: Notify on new tour date
 
 # Fires whenever content/tour.json changes on main — i.e. the band added or
-# edited a show in Decap (/admin/). Opens a GitHub issue so Jon gets pinged
-# (via his normal repo notifications) to run the "What to Do in [City]" blog
-# prompt for the new date. Uses the built-in GITHUB_TOKEN — no SMTP secrets,
-# nothing to authenticate, so it can't fail on credentials.
+# edited a show in Decap (/admin/). Pings Jon (via his normal repo
+# notifications) to run the "What to Do in [City]" blog prompt for the new
+# date. Uses the built-in GITHUB_TOKEN — no SMTP secrets, nothing to
+# authenticate, so it can't fail on credentials.
+#
+# ONE reminder issue, not one per save. Every change lands as a comment on the
+# single open reminder issue, and a new issue is opened only when none is open
+# (close it when you're caught up and the next save starts a fresh one).
+# It used to open a new issue per save: the band saving six times in nine
+# minutes on 2026-11-12 tripped GitHub's limit on rapid issue creation, the
+# sixth run failed, and 14 identical issues piled up. Any duplicates still open
+# get closed automatically, pointing at the one that's kept.
 on:
   push:
     branches: [main]
@@ -20,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo (need parent commit for the diff)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -33,7 +41,7 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Open a reminder issue
+      - name: Post the reminder
         env:
           GH_TOKEN: ${{ github.token }}
           COMMIT_MSG: ${{ github.event.head_commit.message }}
@@ -42,7 +50,9 @@ jobs:
           COMMIT_URL: ${{ github.event.head_commit.url }}
           DIFF: ${{ steps.diff.outputs.diff }}
         run: |
-          BODY="$(cat <<EOF
+          TITLE="🎸 New/updated tour date on The British Invasion Years"
+
+          cat > body.md <<EOF
           The band just changed the Tour Dates in Decap.
 
           Commit:  $COMMIT_MSG
@@ -50,16 +60,38 @@ jobs:
           When:    $COMMIT_WHEN
           Commit:  $COMMIT_URL
 
-          ----- change to content/tour.json -----
+          \`\`\`diff
           $DIFF
-          ---------------------------------------
+          \`\`\`
 
-          If this is a NEW show on sale, open Claude Code in build/ and run:
+          If this is a NEW show, open Claude Code in the project folder and run:
             "Create a 'What to Do in [City]' blog post for the new tour date
              and wire it to that tour card's whatToDoSlug."
           EOF
-          )"
-          gh issue create \
-            --repo "$GITHUB_REPOSITORY" \
-            --title "🎸 New/updated tour date on The British Invasion Years" \
-            --body "$BODY"
+
+          # A burst of saves can still hit a rate limit, so back off and retry
+          # instead of failing the run on the first refusal.
+          retry() {
+            for i in 1 2 3 4; do
+              "$@" && return 0
+              echo "Attempt $i failed, waiting $((i * 30))s"
+              sleep $((i * 30))
+            done
+            return 1
+          }
+
+          # Open reminder issues, newest first. Keep the newest, fold the rest.
+          OPEN=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --limit 200 \
+            --json number,title \
+            --jq "[.[] | select(.title == \"$TITLE\") | .number] | sort | reverse | .[]")
+          KEEP=$(echo "$OPEN" | head -n 1)
+
+          if [ -z "$KEEP" ]; then
+            retry gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body-file body.md
+          else
+            retry gh issue comment "$KEEP" --repo "$GITHUB_REPOSITORY" --body-file body.md
+            for n in $(echo "$OPEN" | tail -n +2); do
+              retry gh issue close "$n" --repo "$GITHUB_REPOSITORY" \
+                --comment "Folded into #$KEEP. All tour date reminders go there now." || true
+            done
+          fi

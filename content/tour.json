@@ -75,6 +75,30 @@
       "city": " 101 Crawfords Corner Road, Holmdel, NJ 07733",
       "whatToDoSlug": "what-to-do-in-holmdel-nj",
       "ticketUrl": "https://ci.ovationtix.com/35486/production/1293249?performanceId=11877111"
+    },
+    {
+      "status": "tba",
+      "date": "2027-07-18",
+      "time": "7:00 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "Irwin, PA",
+      "whatToDoSlug": "what-to-do-in-irwin-pa"
+    },
+    {
+      "status": "tba",
+      "date": "2027-11-06",
+      "time": "8:00 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "Derry, NH",
+      "whatToDoSlug": "what-to-do-in-derry-nh"
+    },
+    {
+      "status": "tba",
+      "date": "2027-05-15",
+      "time": "8:00 PM",
+      "venue": "Concert Announcement Coming Soon",
+      "city": "New Hope, PA",
+      "whatToDoSlug": "what-to-do-in-new-hope-pa"
     }
   ]
 }
