@@ -51,12 +51,12 @@
       "whatToDoSlug": "what-to-do-in-windber-pa"
     },
     {
-      "status": "tba",
-      "ticketUrl": "",
-      "venue": "Concert Announcement Coming Soon",
+      "status": "onsale",
+      "ticketUrl": "https://townofbridgewater.thundertix.com/events/270893",
+      "venue": "Sipe Center",
       "date": "2027-01-09",
       "time": "7:30pm",
-      "city": "Bridgewater, VA",
+      "city": "100 North Main Street Bridgewater, VA 22812",
       "whatToDoSlug": "what-to-do-in-bridgewater-va"
     },
     {
