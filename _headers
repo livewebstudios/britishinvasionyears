@@ -27,3 +27,9 @@
 /joe-swap/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-cache
+
+# Social post files and the review page for Bob and Dave: never index.
+# no-cache so a swapped picture or video shows up right away.
+/social/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache
